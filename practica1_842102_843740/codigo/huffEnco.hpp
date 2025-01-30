@@ -1,16 +1,21 @@
+/* Algoritmia básica - Práctica 1
+ * Nicolás de Rivas Morillo (843740)
+ * Cristina Embid Martínez (842102)
+ */
 #pragma once
+
 
 #include "comun.hpp"
 #include <fstream>
 
 class HuffEnco {
   protected:
-    std::string inFile, outFile;
-    CountArr frecuencias;
-    NodoHuff *raiz;
-    ColaPrio cola;
-    CodArr codigos;
-    char numCods;
+    std::string inFile, outFile;    // Archivo de entrada, salida
+    CountArr frecuencias;           // Array que almacena la frecuencia de cada carácter
+    NodoHuff *raiz;                 // Puntero a la raíz del árbol
+    ColaPrio cola;                  // Cola de prioridad para construir el árbol
+    CodArr codigos;                 // Array que almacena códigos binarios
+    char numCods;                   // Número total de códigos
 
     void contarFrec(std::ifstream &in);
     void rellenarCola();

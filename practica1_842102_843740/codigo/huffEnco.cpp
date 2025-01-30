@@ -1,13 +1,22 @@
+/* Algoritmia básica - Práctica 1
+ * Nicolás de Rivas Morillo (843740)
+ * Cristina Embid Martínez (842102)
+ */
 #include "huffEnco.hpp"
 
 using namespace std;
 
+/*
+ * Conteo de la frecuencia de cada carácter en un archivo de entrada
+ * @param in archivo de entrada 
+ */
 void HuffEnco::contarFrec(std::ifstream &in) {
     char c;
     while (in.get(c)) {
         frecuencias[c]++;
     }
 }
+ 
 
 void HuffEnco::rellenarCola() {
     for (char i = 0; i < frecuencias.size(); ++i) {
@@ -18,6 +27,7 @@ void HuffEnco::rellenarCola() {
     }
     numCods = cola.size();
 }
+
 
 void HuffEnco::generarTrie() {
     while (cola.size() > 1) {
