@@ -2,13 +2,14 @@
  * Nicolás de Rivas Morillo (843740)
  * Cristina Embid Martínez (842102)
  */
+
 #include "huffEnco.hpp"
 
 using namespace std;
 
 /*
  * Conteo de la frecuencia de cada carácter en un archivo de entrada
- * @param in archivo de entrada 
+ * @param in archivo de entrada
  */
 void HuffEnco::contarFrec(std::ifstream &in) {
     char c;
@@ -16,7 +17,6 @@ void HuffEnco::contarFrec(std::ifstream &in) {
         frecuencias[c]++;
     }
 }
- 
 
 void HuffEnco::rellenarCola() {
     for (char i = 0; i < frecuencias.size(); ++i) {
@@ -27,7 +27,6 @@ void HuffEnco::rellenarCola() {
     }
     numCods = cola.size();
 }
-
 
 void HuffEnco::generarTrie() {
     while (cola.size() > 1) {
@@ -67,18 +66,9 @@ void HuffEnco::escribirArbol(std::ofstream &out) {
 void HuffEnco::escribirString(const std::string &s, std::ofstream &out) {
     for (unsigned i = 0; i < s.size(); ++i) {
         auto substr = s.substr(i, 8);
-        int dif = 8 - substr.size();
         char c = trad::strToBin(substr);
-        // Lo que se ponga al final da igual, llegará un punto que nos
-        // quedaremos sin árbol, ahí sabemos que ha acabado el archivo,
-        // rellanamos con lo que sea
-        // NUEVO:
+        int dif = 8 - substr.size();
         c = c << dif;
-        // ANTIGUO:
-        // for (int j = 0; j < dif; ++j) {
-        //     c = c << 1;
-        //     c -= substr[substr.size() - 1] - '1';
-        // }
         out << c;
     }
 }

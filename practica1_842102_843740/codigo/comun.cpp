@@ -7,12 +7,11 @@
 
 using namespace std;
 
-/* 
+/*
  * Convierte un carácter en su representación binaria como string
  * @param c carácter a convertir.
  * @return String representando los bits de 'c'.
- */ 
-
+ */
 string trad::binToStr(char c) {
     std::string temp = "", res = "";
     while (c != 0) {
@@ -27,7 +26,7 @@ string trad::binToStr(char c) {
 }
 
 /*
- * Convierte una cadena de bits en un carácter 
+ * Convierte una cadena de bits en un carácter
  * @param s cadena binaria a convertir.
  * @return carácter correspondiente al valor binario de la cadena.
  */

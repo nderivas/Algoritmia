@@ -2,6 +2,7 @@
  * Nicolás de Rivas Morillo (843740)
  * Cristina Embid Martínez (842102)
  */
+
 #include "comun.hpp"
 #include "huffDeco.hpp"
 #include "huffEnco.hpp"
