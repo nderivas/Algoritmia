@@ -59,10 +59,16 @@ void HuffEnco::escribirString(const std::string &s, std::ofstream &out) {
         auto substr = s.substr(i, 8);
         int dif = 8 - substr.size();
         char c = trad::strToBin(substr);
-        for (int j = 0; j < dif; ++j) {
-            c = c << 1;
-            c -= substr[substr.size() - 1] - '1';
-        }
+        // Lo que se ponga al final da igual, llegará un punto que nos
+        // quedaremos sin árbol, ahí sabemos que ha acabado el archivo,
+        // rellanamos con lo que sea
+        // NUEVO:
+        c = c << dif;
+        // ANTIGUO:
+        // for (int j = 0; j < dif; ++j) {
+        //     c = c << 1;
+        //     c -= substr[substr.size() - 1] - '1';
+        // }
         out << c;
     }
 }
