@@ -4,8 +4,8 @@ build = ./build
 bin = ./bin
 src = ./codigo
 
-main: comun.o main.o
-	$(gcc) $(flags) -o $(bin)/huff $(build)/comun.o $(build)/main.o
+main: enco.o comun.o main.o
+	$(gcc) $(flags) $(build)/enco.o $(build)/comun.o $(build)/main.o -o $(bin)/huff
 
 deco.o: $(src)/huffDeco.cpp $(src)/huffDeco.hpp
 	$(gcc) $(flags) -c $(src)/huffDeco.cpp -o $(build)/deco.o

@@ -4,8 +4,27 @@
  */
 
 #include "huffEnco.hpp"
+#include <iostream>
 
 using namespace std;
+
+void HuffEnco::codificar() {
+    ifstream input(inFile, ios::binary | ios::in);
+    if (!input.is_open()) {
+        cout << "¡No he conseguido abrir el archivo original!" << endl;
+        return;
+    }
+    contarFrec(input);
+    rellenarCola();
+    generarTrie();
+    rellenarCodigos(raiz, "");
+    input.clear();
+    input.seekg(0, ios::beg);
+    ofstream output(outFile, ios::binary | ios::out | ios::trunc);
+    escribir(input, output);
+    input.close();
+    output.close();
+}
 
 /*
  * Conteo de la frecuencia de cada carácter en un archivo de entrada
@@ -45,10 +64,8 @@ void HuffEnco::rellenarCodigos(NodoHuff *ptr, const string &cod) {
     if (ptr->cero == nullptr && ptr->uno == nullptr)
         codigos[ptr->byte] = cod;
     else {
-        if (ptr->cero != nullptr)
-            rellenarCodigos(ptr->cero, cod + '0');
-        else
-            rellenarCodigos(ptr->uno, cod + '1');
+        rellenarCodigos(ptr->cero, cod + '0');
+        rellenarCodigos(ptr->uno, cod + '1');
     }
 }
 
@@ -56,21 +73,26 @@ void HuffEnco::escribirArbol(std::ofstream &out) {
     out << numCods;
     for (char b = 0; b < codigos.size(); ++b) {
         char relleno = 8 - (codigos[b].size() % 8);
-        out << b << relleno;
-        auto s = codigos[b];
-        s.append(relleno, '0');
-        out << trad::strToBin(s);
+        if (!codigos[b].empty()) {
+            out << b;
+            auto s = codigos[b];
+            char tam = s.size();
+            out << tam;
+            escribirString(std::string(8 - tam % 8, '0') + s, out);
+        }
     }
 }
 
 void HuffEnco::escribirString(const std::string &s, std::ofstream &out) {
-    for (unsigned i = 0; i < s.size(); ++i) {
+    char dif;
+    for (unsigned i = 0; i < s.size(); i = i + 8) {
         auto substr = s.substr(i, 8);
         char c = trad::strToBin(substr);
-        int dif = 8 - substr.size();
+        dif = 8 - substr.size();
         c = c << dif;
         out << c;
     }
+    out << dif;
 }
 
 void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {

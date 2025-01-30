@@ -3,8 +3,6 @@
  * Cristina Embid Martínez (842102)
  */
 
-#include "comun.hpp"
-#include "huffDeco.hpp"
 #include "huffEnco.hpp"
 #include <iostream>
 
@@ -20,8 +18,8 @@ int main(int argc, char *argv[]) {
         enco.codificar();
     } else if (static_cast<string>(argv[1]) == "-d") {
         auto s = static_cast<string>(argv[2]);
-        HuffDeco deco(argv[2], s.substr(0, s.size() - 4));
-        deco.decodificar();
+        // HuffDeco deco(argv[2], s.substr(0, s.size() - 4));
+        // deco.decodificar();
     } else {
         cout << "Opción incorrecta. Uso:\n\thuf -[cd] <fichero>" << endl;
         return 1;

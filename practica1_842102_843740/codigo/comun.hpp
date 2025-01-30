@@ -27,10 +27,9 @@ class NodoHuff {
 };
 
 // Comparador para la cola de prioridades.
-class CompararHuff {
-  public:
-    bool comp(const NodoHuff *uno, const NodoHuff *dos) {
-        return uno->frecuencia < dos->frecuencia;
+struct CompararHuff {
+    bool operator()(const NodoHuff *uno, const NodoHuff *dos) {
+        return uno->frecuencia > dos->frecuencia;
     }
 };
 

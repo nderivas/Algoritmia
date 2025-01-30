@@ -28,8 +28,8 @@ class HuffEnco {
   public:
     HuffEnco(std::string in, std::string out)
         : inFile(in), outFile(out), raiz(nullptr), numCods(0) {
-        std::fill(frecuencias.cbegin(), frecuencias.cend(), 0);
-        std::fill(codigos.cbegin(), codigos.cend(), "");
+        std::fill(frecuencias.begin(), frecuencias.end(), 0);
+        std::fill(codigos.begin(), codigos.end(), "");
     }
     void codificar();
 };

@@ -32,9 +32,9 @@ string trad::binToStr(char c) {
  */
 char trad::strToBin(std::string s) {
     char res = 0;
-    for (auto it = s.cbegin(); it != s.cend(); ++it) {
+    for (auto e : s) {
         res = res << 1;
-        res += *it - '0';
+        res += e - '0';
     }
     return res;
 }
