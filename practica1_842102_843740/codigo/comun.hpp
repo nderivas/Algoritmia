@@ -38,6 +38,6 @@ using ColaPrio =
     std::priority_queue<NodoHuff *, std::vector<NodoHuff *>, CompararHuff>;
 
 namespace trad {
-std::string binToStr(char c);
-char strToBin(std::string s);
+std::string binToStr(const char c);
+char strToBin(const std::string s);
 } // namespace trad

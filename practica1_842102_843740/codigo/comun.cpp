@@ -13,15 +13,13 @@ using namespace std;
  * @param c carácter a convertir.
  * @return String representando los bits de 'c'.
  */
-string trad::binToStr(char c) {
-    std::string temp = "", res = "";
-    while (c != 0) {
-        temp += c % 2 == 0 ? '0' : '1';
-        c = (c / 2) & 0b01111111;
+string trad::binToStr(const char c) {
+    std::string res = "";
+    unsigned char aux = c;
+    while (aux != 0) {
+        res = (aux % 2 ? '1' : '0') + res;
+        aux /= 2;
     }
-    // Invierte el orden de los bits almacenados en 'temp'
-    for (auto it = temp.rbegin(); it != temp.rend(); ++it)
-        res += *it;
     return res;
 }
 
@@ -30,8 +28,8 @@ string trad::binToStr(char c) {
  * @param s cadena binaria a convertir.
  * @return carácter correspondiente al valor binario de la cadena.
  */
-char trad::strToBin(std::string s) {
-    char res = 0;
+char trad::strToBin(const std::string s) {
+    unsigned char res = 0;
     for (auto e : s) {
         res = res << 1;
         res += e - '0';

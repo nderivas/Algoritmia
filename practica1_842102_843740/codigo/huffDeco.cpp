@@ -31,6 +31,12 @@ void HuffDeco::leerArbol(ifstream& in) {
     string buff;
     raiz = new NodoHuff(0);
     in.read(&numCods, 1);
+    if (numCods == 1) {
+        in.read(&byte, 1);
+        raiz->byte = byte;
+        in.read(&tam, 1);
+        in.read(&byte, 1);
+    }
     for (char i = 0; i < numCods; ++i) {
         buff = "";
         in.read(&byte, 1);
@@ -74,26 +80,14 @@ void HuffDeco::decodificarContenidos(ifstream& in, ofstream& out) {
     cad = string(8 - cad.size(), '0') + cad;
     cad = cad.substr(0, 8 - extras);
     for(char i : cad) {
-        if (i == '0')
+        if (i == '0' && nodo->cero != nullptr)
             nodo = nodo->cero;
-        else
+        else if (nodo->uno != nullptr)
             nodo = nodo->uno;
         if(nodo->cero == nullptr && nodo->uno == nullptr) {
             out.write(&nodo->byte, 1);
             nodo = raiz;
         }
-    }
-}
-
-// Funcition that prints the tree with codes
-void printTree(NodoHuff *nodo, string cad) {
-    if (nodo->cero == nullptr && nodo->uno == nullptr) {
-        cout << nodo->byte << " " << cad << endl;
-    } else {
-        if (nodo->cero != nullptr)
-            printTree(nodo->cero, cad + "0");
-        if (nodo->uno != nullptr)
-            printTree(nodo->uno, cad + "1");
     }
 }
 
@@ -106,8 +100,6 @@ void HuffDeco::decodificar() {
     }
     // leerArbol
     leerArbol(input);
-    cout << "Arbol" << endl;
-    printTree(raiz, "");
     // leerFichero
     ofstream output(outFile, ios::out | ios::trunc);
     decodificarContenidos(input, output);
