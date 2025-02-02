@@ -32,9 +32,8 @@ void HuffEnco::codificar() {
  */
 void HuffEnco::contarFrec(std::ifstream &in) {
     char c;
-    while (in.get(c)) {
+    while (in.get(c))
         frecuencias[c]++;
-    }
 }
 
 void HuffEnco::rellenarCola() {
@@ -70,15 +69,15 @@ void HuffEnco::rellenarCodigos(NodoHuff *ptr, const string &cod) {
 }
 
 void HuffEnco::escribirArbol(std::ofstream &out) {
-    out << numCods;
+    out.write(&numCods, 1);
     for (char b = 0; b < codigos.size(); ++b) {
         char relleno = 8 - (codigos[b].size() % 8);
         if (!codigos[b].empty()) {
-            out << b;
+            out.write(&b, 1);
             auto s = codigos[b];
             char tam = s.size();
-            out << tam;
-            escribirString(std::string(8 - tam % 8, '0') + s, out);
+            out.write(&tam, 1);
+            escribirString(string(8 - tam % 8, '0') + s, out);
         }
     }
 }
@@ -90,9 +89,8 @@ void HuffEnco::escribirString(const std::string &s, std::ofstream &out) {
         char c = trad::strToBin(substr);
         dif = 8 - substr.size();
         c = c << dif;
-        out << c;
+        out.write(&c, 1);
     }
-    out << dif;
 }
 
 void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {
@@ -109,4 +107,6 @@ void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {
         }
     }
     escribirString(s, out);
+    char relleno = static_cast<char>(8 - (s.size() % 8));
+    out.write(&relleno, 1);
 }

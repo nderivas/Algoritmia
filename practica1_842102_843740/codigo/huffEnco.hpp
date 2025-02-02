@@ -9,7 +9,6 @@
 #include <fstream>
 
 class HuffEnco {
-  protected:
     std::string inFile, outFile; // Archivo de entrada, salida
     CountArr frecuencias; // Array que almacena la frecuencia de cada carácter
     NodoHuff *raiz;       // Puntero a la raíz del árbol

@@ -4,6 +4,7 @@
  */
 
 #include "comun.hpp"
+#include <iostream>
 
 using namespace std;
 
@@ -16,12 +17,11 @@ string trad::binToStr(char c) {
     std::string temp = "", res = "";
     while (c != 0) {
         temp += c % 2 == 0 ? '0' : '1';
-        c /= 2;
+        c = (c / 2) & 0b01111111;
     }
     // Invierte el orden de los bits almacenados en 'temp'
-    for (auto it = temp.rbegin(); it != temp.rend(); ++it) {
+    for (auto it = temp.rbegin(); it != temp.rend(); ++it)
         res += *it;
-    }
     return res;
 }
 

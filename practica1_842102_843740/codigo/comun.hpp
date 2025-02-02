@@ -22,7 +22,7 @@ class NodoHuff {
         *uno; // puntero al hijo izquierdo (cero), al hijo derecho (uno)
 
     // Constructor de la clase NodoHuff
-    NodoHuff(char c, unsigned f, NodoHuff *z = nullptr, NodoHuff *u = nullptr)
+    NodoHuff(char c, unsigned f = 0, NodoHuff *z = nullptr, NodoHuff *u = nullptr)
         : byte(c), frecuencia(f), cero(z), uno(u) {}
 };
 
