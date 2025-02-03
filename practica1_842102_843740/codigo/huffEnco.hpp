@@ -16,6 +16,7 @@ class HuffEnco {
     CodArr codigos;       // Array que almacena códigos binarios
     char numCods;         // Número total de códigos
 
+    // Funciones auziliares
     void contarFrec(std::ifstream &in);
     void rellenarCola();
     void generarTrie();
@@ -25,10 +26,12 @@ class HuffEnco {
     void escribir(std::ifstream &in, std::ofstream &out);
 
   public:
+    // Constructor
     HuffEnco(std::string in, std::string out)
         : inFile(in), outFile(out), raiz(nullptr), numCods(0) {
         std::fill(frecuencias.begin(), frecuencias.end(), 0);
         std::fill(codigos.begin(), codigos.end(), "");
     }
+    // Función principal
     void codificar();
 };

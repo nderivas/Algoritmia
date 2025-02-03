@@ -22,7 +22,7 @@ void HuffEnco::codificar() {
     rellenarCola();
     generarTrie();
     rellenarCodigos(raiz, "");
-    input.clear(); // Desactiva el aviso de final de archivo
+    input.clear();            // Desactiva el aviso de final de archivo
     input.seekg(0, ios::beg); // Reinicia el cursor al comienzo del archivo
     ofstream output(outFile, ios::binary | ios::out | ios::trunc);
     escribir(input, output); // Codificación
@@ -49,7 +49,8 @@ void HuffEnco::contarFrec(std::ifstream &in) {
 void HuffEnco::rellenarCola() {
     for (int i = 0; i < frecuencias.size(); ++i) {
         if (frecuencias[static_cast<unsigned char>(i)] != 0) {
-            NodoHuff *nuevo = new NodoHuff(static_cast<char>(i), frecuencias[i]);
+            NodoHuff *nuevo =
+                new NodoHuff(static_cast<char>(i), frecuencias[i]);
             cola.push(nuevo);
         }
     }
@@ -84,7 +85,8 @@ void HuffEnco::generarTrie() {
  */
 void HuffEnco::rellenarCodigos(NodoHuff *ptr, const string &cod) {
     if (ptr->cero == nullptr && ptr->uno == nullptr) // Si estoy en una hoja
-        codigos[static_cast<unsigned char>(ptr->byte)] = ptr == raiz ? "0" : cod;
+        codigos[static_cast<unsigned char>(ptr->byte)] =
+            ptr == raiz ? "0" : cod;
     else { // Si no, llamadas recursivas añadiendo al código
         rellenarCodigos(ptr->cero, cod + '0');
         rellenarCodigos(ptr->uno, cod + '1');
@@ -141,7 +143,7 @@ void HuffEnco::escribirString(const std::string &s, std::ofstream &out) {
 void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {
     escribirArbol(out);
     char c;
-    string s = ""; // Buffer
+    string s = "";            // Buffer
     const unsigned max = 800; // Máximo antes del flush
     while (in.get(c)) {
         s += codigos[static_cast<unsigned char>(c)]; // Se añaden códigos

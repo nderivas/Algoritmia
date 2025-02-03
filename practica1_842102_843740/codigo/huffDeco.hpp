@@ -9,13 +9,19 @@
 
 class HuffDeco {
     std::string inFile, outFile; // Archivo de entrada, salida
-    NodoHuff *raiz;       // Puntero a la raíz del árbol
+    NodoHuff *raiz;              // Puntero a la raíz del árbol
 
+    // Funciones auxiliares
     void introducirCodigo(char byte, std::string cod);
-    void leerArbol(std::ifstream& in);
-    void decodificarContenidos(std::ifstream& in, std::ofstream& out);
+    void leerArbol(std::ifstream &in);
+    void avanzaYEscribe(NodoHuff *&nodo, const std::string pasos,
+                        std::ofstream &out);
+    void decodificarContenidos(std::ifstream &in, std::ofstream &out);
 
   public:
-    HuffDeco(std::string in, std::string out) : inFile(in), outFile(out), raiz(nullptr) {};
+    // Constructor
+    HuffDeco(std::string in, std::string out)
+        : inFile(in), outFile(out), raiz(nullptr) {};
+    // Función principal
     void decodificar();
 };

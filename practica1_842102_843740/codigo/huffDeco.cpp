@@ -6,91 +6,15 @@
 #include "comun.hpp"
 #include <__config>
 #include <iostream>
+
 using namespace std;
 
 // TODO: Fichero vacío
-// TODO: Fichero con un solo carácter
 
-void HuffDeco::introducirCodigo(char c, string cod) {
-    NodoHuff *nodo = raiz;
-    for (char i : cod) {
-        if (i == '0') {
-            if (nodo->cero == nullptr)
-                nodo->cero = new NodoHuff(c);
-            nodo = nodo->cero;
-        } else {
-            if (nodo->uno == nullptr)
-                nodo->uno = new NodoHuff(c);
-            nodo = nodo->uno;
-        }
-    }
-}
-
-void HuffDeco::leerArbol(ifstream& in) {
-    char numCods, byte, tam, temp, numBytes;
-    string buff;
-    raiz = new NodoHuff(0);
-    in.read(&numCods, 1);
-    if (numCods == 1) {
-        in.read(&byte, 1);
-        raiz->byte = byte;
-        in.read(&tam, 1);
-        in.read(&byte, 1);
-    }
-    for (char i = 0; i < numCods; ++i) {
-        buff = "";
-        in.read(&byte, 1);
-        in.read(&tam, 1);
-        numBytes = ((8 - tam % 8) + tam) / 8;
-        for (char j = 0; j < numBytes; ++j) {
-            in.read(&temp, 1);
-            buff = buff + trad::binToStr(temp);
-        }
-        buff = string(tam - buff.size(), '0') + buff;
-        introducirCodigo(byte, buff);
-    }
-}
-
-void HuffDeco::decodificarContenidos(ifstream& in, ofstream& out) {
-    char c, extras;
-    string cad;
-    NodoHuff *nodo = raiz;
-    unsigned inicioDatos = static_cast<unsigned>(in.tellg());
-    in.seekg(-1, ios::end);
-    unsigned fin = static_cast<unsigned>(in.tellg());
-    in.read(&extras, 1);
-    in.seekg(inicioDatos, ios::beg);
-    while(static_cast<unsigned>(in.tellg()) < fin - 1) {
-        in.read(&c, 1);
-        cad = trad::binToStr(c);
-        cad = string(8 - cad.size(), '0') + cad;
-        for(char i : cad) {
-            if (i == '0' && nodo->cero != nullptr)
-                nodo = nodo->cero;
-            else if (nodo->uno != nullptr)
-                nodo = nodo->uno;
-            if (nodo->cero == nullptr && nodo->uno == nullptr) {
-                out.write(&nodo->byte, 1);
-                nodo = raiz;
-            }
-        }
-    }
-    in.read(&c, 1);
-    cad = trad::binToStr(c);
-    cad = string(8 - cad.size(), '0') + cad;
-    cad = cad.substr(0, 8 - extras);
-    for(char i : cad) {
-        if (i == '0' && nodo->cero != nullptr)
-            nodo = nodo->cero;
-        else if (nodo->uno != nullptr)
-            nodo = nodo->uno;
-        if(nodo->cero == nullptr && nodo->uno == nullptr) {
-            out.write(&nodo->byte, 1);
-            nodo = raiz;
-        }
-    }
-}
-
+/*
+ * Decodifica los contenido de inFile y los escribe en outFile.
+ * @param ---
+ */
 void HuffDeco::decodificar() {
     // Abrir los dos
     ifstream input(inFile, ios::binary | ios::in);
@@ -105,4 +29,114 @@ void HuffDeco::decodificar() {
     decodificarContenidos(input, output);
     input.close();
     output.close();
+}
+
+/*
+ * Introduce el byte c en el árbol de decodificación
+ * con el código cod.
+ * @param c es el byte a introducir en el árbol, cod
+ * es el código correspondiente a c.
+ */
+void HuffDeco::introducirCodigo(char c, string cod) {
+    NodoHuff *nodo = raiz;
+    for (char i : cod) { // Recorremos el árbol
+        // En cuanto no encontramos uno lo creamos
+        if (i == '0') {
+            if (nodo->cero == nullptr)
+                nodo->cero = new NodoHuff(c);
+            nodo = nodo->cero;
+        } else {
+            if (nodo->uno == nullptr)
+                nodo->uno = new NodoHuff(c);
+            nodo = nodo->uno;
+        }
+    }
+}
+
+/*
+ * Lee el árbol codificado en el fichero y lo construye.
+ * @param in es el flujo de datos del fichero de entrada.
+ */
+void HuffDeco::leerArbol(ifstream &in) {
+    char numCods, byte, tam, temp, numBytes;
+    string buff;
+    raiz = new NodoHuff(0); // Creamos la raíz
+    in.read(&numCods, 1);   // Leemos el número de códigos
+    if (numCods == 1) {     // TODO: Revisar
+        in.read(&byte, 1);
+        raiz->byte = byte;
+        in.read(&tam, 1);
+        in.read(&byte, 1);
+    }
+    for (char i = 0; i < numCods; ++i) {
+        buff = "";
+        in.read(&byte, 1); // Byte original
+        in.read(&tam, 1);  // Longitud del código
+        // Bytes que ocupa el código
+        numBytes = ((8 - tam % 8) + tam) / 8;
+        for (char j = 0; j < numBytes; ++j) { // Leer bytes
+            in.read(&temp, 1);
+            buff = buff + trad::binToStr(temp);
+        }
+        // Añadir ceros iniciales
+        buff = string(tam - buff.size(), '0') + buff;
+        introducirCodigo(byte, buff); // Introducir en el árbol
+    }
+}
+
+/*
+ * Avanza por el árbol según los pasos desde nodo y escribe los bytes
+ * que encuentra si llega a alguna hoja.
+ * @param nodo es el nodo desde el que partimos, pasos es un string con
+ * las direcciones que tenemos que tomar, out es el flujo de datos de salida.
+ */
+void HuffDeco::avanzaYEscribe(NodoHuff *&nodo, const string pasos,
+                              ofstream &out) {
+    for (char i : pasos) { // Para cada paso
+        // Avanzo por la rama correpondiente
+        if (i == '0' && nodo->cero != nullptr)
+            nodo = nodo->cero;
+        else if (nodo->uno != nullptr)
+            nodo = nodo->uno;
+        // Si he llegado el final escribo el byte original y reinicio
+        if (nodo->cero == nullptr && nodo->uno == nullptr) {
+            out.write(&nodo->byte, 1);
+            nodo = raiz;
+        }
+    }
+}
+
+/*
+ * Decodifica los contenidos internos (no el árbol) del fichero.
+ * Asume que in está en la posición correcta de los datos.
+ * @param in es el flujo de datos de entrada, de donde decodificamos
+ * out es el flujo de datos de salida, donde escribimos
+ */
+void HuffDeco::decodificarContenidos(ifstream &in, ofstream &out) {
+    char c, extras;
+    string cad;
+    NodoHuff *nodo = raiz;
+    // Indica dónde está el cursor actualmente, es decir,
+    // dónde empiezan los datos
+    unsigned inicioDatos = static_cast<unsigned>(in.tellg());
+    // Posicionarnos antes del último byte (relleno final)
+    in.seekg(-1, ios::end);
+    // Guardamos la posición del final de los datos
+    unsigned finDatos = static_cast<unsigned>(in.tellg());
+    // Leemos el relleno final y volvemos al principio
+    in.read(&extras, 1);
+    in.seekg(inicioDatos, ios::beg);
+    // Mientras nos queden bytes de datos
+    unsigned i = 0;
+    while (inicioDatos + i < finDatos) {
+        in.read(&c, 1);          // Leemos
+        cad = trad::binToStr(c); // Pasamos a string
+        // Ajustamos 0s iniciales
+        cad = string(8 - cad.size(), '0') + cad;
+        // Si es el último ajustamos el relleno también
+        if (inicioDatos + i == finDatos - 1)
+            cad = cad.substr(0, 8 - extras);
+        avanzaYEscribe(nodo, cad, out); // Decodificamos
+        i++;
+    }
 }
