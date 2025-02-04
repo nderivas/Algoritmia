@@ -7,6 +7,15 @@
 
 #include "comun.hpp"
 #include <fstream>
+#include <utility>
+
+// Comparador para la cola de prioridades.
+struct CompararPares {
+    bool operator()(const std::pair<char, unsigned> uno,
+                    const std::pair<char, unsigned> dos) {
+        return uno.second > dos.second;
+    }
+};
 
 class HuffEnco {
     std::string inFile, outFile; // Archivo de entrada, salida
@@ -15,9 +24,11 @@ class HuffEnco {
     ColaPrio cola;        // Cola de prioridad para construir el árbol
     CodArr codigos;       // Array que almacena códigos binarios
     char numCods;         // Número total de códigos
+    unsigned char L;      // Parámetro L
 
     // Funciones auziliares
     void contarFrec(std::ifstream &in);
+    void ajustarFrecuencias();
     void rellenarCola();
     void generarTrie();
     void rellenarCodigos(NodoHuff *ptr, const std::string &cod);
@@ -27,8 +38,8 @@ class HuffEnco {
 
   public:
     // Constructor
-    HuffEnco(std::string in, std::string out)
-        : inFile(in), outFile(out), raiz(nullptr), numCods(0) {
+    HuffEnco(std::string in, std::string out, unsigned char l = 0)
+        : inFile(in), outFile(out), raiz(nullptr), numCods(0), L(l) {
         std::fill(frecuencias.begin(), frecuencias.end(), 0);
         std::fill(codigos.begin(), codigos.end(), "");
     }

@@ -4,7 +4,9 @@
  */
 
 #include "huffEnco.hpp"
+#include <cmath>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -19,6 +21,8 @@ void HuffEnco::codificar() {
         return;
     }
     contarFrec(input); // LLega al final del archivo: eof = verdad
+    if (L > 0)
+        ajustarFrecuencias();
     rellenarCola();
     generarTrie();
     rellenarCodigos(raiz, "");
@@ -39,6 +43,47 @@ void HuffEnco::contarFrec(std::ifstream &in) {
     char c;
     while (in.get(c))
         frecuencias[static_cast<unsigned char>(c)]++;
+}
+
+double calcularKM(vector<pair<char, unsigned>> frecs) {
+    double res = 0;
+    for (auto e : frecs) {
+        res += pow(1 / 2, e.second);
+    }
+    return res;
+}
+
+void HuffEnco::ajustarFrecuencias() {
+    // Crear el vector ordenado
+    vector<pair<char, unsigned>> frecs;
+    CompararPares comp;
+    frecs.reserve(frecuencias.size());
+    for (int i = 0; i < frecuencias.size(); ++i)
+        if (frecuencias[i] != 0)
+            frecs.push_back(pair<char, unsigned>(i, frecuencias[i]));
+    sort(frecs.begin(), frecs.end(), comp);
+    // Paso 1
+    for (int i = 0; i < frecs.size(); ++i)
+        frecs[i].second = frecs[i].second > L ? L : frecs[i].second;
+    // Paso 2 REVISAR
+    double km = calcularKM(frecs);
+    bool continua = true;
+    for (int i = 0; i < frecs.size() && continua; ++i) {
+        if (frecs[i].second == L)
+            continue;
+        while (frecs[i].second < L && continua) {
+            double potenciaActual = pow(1 / 2, frecs[i].second);
+            double tempkm = km - potenciaActual + potenciaActual / 2;
+            if (tempkm <= 1) { // Al revés? (NO cumpla la desigualdad)
+                km = tempkm;
+                frecs[i].second++;
+            } else
+                continua = false;
+        }
+    }
+    // Paso 3
+    for (int i = frecs.size() - 1; i >= 0; ++i) {
+    }
 }
 
 /*
