@@ -114,29 +114,15 @@ void HuffDeco::avanzaYEscribe(NodoHuff *&nodo, const string pasos,
  */
 void HuffDeco::decodificarContenidos(ifstream &in, ofstream &out) {
     char c, extras;
-    string cad;
+    string cad = "";
     NodoHuff *nodo = raiz;
-    // Indica dónde está el cursor actualmente, es decir,
-    // dónde empiezan los datos
-    unsigned inicioDatos = static_cast<unsigned>(in.tellg());
-    // Posicionarnos antes del último byte (relleno final)
-    in.seekg(-1, ios::end);
-    // Guardamos la posición del final de los datos
-    unsigned finDatos = static_cast<unsigned>(in.tellg());
-    // Leemos el relleno final y volvemos al principio
     in.read(&extras, 1);
-    in.seekg(inicioDatos, ios::beg);
-    // Mientras nos queden bytes de datos
-    unsigned i = 0;
-    while (inicioDatos + i < finDatos) {
-        in.read(&c, 1);          // Leemos
+    while ((c = in.get()) != EOF) {
+        avanzaYEscribe(nodo, cad, out);
         cad = trad::binToStr(c); // Pasamos a string
         // Ajustamos 0s iniciales
         cad = string(8 - cad.size(), '0') + cad;
-        // Si es el último ajustamos el relleno también
-        if (inicioDatos + i == finDatos - 1)
-            cad = cad.substr(0, 8 - extras);
-        avanzaYEscribe(nodo, cad, out); // Decodificamos
-        i++;
     }
+    cad = cad.substr(0, 8 - extras);
+    avanzaYEscribe(nodo, cad, out);
 }

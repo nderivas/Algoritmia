@@ -142,9 +142,11 @@ void HuffEnco::escribirString(const std::string &s, std::ofstream &out) {
  */
 void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {
     escribirArbol(out);
-    char c;
+    char c = 0;
     string s = "";            // Buffer
     const unsigned max = 800; // Máximo antes del flush
+    unsigned cursorExtras = static_cast<unsigned>(out.tellp());
+    out.write(&c, 1); // Escribo un byte de "basura"
     while (in.get(c)) {
         s += codigos[static_cast<unsigned char>(c)]; // Se añaden códigos
         if (s.size() >= max) { // Si tenemos que hacer flush
@@ -157,5 +159,6 @@ void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {
     escribirString(s, out);
     // Se añade el relleno del último byte al final para saber hasta donde leer
     char relleno = static_cast<char>((8 - (s.size() % 8)) % 8);
+    out.seekp(cursorExtras, ios::beg);
     out.write(&relleno, 1);
 }
