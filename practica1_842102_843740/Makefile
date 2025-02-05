@@ -1,5 +1,5 @@
 gcc = g++
-flags = -std=c++11
+flags = -std=c++11 -Wall -Wextra
 build = ./build
 bin = ./bin
 src = ./codigo
