@@ -58,17 +58,17 @@ void HuffEnco::ajustarFrecuencias() {
     vector<pair<char, unsigned>> frecs;
     CompararPares comp;
     frecs.reserve(frecuencias.size());
-    for (int i = 0; i < frecuencias.size(); ++i)
+    for (unsigned i = 0; i < frecuencias.size(); ++i)
         if (frecuencias[i] != 0)
             frecs.push_back(pair<char, unsigned>(i, frecuencias[i]));
     sort(frecs.begin(), frecs.end(), comp);
     // Paso 1
-    for (int i = 0; i < frecs.size(); ++i)
+    for (unsigned i = 0; i < frecs.size(); ++i)
         frecs[i].second = frecs[i].second > L ? L : frecs[i].second;
     // Paso 2 REVISAR
     double km = calcularKM(frecs);
     bool continua = true;
-    for (int i = 0; i < frecs.size() && continua; ++i) {
+    for (unsigned i = 0; i < frecs.size() && continua; ++i) {
         if (frecs[i].second == L)
             continue;
         while (frecs[i].second < L && continua) {
@@ -92,7 +92,7 @@ void HuffEnco::ajustarFrecuencias() {
  * @param ---
  */
 void HuffEnco::rellenarCola() {
-    for (int i = 0; i < frecuencias.size(); ++i) {
+    for (unsigned i = 0; i < frecuencias.size(); ++i) {
         if (frecuencias[static_cast<unsigned char>(i)] != 0) {
             NodoHuff *nuevo =
                 new NodoHuff(static_cast<char>(i), frecuencias[i]);
@@ -144,8 +144,7 @@ void HuffEnco::rellenarCodigos(NodoHuff *ptr, const string &cod) {
  */
 void HuffEnco::escribirArbol(std::ofstream &out) {
     out.write(&numCods, 1); // Primer byte del archivo número de hojas del árbol
-    for (int b = 0; b < codigos.size(); ++b) { // Para cada byte
-        char relleno = 8 - (codigos[static_cast<unsigned char>(b)].size() % 8);
+    for (unsigned b = 0; b < codigos.size(); ++b) { // Para cada byte
         // Si no tiene el código vacío, es decir, aparece en el archivo
         if (!codigos[static_cast<unsigned char>(b)].empty()) {
             char temp = static_cast<char>(b);

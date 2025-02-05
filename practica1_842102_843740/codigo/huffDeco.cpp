@@ -59,16 +59,18 @@ void HuffDeco::introducirCodigo(char c, string cod) {
  */
 void HuffDeco::leerArbol(ifstream &in) {
     char numCods, byte, tam, temp, numBytes;
+    unsigned numCodsAdjust;
     string buff;
     raiz = new NodoHuff(0); // Creamos la raíz
     in.read(&numCods, 1);   // Leemos el número de códigos
-    if (numCods == 1) {     // TODO: Revisar
+    numCodsAdjust = numCods == 0 ? 256 : static_cast<unsigned char>(numCods);
+    if (numCodsAdjust == 1) { // TODO: Revisar
         in.read(&byte, 1);
         raiz->byte = byte;
         in.read(&tam, 1);
         in.read(&byte, 1);
     }
-    for (char i = 0; i < numCods; ++i) {
+    for (unsigned i = 0; i < numCodsAdjust; ++i) {
         buff = "";
         in.read(&byte, 1); // Byte original
         in.read(&tam, 1);  // Longitud del código
@@ -77,7 +79,7 @@ void HuffDeco::leerArbol(ifstream &in) {
         for (char j = 0; j < numBytes; ++j) { // Leer bytes
             in.read(&temp, 1);
             string nuevoByte = trad::binToStr(temp);
-            buff = buff + string(8 - nuevoByte.size(), '0') + nuevoByte;
+            buff = buff + nuevoByte;
         }
         // Quitar ceros iniciales
         buff = buff.substr(8 - tam % 8);
@@ -124,8 +126,6 @@ void HuffDeco::decodificarContenidos(ifstream &in, ofstream &out) {
             cad = "";
         }
         nuevoByte = trad::binToStr(c); // Pasamos a string
-        // Ajustamos 0s iniciales
-        nuevoByte = string(8 - nuevoByte.size(), '0') + nuevoByte;
         cad = cad + nuevoByte;
     }
     cad = cad.substr(0, cad.size() - extras);

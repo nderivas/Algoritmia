@@ -19,7 +19,7 @@ string trad::binToStr(const char c) {
         res = (aux % 2 ? '1' : '0') + res;
         aux /= 2;
     }
-    return res;
+    return string(8 - res.size(), '0') + res;
 }
 
 /*
