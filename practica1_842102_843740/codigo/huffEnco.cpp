@@ -195,9 +195,9 @@ void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {
     while (in.get(c)) {
         s += codigos[static_cast<unsigned char>(c)]; // Se añaden códigos
         if (s.size() >= max) { // Si tenemos que hacer flush
-            escribirString(s.substr(0, max), out);
-            if (s.size() != max)
-                s = s.substr(max); // Ajuste del buffer
+            string buffAEscribir = s.substr(0, max);
+            escribirString(buffAEscribir, out);
+            s = s.substr(max); // Ajuste del buffer
         }
     }
     // Se escribe el resto
