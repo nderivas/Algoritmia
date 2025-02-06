@@ -21,10 +21,13 @@ void HuffEnco::codificar() {
         return;
     }
     contarFrec(input); // LLega al final del archivo: eof = verdad
-    if (L > 0)
+    if (L > 0) {
         ajustarFrecuencias();
-    rellenarCola();
-    generarTrie();
+        generarTrieLongitudes();
+    } else {
+        rellenarCola();
+        generarTrieFrecuencias();
+    }
     rellenarCodigos(raiz, "");
     input.clear();            // Desactiva el aviso de final de archivo
     input.seekg(0, ios::beg); // Reinicia el cursor al comienzo del archivo
@@ -45,10 +48,10 @@ void HuffEnco::contarFrec(std::ifstream &in) {
         frecuencias[static_cast<unsigned char>(c)]++;
 }
 
-double calcularKM(vector<pair<char, unsigned>> frecs) {
+double calcularKM(const vector<pair<char, unsigned>> &frecs) {
     double res = 0;
     for (auto e : frecs) {
-        res += pow(1 / 2, e.second);
+        res += pow(0.5, e.second);
     }
     return res;
 }
@@ -63,27 +66,51 @@ void HuffEnco::ajustarFrecuencias() {
             frecs.push_back(pair<char, unsigned>(i, frecuencias[i]));
     sort(frecs.begin(), frecs.end(), comp);
     // Paso 1
-    for (unsigned i = 0; i < frecs.size(); ++i)
+    unsigned i = 0;
+    while (i < frecs.size() && frecs[i].second >= L) {
         frecs[i].second = frecs[i].second > L ? L : frecs[i].second;
-    // Paso 2 REVISAR
+        i++;
+    }
+    // Paso 2
     double km = calcularKM(frecs);
-    bool continua = true;
-    for (unsigned i = 0; i < frecs.size() && continua; ++i) {
+    while (i < frecs.size() && !(km <= 1)) {
         if (frecs[i].second == L)
-            continue;
-        while (frecs[i].second < L && continua) {
-            double potenciaActual = pow(1 / 2, frecs[i].second);
-            double tempkm = km - potenciaActual + potenciaActual / 2;
-            if (tempkm <= 1) { // Al revés? (NO cumpla la desigualdad)
-                km = tempkm;
-                frecs[i].second++;
-            } else
-                continua = false;
+            i++;
+        else {
+            double potenciaActual = pow(0.5, frecs[i].second);
+            frecs[i].second++;
+            km = km - potenciaActual + potenciaActual / 2;
         }
     }
     // Paso 3
-    for (int i = frecs.size() - 1; i >= 0; ++i) {
+    unsigned j = 0;
+    while (j < frecs.size()) {
+        double potenciaActual = pow(0.5, frecs[j].second);
+        auto tempkm = km - potenciaActual + potenciaActual * 2;
+        if (tempkm <= 1) {
+            km = tempkm;
+            frecs[j].second--;
+        } else
+            j++;
     }
+    for (auto e : frecs)
+        colaLongitudes.push(new NodoHuff(e.first, e.second));
+}
+
+void HuffEnco::generarTrieLongitudes() {
+    while (colaLongitudes.size() > 1) {
+        // Sacamos los 2 más altos de la lista
+        NodoHuff *cero = colaLongitudes.top();
+        colaLongitudes.pop();
+        NodoHuff *uno = colaLongitudes.top();
+        colaLongitudes.pop();
+        // Lo unimos bajo un padre común
+        unsigned frec = cero->frecuencia - 1;
+        NodoHuff *padre = new NodoHuff(0, frec, cero, uno);
+        // Los añadimos a la lista unidos
+        colaLongitudes.push(padre);
+    }
+    raiz = colaLongitudes.top(); // El último nodo es la raíz
 }
 
 /*
@@ -96,10 +123,10 @@ void HuffEnco::rellenarCola() {
         if (frecuencias[static_cast<unsigned char>(i)] != 0) {
             NodoHuff *nuevo =
                 new NodoHuff(static_cast<char>(i), frecuencias[i]);
-            cola.push(nuevo);
+            colaFrecuencias.push(nuevo);
         }
     }
-    numCods = cola.size();
+    numCods = colaFrecuencias.size();
 }
 
 /*
@@ -107,20 +134,20 @@ void HuffEnco::rellenarCola() {
  * la raíz
  * @param ---
  */
-void HuffEnco::generarTrie() {
-    while (cola.size() > 1) {
+void HuffEnco::generarTrieFrecuencias() {
+    while (colaFrecuencias.size() > 1) {
         // Sacamos los 2 más bajos de la lista
-        NodoHuff *cero = cola.top();
-        cola.pop();
-        NodoHuff *uno = cola.top();
-        cola.pop();
+        NodoHuff *cero = colaFrecuencias.top();
+        colaFrecuencias.pop();
+        NodoHuff *uno = colaFrecuencias.top();
+        colaFrecuencias.pop();
         // Lo unimos bajo un padre común
         unsigned frec = cero->frecuencia + uno->frecuencia;
         NodoHuff *padre = new NodoHuff(0, frec, cero, uno);
         // Los añadimos a la lista unidos
-        cola.push(padre);
+        colaFrecuencias.push(padre);
     }
-    raiz = cola.top(); // El último nodo es la raíz
+    raiz = colaFrecuencias.top(); // El último nodo es la raíz
 }
 
 /*

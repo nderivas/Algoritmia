@@ -22,20 +22,28 @@ class NodoHuff {
         *uno; // puntero al hijo izquierdo (cero), al hijo derecho (uno)
 
     // Constructor de la clase NodoHuff
-    NodoHuff(char c, unsigned f = 0, NodoHuff *z = nullptr, NodoHuff *u = nullptr)
+    NodoHuff(char c, unsigned f = 0, NodoHuff *z = nullptr,
+             NodoHuff *u = nullptr)
         : byte(c), frecuencia(f), cero(z), uno(u) {}
 };
 
 // Comparador para la cola de prioridades.
-struct CompararHuff {
+struct CompararHuffFrec {
     bool operator()(const NodoHuff *uno, const NodoHuff *dos) {
         return uno->frecuencia > dos->frecuencia;
     }
 };
+struct CompararHuffLong {
+    bool operator()(const NodoHuff *uno, const NodoHuff *dos) {
+        return uno->frecuencia < dos->frecuencia;
+    }
+};
 
-// Cola de prioridades para la construcción del árbol.
-using ColaPrio =
-    std::priority_queue<NodoHuff *, std::vector<NodoHuff *>, CompararHuff>;
+// Colas de prioridades para la construcción del árbol.
+using ColaFrec =
+    std::priority_queue<NodoHuff *, std::vector<NodoHuff *>, CompararHuffFrec>;
+using ColaLong =
+    std::priority_queue<NodoHuff *, std::vector<NodoHuff *>, CompararHuffLong>;
 
 namespace trad {
 std::string binToStr(const char c);
