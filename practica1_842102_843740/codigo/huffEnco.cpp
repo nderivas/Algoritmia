@@ -21,7 +21,7 @@ void HuffEnco::codificar() {
         return;
     }
     contarFrec(input); // LLega al final del archivo: eof = verdad
-    if (L > 0) {
+    if (L > 0) {       // L es la longitud máxima de codificación
         ajustarFrecuencias();
         generarTrieLongitudes();
     } else {
@@ -112,6 +112,7 @@ void HuffEnco::ajustarFrecuencias() {
     }
     for (auto e : frecs)
         colaLongitudes.push(new NodoHuff(e.first, e.second));
+    numCods = colaLongitudes.size();
 }
 
 /*
