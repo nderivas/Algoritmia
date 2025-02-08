@@ -48,6 +48,15 @@ void HuffEnco::contarFrec(std::ifstream &in) {
         frecuencias[static_cast<unsigned char>(c)]++;
 }
 
+/*
+ * Calcula el valor de la desigualdad de Kraft-McMillan.
+ * La fórmula utilizada es:
+ *      Σ r^(li) con r = 0.5
+ *
+ * @param  frecs Vector de pares donde cada par contiene un carácter y su
+ * longitud
+ * @return double Suma de la desigualdad
+ */
 double calcularKM(const vector<pair<char, unsigned>> &frecs) {
     double res = 0;
     for (auto e : frecs) {
@@ -56,47 +65,60 @@ double calcularKM(const vector<pair<char, unsigned>> &frecs) {
     return res;
 }
 
+/*
+ * Ajusta las frecuencias de los caracteres para cumplir la desigualdad de
+ * Kraft-McMillan
+ *
+ */
 void HuffEnco::ajustarFrecuencias() {
     // Crear el vector ordenado
     vector<pair<char, unsigned>> frecs;
     CompararPares comp;
     frecs.reserve(frecuencias.size());
+    // Llenar vector con los caracteres que tienen frecuencias != 0
     for (unsigned i = 0; i < frecuencias.size(); ++i)
         if (frecuencias[i] != 0)
             frecs.push_back(pair<char, unsigned>(i, frecuencias[i]));
+    // Ordenar los pares
     sort(frecs.begin(), frecs.end(), comp);
-    // Paso 1
+    // Paso 1: Ajustar las frecuencias que exceden la longitud máxima L
     unsigned i = 0;
     while (i < frecs.size() && frecs[i].second >= L) {
+        // Si la frecuencia es mayor que L, se limita a L
         frecs[i].second = frecs[i].second > L ? L : frecs[i].second;
         i++;
     }
     // Paso 2
-    double km = calcularKM(frecs);
+    double km = calcularKM(frecs); // Calcular valor actual
     while (i < frecs.size() && !(km <= 1)) {
         if (frecs[i].second == L)
-            i++;
+            i++; // Si ya alcanzó longitud máxima, continuar con el siguiente
         else {
             double potenciaActual = pow(0.5, frecs[i].second);
-            frecs[i].second++;
+            frecs[i].second++; // Aumentamos longitud
             km = km - potenciaActual + potenciaActual / 2;
         }
     }
-    // Paso 3
+    // Paso 3: Reducir longitudes si es posible
     unsigned j = 0;
     while (j < frecs.size()) {
         double potenciaActual = pow(0.5, frecs[j].second);
         auto tempkm = km - potenciaActual + potenciaActual * 2;
         if (tempkm <= 1) {
-            km = tempkm;
-            frecs[j].second--;
+            km = tempkm;       // Actualizamos Kraft-McMillan
+            frecs[j].second--; // Reducimos longitud
         } else
-            j++;
+            j++; // Si no podemos reducir, pasamos al siguiente
     }
     for (auto e : frecs)
         colaLongitudes.push(new NodoHuff(e.first, e.second));
 }
 
+/*
+ * Generación del árbol de Huffman a partir de la cola de prioridad se guardará
+ * la raíz
+ * @param ---
+ */
 void HuffEnco::generarTrieLongitudes() {
     while (colaLongitudes.size() > 1) {
         // Sacamos los 2 más altos de la lista

@@ -33,6 +33,7 @@ struct CompararHuffFrec {
         return uno->frecuencia > dos->frecuencia;
     }
 };
+
 struct CompararHuffLong {
     bool operator()(const NodoHuff *uno, const NodoHuff *dos) {
         return uno->frecuencia < dos->frecuencia;
