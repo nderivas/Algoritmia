@@ -16,8 +16,8 @@ clear
 
 for file in pruebas/prueba[0-9]*.txt; do
     cp $file $file.copia
-    ./bin/huff -c $file.copia
-    ./bin/huff -d $file.copia.huf
+    ./bin/huf -c $file.copia
+    ./bin/huf -d $file.copia.huf
     if diff $file $file.copia > /dev/null; then
         echo "$file - SUPERADO"
     else
