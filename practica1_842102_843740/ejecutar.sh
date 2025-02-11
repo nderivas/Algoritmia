@@ -12,7 +12,9 @@ make
 rm -rf pruebas/prueba[0-9]*.txt.huf
 rm -rf pruebas/prueba[0-9]*.txt.copia
 
-for file in pruebas/prueba?.txt; do
+clear
+
+for file in pruebas/prueba[0-9]*.txt; do
     cp $file $file.copia
     ./bin/huff -c $file.copia
     ./bin/huff -d $file.copia.huf

@@ -21,18 +21,21 @@ void HuffEnco::codificar() {
         return;
     }
     contarFrec(input); // LLega al final del archivo: eof = verdad
-    if (L > 0) {       // L es la longitud máxima de codificación
-        ajustarFrecuencias();
-        generarTrieLongitudes();
-    } else {
-        rellenarCola();
-        generarTrieFrecuencias();
+    if (estaVacio) {
+        if (L > 0) {       // L es la longitud máxima de codificación
+            ajustarFrecuencias();
+            generarTrieLongitudes();
+        } else {
+            rellenarCola();
+            generarTrieFrecuencias();
+        }
+        rellenarCodigos(raiz, "");
     }
-    rellenarCodigos(raiz, "");
     input.clear();            // Desactiva el aviso de final de archivo
     input.seekg(0, ios::beg); // Reinicia el cursor al comienzo del archivo
     ofstream output(outFile, ios::binary | ios::out | ios::trunc);
-    escribir(input, output); // Codificación
+    if (estaVacio)
+        escribir(input, output); // Codificación
     // Cierre de archivos abiertos
     input.close();
     output.close();
@@ -44,20 +47,24 @@ void HuffEnco::codificar() {
  */
 void HuffEnco::contarFrec(std::ifstream &in) {
     char c;
-    while (in.get(c))
+    unsigned i = 0;
+    while (in.get(c)) {
+        i++;
         frecuencias[static_cast<unsigned char>(c)]++;
+    }
+    estaVacio = i > 1;
 }
 
 /*
  * Calcula el valor de la desigualdad de Kraft-McMillan.
  * La fórmula utilizada es:
- *      Σ r^(li) con r = 0.5
+ *      Σr^(li) con r = 0.5
  *
  * @param  frecs Vector de pares donde cada par contiene un carácter y su
  * longitud
  * @return double Suma de la desigualdad
  */
-double calcularKM(const vector<pair<char, unsigned>> &frecs) {
+inline double calcularKM(const vector<pair<char, unsigned>> &frecs) {
     double res = 0;
     for (auto e : frecs) {
         res += pow(0.5, e.second);
@@ -88,7 +95,7 @@ void HuffEnco::ajustarFrecuencias() {
         frecs[i].second = frecs[i].second > L ? L : frecs[i].second;
         i++;
     }
-    // Paso 2
+    // Paso 2: Reducir frecuencias hasta km <= 1
     double km = calcularKM(frecs); // Calcular valor actual
     while (i < frecs.size() && !(km <= 1)) {
         if (frecs[i].second == L)

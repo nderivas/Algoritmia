@@ -26,6 +26,7 @@ class HuffEnco {
     CodArr codigos;           // Array que almacena códigos binarios
     char numCods;             // Número total de códigos
     unsigned char L;          // Parámetro L
+    bool estaVacio;           // Indica si el archivo de entrada está vacío
 
     // Funciones auziliares
     void contarFrec(std::ifstream &in);

@@ -10,6 +10,7 @@
 class HuffDeco {
     std::string inFile, outFile; // Archivo de entrada, salida
     NodoHuff *raiz;              // Puntero a la raíz del árbol
+    bool estaVacio;
 
     // Funciones auxiliares
     void introducirCodigo(char byte, std::string cod);

@@ -4,12 +4,9 @@
  */
 #include "huffDeco.hpp"
 #include "comun.hpp"
-#include <__config>
 #include <iostream>
 
 using namespace std;
-
-// TODO: Fichero vacío
 
 /*
  * Decodifica los contenido de inFile y los escribe en outFile.
@@ -26,7 +23,8 @@ void HuffDeco::decodificar() {
     leerArbol(input);
     // leerFichero
     ofstream output(outFile, ios::out | ios::trunc);
-    decodificarContenidos(input, output);
+    if (!estaVacio) // Comprobar si el archivo esta vacío
+        decodificarContenidos(input, output);
     input.close();
     output.close();
 }
@@ -63,13 +61,10 @@ void HuffDeco::leerArbol(ifstream &in) {
     string buff;
     raiz = new NodoHuff(0); // Creamos la raíz
     in.read(&numCods, 1);   // Leemos el número de códigos
+    estaVacio = in.eof();
+    if (estaVacio)
+        return;
     numCodsAdjust = numCods == 0 ? 256 : static_cast<unsigned char>(numCods);
-    if (numCodsAdjust == 1) { // TODO: Revisar
-        in.read(&byte, 1);
-        raiz->byte = byte;
-        in.read(&tam, 1);
-        in.read(&byte, 1);
-    }
     for (unsigned i = 0; i < numCodsAdjust; ++i) {
         buff = "";
         in.read(&byte, 1); // Byte original
