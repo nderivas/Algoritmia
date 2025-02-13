@@ -7,15 +7,6 @@
 
 #include "comun.hpp"
 #include <fstream>
-#include <utility>
-
-// Comparador para la cola de prioridades.
-struct CompararPares {
-    bool operator()(const std::pair<char, unsigned> uno,
-                    const std::pair<char, unsigned> dos) {
-        return uno.second > dos.second;
-    }
-};
 
 class HuffEnco {
     std::string inFile, outFile; // Archivo de entrada, salida

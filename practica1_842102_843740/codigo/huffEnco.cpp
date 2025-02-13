@@ -22,7 +22,7 @@ void HuffEnco::codificar() {
     }
     contarFrec(input); // LLega al final del archivo: eof = verdad
     if (estaVacio) {
-        if (L > 0) {       // L es la longitud máxima de codificación
+        if (L > 0) { // L es la longitud máxima de codificación
             ajustarFrecuencias();
             generarTrieLongitudes();
         } else {
@@ -72,22 +72,36 @@ inline double calcularKM(const vector<pair<char, unsigned>> &frecs) {
     return res;
 }
 
+inline void ordenar(vector<pair<char, unsigned>> &frecs) {
+    unsigned auxunsigned;
+    char auxchar;
+    for (unsigned i = 0; i < frecs.size(); ++i)
+        for (unsigned j = i + 1; j < frecs.size(); ++j)
+            if (frecs[i].second < frecs[j].second) {
+                auxunsigned = frecs[i].second;
+                auxchar = frecs[i].first;
+                frecs[i].second = frecs[j].second;
+                frecs[i].first = frecs[j].first;
+                frecs[j].second = auxunsigned;
+                frecs[j].first = auxchar;
+            }
+}
+
 /*
- * Ajusta las frecuencias de los caracteres para cumplir la desigualdad de
- * Kraft-McMillan
+ * Ajusta las frecuencias de los caracteres para cumplir la desigualdad
+ * de Kraft-McMillan
  *
  */
 void HuffEnco::ajustarFrecuencias() {
     // Crear el vector ordenado
     vector<pair<char, unsigned>> frecs;
-    CompararPares comp;
     frecs.reserve(frecuencias.size());
     // Llenar vector con los caracteres que tienen frecuencias != 0
     for (unsigned i = 0; i < frecuencias.size(); ++i)
         if (frecuencias[i] != 0)
             frecs.push_back(pair<char, unsigned>(i, frecuencias[i]));
     // Ordenar los pares
-    sort(frecs.begin(), frecs.end(), comp);
+    ordenar(frecs);
     // Paso 1: Ajustar las frecuencias que exceden la longitud máxima L
     unsigned i = 0;
     while (i < frecs.size() && frecs[i].second >= L) {
@@ -99,7 +113,8 @@ void HuffEnco::ajustarFrecuencias() {
     double km = calcularKM(frecs); // Calcular valor actual
     while (i < frecs.size() && !(km <= 1)) {
         if (frecs[i].second == L)
-            i++; // Si ya alcanzó longitud máxima, continuar con el siguiente
+            i++; // Si ya alcanzó longitud máxima, continuar con el
+                 // siguiente
         else {
             double potenciaActual = pow(0.5, frecs[i].second);
             frecs[i].second++; // Aumentamos longitud
@@ -123,8 +138,8 @@ void HuffEnco::ajustarFrecuencias() {
 }
 
 /*
- * Generación del árbol de Huffman a partir de la cola de prioridad se guardará
- * la raíz
+ * Generación del árbol de Huffman a partir de la cola de prioridad se
+ * guardará la raíz
  * @param ---
  */
 void HuffEnco::generarTrieLongitudes() {
@@ -144,8 +159,8 @@ void HuffEnco::generarTrieLongitudes() {
 }
 
 /*
- * Rellenado de la cola de prioridad con los nodos correspondientes a cada
- * carácter que aparece
+ * Rellenado de la cola de prioridad con los nodos correspondientes a
+ * cada carácter que aparece
  * @param ---
  */
 void HuffEnco::rellenarCola() {
@@ -160,8 +175,8 @@ void HuffEnco::rellenarCola() {
 }
 
 /*
- * Generación del árbol de Huffman a partir de la cola de prioridad se guardará
- * la raíz
+ * Generación del árbol de Huffman a partir de la cola de prioridad se
+ * guardará la raíz
  * @param ---
  */
 void HuffEnco::generarTrieFrecuencias() {
@@ -181,8 +196,8 @@ void HuffEnco::generarTrieFrecuencias() {
 }
 
 /*
- * Rellena recursivamente el array de códigos en función del árbol de Huffman
- * generado
+ * Rellena recursivamente el array de códigos en función del árbol de
+ * Huffman generado
  * @param ptr puntero a nodo actual, cod código del nodo actual
  */
 void HuffEnco::rellenarCodigos(NodoHuff *ptr, const string &cod) {
@@ -200,7 +215,8 @@ void HuffEnco::rellenarCodigos(NodoHuff *ptr, const string &cod) {
  * @param out flujo de datos del archivo de salida
  */
 void HuffEnco::escribirArbol(std::ofstream &out) {
-    out.write(&numCods, 1); // Primer byte del archivo número de hojas del árbol
+    out.write(&numCods,
+              1); // Primer byte del archivo número de hojas del árbol
     for (unsigned b = 0; b < codigos.size(); ++b) { // Para cada byte
         // Si no tiene el código vacío, es decir, aparece en el archivo
         if (!codigos[static_cast<unsigned char>(b)].empty()) {
@@ -208,8 +224,9 @@ void HuffEnco::escribirArbol(std::ofstream &out) {
             out.write(&temp, 1); // Byte original
             auto s = codigos[static_cast<unsigned char>(b)];
             char tam = s.size();
-            // Tamaño del código, no puede ser más de 255 puesto que codificamos
-            // bytes, |C| -1 = 256 - 1 = 255 => solo necesitamos un byte
+            // Tamaño del código, no puede ser más de 255 puesto que
+            // codificamos bytes, |C| -1 = 256 - 1 = 255 => solo
+            // necesitamos un byte
             out.write(&tam, 1);
             // Escritura del código
             escribirString(string(8 - tam % 8, '0') + s, out);
@@ -238,8 +255,8 @@ void HuffEnco::escribirString(const std::string &s, std::ofstream &out) {
 
 /*
  * Codifica y escribe los datos del archivo de entrada en el de salida
- * @param in flujo de datos del archivo de entrada, out flujo de datos del
- *        archivo de salida
+ * @param in flujo de datos del archivo de entrada, out flujo de datos
+ * del archivo de salida
  */
 void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {
     escribirArbol(out);
@@ -258,7 +275,8 @@ void HuffEnco::escribir(std::ifstream &in, std::ofstream &out) {
     }
     // Se escribe el resto
     escribirString(s, out);
-    // Se añade el relleno del último byte al final para saber hasta donde leer
+    // Se añade el relleno del último byte al final para saber hasta
+    // donde leer
     char relleno = static_cast<char>((8 - (s.size() % 8)) % 8);
     out.seekp(cursorExtras, ios::beg);
     out.write(&relleno, 1);
