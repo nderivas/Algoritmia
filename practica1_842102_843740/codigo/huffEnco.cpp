@@ -72,6 +72,9 @@ inline double calcularKM(const vector<pair<char, unsigned>> &frecs) {
     return res;
 }
 
+/*
+ * Ordena los pares carácter-frecuencia de mayor a menor frecuencia
+ */
 inline void ordenar(vector<pair<char, unsigned>> &frecs) {
     unsigned auxunsigned;
     char auxchar;
@@ -90,7 +93,6 @@ inline void ordenar(vector<pair<char, unsigned>> &frecs) {
 /*
  * Ajusta las frecuencias de los caracteres para cumplir la desigualdad
  * de Kraft-McMillan
- *
  */
 void HuffEnco::ajustarFrecuencias() {
     // Crear el vector ordenado
