@@ -11,6 +11,7 @@ if __name__ == "__main__":
     sys.setrecursionlimit(img.shape[0]*img.shape[1])
     for i in range(int(sys.argv[1])):
         costura = encontrarCostura(img)
+        print("Costura encontrada")
         img = quitarCostura(costura, img)
     iio.imwrite(sys.argv[3], img)
     exit(0)
