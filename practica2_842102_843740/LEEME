@@ -1,0 +1,13 @@
+El directorio contiene este archivo, archivos de configuración y dos subdirectorios.
+Por un lado el subdirectorio de "codigo" contiene los archivos de código fuente de la aplicación.
+Por otro lado el subdirectorio de "pruebas" contiene los archivos necesarios para ejecutar las pruebas.
+Entre los archivos de configuración se encunetran los scripts de ejecución de pruebas "ejecutar.sh",
+el script para resolver las dependencias iniciales "dependencias.sh" y el "requirements.txt" que
+contiene información sobre las dependencias necesarias para la ejecución de la aplicación.
+
+Para la instalación se debe ejecutar el script "dependencias.sh" que creará un entorno virtual
+donde se instalarán las dependencias aisladamente mediante el gestor pip de python. Después FALTA DECIR COMO EJECUTAR
+
+Para la ejecución de las pruebas basta con invocar al script "ejecutar.sh" que ejecutará las pruebas
+preparadas.
+
