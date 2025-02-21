@@ -18,31 +18,47 @@ def calcularEnergia(img):
     formaGrande = (img.shape[0] + 2, img.shape[1] + 2, img.shape[2])
     imgGrande = np.zeros(formaGrande)
     imgGrande[1:-1, 1:-1, :] = img
-    energias = np.zeros((img.shape[0], img.shape[1])) # Esto no es image.shape, solo quiero un valor, no RGB
+    energias = np.zeros((img.shape[0], img.shape[1]))
     for i in range(1, imgGrande.shape[0] - 1):
         for j in range(1, imgGrande.shape[1] - 1):
             energias[i-1, j-1] = energiaPixel(imgGrande, i, j)
     return energias
 
+def reconstruirCostura(costuras, costuramin):
+    costura = [(len(costuras)-1, costuramin)]
+    (i, j) = costuras[len(costuras)-1][costuramin][1]
+    while costura[-1] != (i, j):
+        costura = costura + [(i,j)]
+        (i, j) = costuras[i][j][1]
+    return costura
+
 def minimaCostura(energia):
     n = energia.shape[0]
     m = energia.shape[1]
-    costuras = [[(0, []) for j in range(m)] for i in range(n)]
+    costuras = [[(0, (0, 0)) for j in range(m)] for i in range(n)]
     for i in range(n):
         for j in range(m):
             if i == 0:
-                costuras[i][j] = (energia[i][j], [(i, j)])
+                costuras[i][j] = (energia[i][j], (i, j))
+            elif j == 0 and j == m-1:
+                min = costuras[i-1][j][0]
+                precedente = (i-1, j)
+            elif j == 0:
+                minind = np.argmin([costuras[i-1][j][0], costuras[i-1][j+1][0]])
+                min = [costuras[i-1][j], costuras[i-1][j+1]][minind]
+                precedente = [(i-1, j), (i-1, j+1)][minind]
+            elif j == m - 1:
+                minind = np.argmin([costuras[i-1][j][0], costuras[i-1][j-1][0]])
+                min = [costuras[i-1][j], costuras[i-1][j-1]][minind]
+                precedente = [(i-1, j), (i-1, j-1)][minind]
             else:
-                valor1 = np.inf if j == 0 else costuras[i-1][j-1][0]
-                valor2 = costuras[i-1][j][0]
-                valor3 = np.inf if j == m - 1 else costuras[i-1][j+1][0]
-                minind = np.argmin([valor1, valor2, valor3])
-                min = [0 if j == 0 else costuras[i-1][j-1],
-                       costuras[i-1][j],
-                       0 if j == m - 1 else costuras[i-1][j+1]][minind]
-                costuras[i][j] = (min[0] + energia[i][j], min[1] + [(i, j)])
+                minind = np.argmin([costuras[i-1][j][0], costuras[i-1][j-1][0], costuras[i-1][j+1][0]])
+                min = [costuras[i-1][j], costuras[i-1][j-1], costuras[i-1][j+1]][minind]
+                precedente = [(i-1, j), (i-1, j-1), (i-1, j+1)][minind]
+            if i != 0:
+                costuras[i][j] = (min[0] + energia[i][j], precedente)
     costuramin = np.argmin([costuras[n-1][k][0] for k in range(m)])
-    return costuras[n-1][costuramin][1]
+    return reconstruirCostura(costuras, costuramin)
 
 def encontrarCostura(img):
     energias = calcularEnergia(img)
@@ -52,4 +68,6 @@ def encontrarCostura(img):
 def quitarCostura(costura, img):
     for e in costura:
         img[e[0], :-1] = np.append(img[e[0], :e[1]], img[e[0], e[1]+1:], axis=0)
+        # img[e[0], e[1]] = [255,0,0]
     return img[:, :-1]
+    # return img

@@ -1,13 +1,11 @@
 import imageio.v3 as iio
 import numpy as np
-from costuras import *
-import sys
 
 if __name__ == "__main__":
-    img = iio.imread("imagen.tiff")
-    colores = [[0, 0, 0, 100], [0, 0, 100, 100], [0, 100, 100, 0], [0,100,0,100]]
-    print(img.shape)
-    for i in range(img.shape[1]):
-        img[:, i] = np.array([colores[i%4] for j in range(img.shape[0])])
-    iio.imwrite("out.tiff", img)
-    exit(0)
+    altura = 100
+    anchura = 30
+    img = np.zeros((altura, anchura, 3), dtype=np.uint8)
+    colores = [[0, 0, 0], [255, 255, 255]]
+    for i in range(anchura):
+        img[:, i] = np.array([colores[i%len(colores)] for j in range(altura)])
+    iio.imwrite("../pruebas/test.bmp", img)
