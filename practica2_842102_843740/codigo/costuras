@@ -14,14 +14,18 @@ if __name__ == "__main__":
     if len(sys.argv) != 4:
         print("Uso: costuras <n> <archivo> <salida>")
         exit(1)
+    # Número de costuras a eliminar
+    n = int(sys.argv[1])
     # Leer la imagen de entrada
     img = iio.imread(sys.argv[2])
+    if (n < 1 or n > img.shape[1]):
+        print("No se pueden quitar ", n, " costuras en una imagen de anchura ", img.shape[1])
     # Ajustar límite de recursión para evitar fallos en imágenes
     sys.setrecursionlimit(img.shape[0] * img.shape[1])
     # Elimina <n> costuras de la imagen
-    for i in range(int(sys.argv[1])):
+    for i in range():
         costura = encontrarCostura(img)
-        print("Costura encontrada")
+        print(i, "/", n)
         img = quitarCostura(costura, img)
     iio.imwrite(sys.argv[3], img)  # Guarda la imagen resultante
     exit(0)

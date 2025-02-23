@@ -110,7 +110,6 @@ def minimaCostura(energia):
 # @return devuelve la costura de menor energía como una lista de tuplas
 def encontrarCostura(img):
     energias = calcularEnergia(img)  # Calcula la matriz de energía
-    print("Termina la energia")
     return minimaCostura(energias)
 
 
