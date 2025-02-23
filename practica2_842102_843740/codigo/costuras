@@ -23,9 +23,9 @@ if __name__ == "__main__":
     # Ajustar límite de recursión para evitar fallos en imágenes
     sys.setrecursionlimit(img.shape[0] * img.shape[1])
     # Elimina <n> costuras de la imagen
-    for i in range():
+    for i in range(n):
         costura = encontrarCostura(img)
-        print(i, "/", n)
+        print(i+1, "/", n)
         img = quitarCostura(costura, img)
     iio.imwrite(sys.argv[3], img)  # Guarda la imagen resultante
     exit(0)

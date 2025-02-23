@@ -10,15 +10,15 @@ import math
 # @param fil  índice válido dentro de la imagen que representa la fila
 # @param col índice válido dentro de la imagen que representa la columna
 # @return devuelve valor numérico que representa la energía de un píxel
-def energiaPixel(img, fil, col):
-    a = np.int32(img[fil - 1][col - 1].sum())
-    d = np.int32(img[fil][col - 1].sum())
-    g = np.int32(img[fil + 1][col - 1].sum())
-    b = np.int32(img[fil - 1][col].sum())
-    h = np.int32(img[fil + 1][col].sum())
-    c = np.int32(img[fil - 1][col + 1].sum())
-    f = np.int32(img[fil][col + 1].sum())
-    i = np.int32(img[fil + 1][col + 1].sum())
+def energiaPixel(brillo, fil, col):
+    a = brillo[fil - 1][col - 1]
+    d = brillo[fil][col - 1]
+    g = brillo[fil + 1][col - 1]
+    b = brillo[fil - 1][col]
+    h = brillo[fil + 1][col]
+    c = brillo[fil - 1][col + 1]
+    f = brillo[fil][col + 1]
+    i = brillo[fil + 1][col + 1]
     energiax = a + 2 * d + g - c - 2 * f - i
     energiay = a + 2 * b + c - g - 2 * h - i
     return math.sqrt(energiax**2 + energiay**2)
@@ -29,16 +29,16 @@ def energiaPixel(img, fil, col):
 # @return matriz con los valores de la energía para cada pixel en la imagen original
 def calcularEnergia(img):
     # Nueva matriz con un borde adicional
-    formaGrande = (img.shape[0] + 2, img.shape[1] + 2, img.shape[2])
-    imgGrande = np.zeros(formaGrande)  # Se inicializa con ceros
-    imgGrande[1:-1, 1:-1, :] = (
-        img  # Se copia la imagen original dentro de la nueva matriz
-    )
+    formaBrillo = (img.shape[0] + 2, img.shape[1] + 2)
+    brillos = np.zeros(formaBrillo)
+    for i in range(img.shape[0]):
+        for j in range(img.shape[1]):
+            brillos[i+1][j+1] = np.int32(img[i][j].sum())
     energias = np.zeros((img.shape[0], img.shape[1]))
-    for i in range(1, imgGrande.shape[0] - 1):
-        for j in range(1, imgGrande.shape[1] - 1):
+    for i in range(1, formaBrillo[0] - 1):
+        for j in range(1, formaBrillo[1] - 1):
             energias[i - 1, j - 1] = energiaPixel(
-                imgGrande, i, j
+                brillos, i, j
             )  # Se calcula la energía del pixel correspondiente
     return energias
 
