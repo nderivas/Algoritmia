@@ -6,8 +6,8 @@ import math
 
 
 # Calcula la energía de un píxel
-# @param img matriz 3D que representa la imagen (alto x ancho x canales de color)
-# @param fil  índice válido dentro de la imagen que representa la fila
+# @param brillo matriz 2D que cada componente representa el brillo de ese pixel
+# @param fil índice válido dentro de la imagen que representa la fila
 # @param col índice válido dentro de la imagen que representa la columna
 # @return devuelve valor numérico que representa la energía de un píxel
 def energiaPixel(brillo, fil, col):
@@ -32,8 +32,10 @@ def calcularEnergia(img):
     formaBrillo = (img.shape[0] + 2, img.shape[1] + 2)
     brillos = np.zeros(formaBrillo)
     for i in range(img.shape[0]):
-        for j in range(img.shape[1]):
-            brillos[i+1][j+1] = np.int32(img[i][j].sum())
+        for j in range(
+            img.shape[1]
+        ):  # Calcula el brillo de cada pixel (suma de la componente roja, azul y verde)
+            brillos[i + 1][j + 1] = np.int32(img[i][j].sum())
     energias = np.zeros((img.shape[0], img.shape[1]))
     for i in range(1, formaBrillo[0] - 1):
         for j in range(1, formaBrillo[1] - 1):
