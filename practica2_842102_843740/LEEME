@@ -8,6 +8,9 @@ contiene información sobre las dependencias necesarias para la ejecución de la
 Para la instalación se debe ejecutar el script "dependencias.sh" que creará un entorno virtual
 donde se instalarán las dependencias aisladamente mediante el gestor pip de python. Después FALTA DECIR COMO EJECUTAR
 
-Para la ejecución de las pruebas basta con invocar al script "ejecutar.sh" que ejecutará las pruebas
-preparadas.
+Para la ejecución de las pruebas, después de resolver las dependencias como se indica en el apartado anterior,
+basta con invocar al script "ejecutar.sh" que ejecutará las pruebas preparadas.
 
+Para el uso externo, puesto que se usa un entorno virtual de python, para ejecutra la aplicación, es necesario
+activar el entorno virtual con el comando "source .venv/bin/activate" desde la carpeta raíz del proyecto. Después
+basta con invocar al script con el comando "costuras N <origen> <destino>"

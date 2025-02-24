@@ -27,5 +27,5 @@ if __name__ == "__main__":
         costura = encontrarCostura(img)
         print(i+1, "/", n)
         img = quitarCostura(costura, img)
-    iio.imwrite(sys.argv[3], img)  # Guarda la imagen resultante
+        iio.imwrite(sys.argv[3]+"/"+sys.argv[2]+"_it"+str(i)+".bmp", img)  # Guarda la imagen resultante
     exit(0)
