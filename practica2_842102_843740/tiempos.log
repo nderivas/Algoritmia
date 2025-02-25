@@ -1,15 +1,2 @@
---- Prueba: pruebas/test1N1.bmp
-DEBUG:timer.encontrarCostura:start
-DEBUG:timer.encontrarCostura:cost 22 ms
---- Prueba: pruebas/test2N150.bmp
-DEBUG:timer.encontrarCostura:start
-DEBUG:timer.encontrarCostura:cost 613 ms
-DEBUG:timer.encontrarCostura:start
-DEBUG:timer.encontrarCostura:cost 618 ms
-DEBUG:timer.encontrarCostura:start
-DEBUG:timer.encontrarCostura:cost 616 ms
-DEBUG:timer.encontrarCostura:start
-DEBUG:timer.encontrarCostura:cost 610 ms
-DEBUG:timer.encontrarCostura:start
-DEBUG:timer.encontrarCostura:cost 610 ms
+--- Prueba: pruebas/test10N150.bmp
 DEBUG:timer.encontrarCostura:start

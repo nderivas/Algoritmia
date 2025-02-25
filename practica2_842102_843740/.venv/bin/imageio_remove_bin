@@ -1,4 +1,4 @@
-#!/Users/nico/Documents/Universidad/Algoritmia/practica2_842102_843740/.venv/bin/python3
+#!/home/crisembid/Documentos/algoritmia/practica2_842102_843740/.venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
