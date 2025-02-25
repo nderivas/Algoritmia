@@ -3,7 +3,7 @@
 # Cristina Embid (842102)
 import numpy as np
 import math
-
+from timer import timer
 
 # Calcula la energía de un píxel
 # @param brillo matriz 2D que cada componente representa el brillo de ese pixel
@@ -110,6 +110,7 @@ def minimaCostura(energia):
 # Calcula la energía de la imagen y luego encuentra la costura óptima
 # @param img matriz 3D que representa la imagen (alto x ancho x canales de color)
 # @return devuelve la costura de menor energía como una lista de tuplas
+@timer
 def encontrarCostura(img):
     energias = calcularEnergia(img)  # Calcula la matriz de energía
     return minimaCostura(energias)
@@ -122,6 +123,4 @@ def encontrarCostura(img):
 def quitarCostura(costura, img):
     for e in costura:
         img[e[0], :-1] = np.append(img[e[0], : e[1]], img[e[0], e[1] + 1 :], axis=0)
-        # img[e[0], e[1]] = [255,0,0]
     return img[:, :-1]
-    # return img

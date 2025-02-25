@@ -8,8 +8,14 @@ import imageio as iio
 import numpy as np
 from costuras import *
 import sys
+import logging
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.DEBUG,
+        filename="tiempos.log",
+        filemode="a",
+    )
     # Verificar número de argumentos
     if len(sys.argv) != 4:
         print("Uso: costuras <n> <archivo> <salida>")
