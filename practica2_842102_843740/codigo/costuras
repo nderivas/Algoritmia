@@ -4,7 +4,7 @@
 # Nicolás de Rivas (843740)
 # Cristina Embid (842102)
 
-import imageio.v3 as iio
+import imageio as iio
 import numpy as np
 from costuras import *
 import sys
