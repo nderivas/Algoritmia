@@ -1,125 +1,1871 @@
 --- Prueba: pruebas/test1N1.bmp
 DEBUG:timer.__init__:start
-DEBUG:timer.__init__:cost 43 ms
-DEBUG:PIL.Image:Importing BlpImagePlugin
-DEBUG:PIL.Image:Importing BmpImagePlugin
-DEBUG:PIL.Image:Importing BufrStubImagePlugin
-DEBUG:PIL.Image:Importing CurImagePlugin
-DEBUG:PIL.Image:Importing DcxImagePlugin
-DEBUG:PIL.Image:Importing DdsImagePlugin
-DEBUG:PIL.Image:Importing EpsImagePlugin
-DEBUG:PIL.Image:Importing FitsImagePlugin
-DEBUG:PIL.Image:Importing FliImagePlugin
-DEBUG:PIL.Image:Importing FpxImagePlugin
-DEBUG:PIL.Image:Image: failed to import FpxImagePlugin: No module named 'olefile'
-DEBUG:PIL.Image:Importing FtexImagePlugin
-DEBUG:PIL.Image:Importing GbrImagePlugin
-DEBUG:PIL.Image:Importing GifImagePlugin
-DEBUG:PIL.Image:Importing GribStubImagePlugin
-DEBUG:PIL.Image:Importing Hdf5StubImagePlugin
-DEBUG:PIL.Image:Importing IcnsImagePlugin
-DEBUG:PIL.Image:Importing IcoImagePlugin
-DEBUG:PIL.Image:Importing ImImagePlugin
-DEBUG:PIL.Image:Importing ImtImagePlugin
-DEBUG:PIL.Image:Importing IptcImagePlugin
-DEBUG:PIL.Image:Importing JpegImagePlugin
-DEBUG:PIL.Image:Importing Jpeg2KImagePlugin
-DEBUG:PIL.Image:Importing McIdasImagePlugin
-DEBUG:PIL.Image:Importing MicImagePlugin
-DEBUG:PIL.Image:Image: failed to import MicImagePlugin: No module named 'olefile'
-DEBUG:PIL.Image:Importing MpegImagePlugin
-DEBUG:PIL.Image:Importing MpoImagePlugin
-DEBUG:PIL.Image:Importing MspImagePlugin
-DEBUG:PIL.Image:Importing PalmImagePlugin
-DEBUG:PIL.Image:Importing PcdImagePlugin
-DEBUG:PIL.Image:Importing PcxImagePlugin
-DEBUG:PIL.Image:Importing PdfImagePlugin
-DEBUG:PIL.Image:Importing PixarImagePlugin
-DEBUG:PIL.Image:Importing PngImagePlugin
-DEBUG:PIL.Image:Importing PpmImagePlugin
-DEBUG:PIL.Image:Importing PsdImagePlugin
-DEBUG:PIL.Image:Importing QoiImagePlugin
-DEBUG:PIL.Image:Importing SgiImagePlugin
-DEBUG:PIL.Image:Importing SpiderImagePlugin
-DEBUG:PIL.Image:Importing SunImagePlugin
-DEBUG:PIL.Image:Importing TgaImagePlugin
-DEBUG:PIL.Image:Importing TiffImagePlugin
-DEBUG:PIL.Image:Importing WebPImagePlugin
-DEBUG:PIL.Image:Importing WmfImagePlugin
-DEBUG:PIL.Image:Importing XbmImagePlugin
-DEBUG:PIL.Image:Importing XpmImagePlugin
-DEBUG:PIL.Image:Importing XVThumbImagePlugin
+DEBUG:timer.__init__:cost 48 ms
 --- Prueba: pruebas/test2N150.bmp
 DEBUG:timer.__init__:start
-DEBUG:timer.__init__:cost 786 ms
-DEBUG:PIL.Image:Importing BlpImagePlugin
-DEBUG:PIL.Image:Importing BmpImagePlugin
-DEBUG:PIL.Image:Importing BufrStubImagePlugin
-DEBUG:PIL.Image:Importing CurImagePlugin
-DEBUG:PIL.Image:Importing DcxImagePlugin
-DEBUG:PIL.Image:Importing DdsImagePlugin
-DEBUG:PIL.Image:Importing EpsImagePlugin
-DEBUG:PIL.Image:Importing FitsImagePlugin
-DEBUG:PIL.Image:Importing FliImagePlugin
-DEBUG:PIL.Image:Importing FpxImagePlugin
-DEBUG:PIL.Image:Image: failed to import FpxImagePlugin: No module named 'olefile'
-DEBUG:PIL.Image:Importing FtexImagePlugin
-DEBUG:PIL.Image:Importing GbrImagePlugin
-DEBUG:PIL.Image:Importing GifImagePlugin
-DEBUG:PIL.Image:Importing GribStubImagePlugin
-DEBUG:PIL.Image:Importing Hdf5StubImagePlugin
-DEBUG:PIL.Image:Importing IcnsImagePlugin
-DEBUG:PIL.Image:Importing IcoImagePlugin
-DEBUG:PIL.Image:Importing ImImagePlugin
-DEBUG:PIL.Image:Importing ImtImagePlugin
-DEBUG:PIL.Image:Importing IptcImagePlugin
-DEBUG:PIL.Image:Importing JpegImagePlugin
-DEBUG:PIL.Image:Importing Jpeg2KImagePlugin
-DEBUG:PIL.Image:Importing McIdasImagePlugin
-DEBUG:PIL.Image:Importing MicImagePlugin
-DEBUG:PIL.Image:Image: failed to import MicImagePlugin: No module named 'olefile'
-DEBUG:PIL.Image:Importing MpegImagePlugin
-DEBUG:PIL.Image:Importing MpoImagePlugin
-DEBUG:PIL.Image:Importing MspImagePlugin
-DEBUG:PIL.Image:Importing PalmImagePlugin
-DEBUG:PIL.Image:Importing PcdImagePlugin
-DEBUG:PIL.Image:Importing PcxImagePlugin
-DEBUG:PIL.Image:Importing PdfImagePlugin
-DEBUG:PIL.Image:Importing PixarImagePlugin
-DEBUG:PIL.Image:Importing PngImagePlugin
-DEBUG:PIL.Image:Importing PpmImagePlugin
-DEBUG:PIL.Image:Importing PsdImagePlugin
-DEBUG:PIL.Image:Importing QoiImagePlugin
-DEBUG:PIL.Image:Importing SgiImagePlugin
-DEBUG:PIL.Image:Importing SpiderImagePlugin
-DEBUG:PIL.Image:Importing SunImagePlugin
-DEBUG:PIL.Image:Importing TgaImagePlugin
-DEBUG:PIL.Image:Importing TiffImagePlugin
-DEBUG:PIL.Image:Importing WebPImagePlugin
-DEBUG:PIL.Image:Importing WmfImagePlugin
-DEBUG:PIL.Image:Importing XbmImagePlugin
-DEBUG:PIL.Image:Importing XpmImagePlugin
-DEBUG:PIL.Image:Importing XVThumbImagePlugin
+DEBUG:timer.__init__:cost 755 ms
 DEBUG:timer.calcularCostura:start
 DEBUG:timer.calcularCostura:cost 0 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 276 ms
+DEBUG:timer.calcularCostura:cost 178 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 279 ms
+DEBUG:timer.calcularCostura:cost 182 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 182 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 178 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 180 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 178 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 179 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 178 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 176 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 178 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 177 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 177 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 175 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 177 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 175 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 176 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 175 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 177 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 175 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 169 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 174 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 173 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 172 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 171 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 169 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 173 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 165 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 172 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 166 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 166 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 165 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 164 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 169 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 170 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 163 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 162 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 161 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 160 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 160 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 157 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 164 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 166 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 167 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 166 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 156 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 160 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 159 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 162 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 160 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 160 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 158 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 160 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 160 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 149 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 159 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 159 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 161 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 154 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 141 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 161 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 160 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 154 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 154 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 151 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 150 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 117 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 125 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 132 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 149 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 142 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 142 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 141 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 138 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 137 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 137 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 138 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 137 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 135 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 133 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 131 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 149 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 142 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 120 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 118 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 116 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 114 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 112 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 111 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 113 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 118 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 127 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 126 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 113 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 144 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 143 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 110 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 111 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 125 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 123 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 122 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 121 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 107 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 105 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 107 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 107 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 116 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 131 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 133 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 131 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 115 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 122 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 122 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 122 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 123 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 123 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 122 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 123 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 123 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 122 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 121 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 127 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 128 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 121 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 127 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 126 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 124 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 124 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 122 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 122 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 121 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 125 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 123 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 107 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 111 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 110 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 113 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 100 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 116 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 107 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 121 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 116 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 118 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 106 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 106 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 106 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 106 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 107 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 107 ms
+--- Prueba: pruebas/test3N50.bmp
+DEBUG:timer.__init__:start
+DEBUG:timer.__init__:cost 3.565 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 0 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 814 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 820 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 819 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 767 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 752 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 828 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 761 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 834 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 754 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 770 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 765 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 755 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 775 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 829 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 819 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 851 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 844 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 851 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 769 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 750 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 752 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 764 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 872 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 877 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 849 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 765 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 761 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 751 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 747 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 748 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 743 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 855 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 852 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 845 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 848 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 869 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 858 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 858 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 867 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 765 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 754 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 741 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 754 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 781 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 848 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 738 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 868 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 865 ms
+--- Prueba: pruebas/test4N30.bmp
+DEBUG:timer.__init__:start
+DEBUG:timer.__init__:cost 3.561 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 0 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 618 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 663 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 656 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 671 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 663 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 703 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 691 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 699 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 646 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 700 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 681 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 706 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 698 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 677 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 643 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 643 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 652 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 631 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 660 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 660 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 621 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 684 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 683 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 684 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 677 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 680 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 674 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 677 ms
+--- Prueba: pruebas/test5N60.bmp
+DEBUG:timer.__init__:start
+DEBUG:timer.__init__:cost 2.302 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 0 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 638 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 639 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 640 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 639 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 630 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 631 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 628 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 628 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 624 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 624 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 621 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 618 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 614 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 615 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 610 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 612 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 605 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 608 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 603 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 604 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 606 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 599 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 593 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 593 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 590 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 589 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 585 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 585 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 579 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 581 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 574 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 619 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 572 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 572 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 567 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 614 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 564 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 561 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 561 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 559 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 553 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 608 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 550 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 551 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 545 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 546 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 540 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 599 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 597 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 598 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 534 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 534 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 527 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 530 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 590 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 525 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 521 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 521 ms
+--- Prueba: pruebas/test6N60.bmp
+DEBUG:timer.__init__:start
+DEBUG:timer.__init__:cost 1.426 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 0 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 385 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 389 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 396 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 390 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 387 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 386 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 409 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 425 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 407 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 418 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 415 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 417 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 412 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 398 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 406 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 408 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 408 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 407 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 408 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 405 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 403 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 409 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 406 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 403 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 398 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 399 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 400 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 396 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 394 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 394 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 392 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 390 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 388 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 388 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 386 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 384 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 383 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 384 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 380 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 385 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 378 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 376 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 373 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 371 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 372 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 369 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 364 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 365 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 362 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 362 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 332 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 356 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 333 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 352 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 342 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 351 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 341 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 326 ms
+--- Prueba: pruebas/test7N180.bmp
+DEBUG:timer.__init__:start
+DEBUG:timer.__init__:cost 3.004 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 0 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 455 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 452 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 462 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 391 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 376 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 365 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 457 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 366 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 509 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 501 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 478 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 507 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 473 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 556 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 503 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 413 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 368 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 398 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 366 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 313 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 564 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 560 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 535 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 560 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 560 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 560 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 560 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 513 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 360 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 497 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 347 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 315 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 397 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 474 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 489 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 483 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 497 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 353 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 378 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 351 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 350 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 435 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 564 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 561 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 567 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 477 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 472 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 529 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 533 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 463 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 415 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 415 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 397 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 340 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 480 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 531 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 560 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 525 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 372 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 473 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 474 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 474 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 475 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 474 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 406 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 407 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 525 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 474 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 369 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 558 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 339 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 326 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 407 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 436 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 480 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 533 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 321 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 568 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 414 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 555 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 552 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 495 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 524 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 494 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 501 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 495 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 510 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 507 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 399 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 467 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 419 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 415 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 542 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 558 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 400 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 398 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 552 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 518 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 496 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 497 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 498 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 466 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 454 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 323 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 415 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 511 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 557 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 556 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 554 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 555 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 310 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 315 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 517 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 459 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 457 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 306 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 506 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 305 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 457 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 536 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 532 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 501 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 491 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 549 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 533 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 455 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 383 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 419 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 422 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 423 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 396 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 527 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 475 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 473 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 476 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 332 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 524 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 533 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 544 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 545 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 306 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 375 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 467 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 464 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 387 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 406 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 492 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 540 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 542 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 502 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 419 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 346 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 487 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 378 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 387 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 398 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 395 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 351 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 488 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 489 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 539 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 537 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 538 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 467 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 489 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 448 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 444 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 445 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 416 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 476 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 490 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 400 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 525 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 505 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 505 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 495 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 492 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 331 ms
+--- Prueba: pruebas/test8N190.bmp
+DEBUG:timer.__init__:start
+DEBUG:timer.__init__:cost 2.353 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 0 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 468 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 458 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 461 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 480 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 459 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 455 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 468 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 465 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 466 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 372 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 470 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 421 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 478 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 473 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 457 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 503 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 473 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 457 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 499 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 477 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 418 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 341 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 458 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 413 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 480 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 497 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 484 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 498 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 476 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 496 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 461 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 497 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 459 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 468 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 411 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 466 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 465 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 309 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 466 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 468 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 457 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 490 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 489 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 491 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 453 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 326 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 485 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 466 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 480 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 488 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 488 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 480 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 470 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 322 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 368 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 473 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 463 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 485 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 448 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 469 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 338 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 470 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 273 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 414 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 477 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 484 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 461 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 462 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 362 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 359 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 355 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 404 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 470 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 459 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 472 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 471 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 417 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 469 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 421 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 464 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 476 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 481 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 470 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 468 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 467 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 470 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 464 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 464 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 470 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 469 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 454 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 447 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 414 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 408 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 401 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 450 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 466 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 385 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 278 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 388 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 416 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 314 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 464 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 457 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 452 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 444 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 295 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 462 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 441 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 448 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 458 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 407 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 281 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 289 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 326 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 455 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 443 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 453 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 429 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 455 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 431 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 443 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 346 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 436 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 456 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 434 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 429 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 426 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 447 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 341 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 375 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 446 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 445 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 285 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 286 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 286 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 416 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 416 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 415 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 445 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 329 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 425 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 427 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 429 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 428 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 347 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 501 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 451 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 438 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 355 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 297 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 416 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 315 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 397 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 393 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 433 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 438 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 426 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 425 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 438 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 444 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 420 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 430 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 399 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 411 ms
 DEBUG:timer.calcularCostura:start
 DEBUG:timer.calcularCostura:cost 280 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 279 ms
+DEBUG:timer.calcularCostura:cost 417 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 280 ms
+DEBUG:timer.calcularCostura:cost 419 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 279 ms
+DEBUG:timer.calcularCostura:cost 362 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 279 ms
+DEBUG:timer.calcularCostura:cost 377 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 275 ms
+DEBUG:timer.calcularCostura:cost 306 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 274 ms
+DEBUG:timer.calcularCostura:cost 417 ms
 DEBUG:timer.calcularCostura:start
-DEBUG:timer.calcularCostura:cost 277 ms
+DEBUG:timer.calcularCostura:cost 295 ms
 DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 392 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 426 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 413 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 402 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 392 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 421 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 295 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 419 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 308 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 421 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 415 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 367 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 412 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 346 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 344 ms
+--- Prueba: pruebas/test9N210.bmp
+DEBUG:timer.__init__:start
+DEBUG:timer.__init__:cost 9.854 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 0 ms
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.364 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.434 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.425 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.415 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.417 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.404 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.366 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.356 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.438 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.395 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.383 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.434 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.422 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.077 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.066 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.433 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.365 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.428 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.390 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.307 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.619 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.131 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.337 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.116 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.307 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.580 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.324 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.123 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.606 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.419 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.315 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.567 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.135 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.510 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.493 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.552 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.405 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.348 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.308 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.145 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.291 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.616 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.439 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.484 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.143 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.496 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.069 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.523 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.467 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.455 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.552 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.103 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.558 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.437 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.427 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.542 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.030 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.582 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.481 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.118 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.592 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.494 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.576 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.528 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.099 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.521 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.850 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.106 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.838 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.972 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.966 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.488 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.080 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.965 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.592 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.663 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.581 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.093 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.647 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.584 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.091 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.502 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.485 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.814 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.005 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.091 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.625 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.595 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.002 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.688 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.072 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.608 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.599 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.642 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.067 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.689 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.077 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.648 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.925 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.090 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.942 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.905 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.698 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.947 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.902 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.102 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.724 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.648 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.675 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.733 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.075 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.002 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.670 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.986 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.702 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.779 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.665 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.666 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.079 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.981 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.705 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.760 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.982 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.021 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.896 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.048 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.931 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.729 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.002 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.874 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.714 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.060 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.750 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.777 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.937 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.871 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.029 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.735 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.914 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.914 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.759 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.044 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.982 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.355 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.056 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.999 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.927 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.848 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.871 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.751 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.919 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.729 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.913 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.779 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.770 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.936 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.766 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.887 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.902 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.357 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.855 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.026 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.030 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.821 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.783 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.965 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.786 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.349 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.352 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.808 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.383 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.346 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.957 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.782 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.773 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.898 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.871 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.876 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.909 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.839 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.791 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.342 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.008 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.798 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.337 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.930 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.005 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.893 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.907 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 2.005 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.927 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.961 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.327 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.998 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.897 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.894 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.906 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.954 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.900 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.554 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.476 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.928 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.989 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.984 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.374 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.920 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.500 s
+DEBUG:timer.calcularCostura:start
+DEBUG:timer.calcularCostura:cost 1.917 s
