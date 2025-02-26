@@ -6,7 +6,9 @@
 
 import imageio as iio
 import numpy as np
-from costuras import *
+from Costurero import *
+
+from timer import timer
 import sys
 import logging
 
@@ -22,23 +24,23 @@ if __name__ == "__main__":
         exit(1)
     # Número de costuras a eliminar
     n = int(sys.argv[1])
+    costurero = Costurero(sys.argv[2])
+    costurero.guardarImagen(sys.argv[3] + "/" + sys.argv[2] + "_it0.bmp")
     # Leer la imagen de entrada
-    img = iio.imread(sys.argv[2])
-    if n < 1 or n > img.shape[1]:
+    if n < 1 or n >= costurero.img.shape[1]:
         print(
             "No se pueden quitar ",
             n,
             " costuras en una imagen de anchura ",
-            img.shape[1],
+            costurero.img.shape[1],
         )
     # Ajustar límite de recursión para evitar fallos en imágenes
-    sys.setrecursionlimit(img.shape[0] * img.shape[1])
+    sys.setrecursionlimit(costurero.img.shape[0] * costurero.img.shape[1])
     # Elimina <n> costuras de la imagen
-    for i in range(n):
-        costura = encontrarCostura(img)
+    for i in range(n - 1):
+        costurero.calcularCostura()
         print(i + 1, "/", n)
-        img = quitarCostura(costura, img)
-        iio.imwrite(
-            sys.argv[3] + "/" + sys.argv[2] + "_it" + str(i) + ".bmp", img
-        )  # Guarda la imagen resultante
+        costurero.guardarImagen(
+            sys.argv[3] + "/" + sys.argv[2] + "_it" + str(i + 1) + ".bmp"
+        )
     exit(0)
