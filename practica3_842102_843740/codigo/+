@@ -4,12 +4,11 @@
 
 class Tablero {
     unsigned m_n, m_m;
-    Matriz m_matriz;
+    Matriz m_tablero;
 
   public:
-    Tablero(unsigned n, unsigned m);
-    bool dentro(int x, int y) const;
+    Tablero(unsigned n, unsigned m) : m_n(n), m_m(m) {}
     unsigned getN() const;
     unsigned getM() const;
-    Matriz &getMatriz();
+    Matriz &getTablero() const;
 };
