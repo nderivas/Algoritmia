@@ -64,8 +64,8 @@ inline bool Yumi::casillaConGradoInvalido(const unsigned i, const unsigned j) {
 }
 
 bool Yumi::hayGradoInvalido() {
-    for (unsigned i = 0; i < m_tablero.getN(); ++i)
-        for (unsigned j = i == 0 ? 2 : 0; j < m_tablero.getM(); ++j)
+    for (unsigned i = 0; i < m_tablero.getM(); ++i)
+        for (unsigned j = i == 0 ? 2 : 0; j < m_tablero.getN(); ++j)
             if (casillaConGradoInvalido(i, j))
                 return true;
     return false;
@@ -82,17 +82,11 @@ inline void Yumi::siguienteLlamada(unsigned &sol) {
     // Llamada recursiva y predicados 1 y 4
     m_tablero.getMatriz()[m_fil][m_col].visitado = true;
     m_pasos++;
-    if (m_tablero.dentro(m_fil - 1, m_col) &&
-        !m_tablero.getMatriz()[m_fil - 1][m_col].visitado) {
-        m_fil--;
-        recResolver(sol);
-        m_fil++;
-    }
-    if (m_tablero.dentro(m_fil, m_col + 1) &&
-        !m_tablero.getMatriz()[m_fil][m_col + 1].visitado) {
-        m_col++;
-        recResolver(sol);
+    if (m_tablero.dentro(m_fil, m_col - 1) &&
+        !m_tablero.getMatriz()[m_fil][m_col - 1].visitado) {
         m_col--;
+        recResolver(sol);
+        m_col++;
     }
     if (m_tablero.dentro(m_fil + 1, m_col) &&
         !m_tablero.getMatriz()[m_fil + 1][m_col].visitado) {
@@ -100,11 +94,17 @@ inline void Yumi::siguienteLlamada(unsigned &sol) {
         recResolver(sol);
         m_fil--;
     }
-    if (m_tablero.dentro(m_fil, m_col - 1) &&
-        !m_tablero.getMatriz()[m_fil][m_col - 1].visitado) {
-        m_col--;
-        recResolver(sol);
+    if (m_tablero.dentro(m_fil, m_col + 1) &&
+        !m_tablero.getMatriz()[m_fil][m_col + 1].visitado) {
         m_col++;
+        recResolver(sol);
+        m_col--;
+    }
+    if (m_tablero.dentro(m_fil - 1, m_col) &&
+        !m_tablero.getMatriz()[m_fil - 1][m_col].visitado) {
+        m_fil--;
+        recResolver(sol);
+        m_fil++;
     }
     m_tablero.getMatriz()[m_fil][m_col].visitado = false;
 }
@@ -119,21 +119,33 @@ void Yumi::recResolver(unsigned &sol) {
             cout << "Descarto por llegada a otro checkpoint" << endl;
             return;
         }
-    // --- Comprobación de grados
-    recalcularGrados();
-    if (hayGradoInvalido()) {
-        cout << "Descarto por grado invalido" << endl;
-        return;
-    }
-    // --- Comprobación de llegada a tiempo al checkpoint (Pred 5 y 7)
+    // --- Comprobación de llegada a tiempo al checkpoint (Pred 7)
     if (distanciaAChPt() > m_pasosChPt[m_sigChPt] - m_pasos) {
         cout << "Descarto por llegada a checkpoint actual" << endl;
         cout << distanciaAChPt() << ">" << m_pasosChPt[m_sigChPt] << '-'
              << m_pasos << endl;
         return;
     }
+    // --- Comprobación de llegada temprana a checkpoint actual (Pred 5)
+    if (m_fil == m_chPts[m_sigChPt].first && m_col == m_chPts[m_sigChPt].second && m_pasos != m_pasosChPt[m_sigChPt]) {
+        cout << "Descarto por llegada temprana a checkpoint actual" << endl;
+        return;
+    }
+    // --- Comprobación de grados
+    recalcularGrados();
+    if (hayGradoInvalido()) {
+        cout << "Descarto por grado invalido" << endl;
+        for (auto &p : m_tablero.getMatriz()) {
+            for (auto &c : p)
+                cout << c.entradas << "," << c.salidas << "," << c.dobles
+                     << " - ";
+            cout << endl;
+        }
+        return;
+    }
     // Caso base y predicado 3
     if (m_fil == c_FIN.first && m_col == c_FIN.second) {
+        cout << "SOLUCIÓN" << endl;
         sol++;
         return;
     }
@@ -150,7 +162,6 @@ void Yumi::recResolver(unsigned &sol) {
 unsigned Yumi::resolver() {
     // Comprobaciones
     // --- Checkpoints dentro del tablero
-    cout << "Hello, " << endl;
     for (auto &p : m_chPts)
         if (!m_tablero.dentro(p.first, p.second))
             return 0;
@@ -160,7 +171,6 @@ unsigned Yumi::resolver() {
             m_pasosChPt[i] - m_pasosChPt[i + 1])
             return 0;
     }
-    cout << "World!" << endl;
     // Llamada recursiva
     unsigned soluciones = 0;
     recResolver(soluciones);

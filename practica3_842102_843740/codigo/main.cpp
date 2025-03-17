@@ -24,11 +24,13 @@ int main(int argc, char **argv) {
     arr[c_CHECKPOINTS] = c_FIN;
     while (!in.eof()) {
         in >> m >> n;
-        cout << "n: " << n << " m: " << m << endl;
         for (unsigned i = 0; i < c_CHECKPOINTS; ++i)
             in >> arr[i].first >> arr[i].second;
-
-        Yumi yumi(n, m, arr);
+        cout << "m: " << m << ", n: " << n << endl;
+        for (unsigned i = 0; i < c_CHECKPOINTS + 1; ++i)
+            cout << arr[i].first << "," << arr[i].second << " ";
+        cout << endl;
+        Yumi yumi(m, n, arr);
         // Start timer
         unsigned soluciones = yumi.resolver();
         // End timer

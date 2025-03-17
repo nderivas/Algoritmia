@@ -3,11 +3,11 @@
 #include "comun.hpp"
 
 class Tablero {
-    unsigned m_n, m_m;
+    unsigned m_m, m_n;
     Matriz m_matriz;
 
   public:
-    Tablero(unsigned n, unsigned m);
+    Tablero(unsigned m, unsigned n);
     bool dentro(int fil, int col) const;
     unsigned getN() const;
     unsigned getM() const;

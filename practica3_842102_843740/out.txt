@@ -1,0 +1,1076 @@
+m: 2, n: 3
+0,0 1,1 1,2 0,1 
+PASO: 1
+0,0
+Llamada recursiva
+PASO: 2
+1,0
+Llamada recursiva
+PASO: 3
+1,1
+Llamada recursiva
+PASO: 4
+1,2
+Llamada recursiva
+PASO: 5
+0,2
+Llamada recursiva
+PASO: 6
+0,1
+SOLUCIÓN
+PASO: 6
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 6
+0,1
+Descarto por llegada a otro checkpoint
+m: 3, n: 6
+2,1 2,4 0,4 0,1 
+PASO: 1
+0,0
+Llamada recursiva
+PASO: 2
+1,0
+Llamada recursiva
+PASO: 3
+2,0
+Llamada recursiva
+PASO: 4
+2,1
+Llamada recursiva
+PASO: 5
+2,2
+Llamada recursiva
+PASO: 6
+2,3
+Llamada recursiva
+PASO: 7
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 7
+1,3
+Llamada recursiva
+PASO: 8
+1,2
+Descarto por llegada a checkpoint actual
+3>9-8
+PASO: 8
+1,4
+Llamada recursiva
+PASO: 9
+2,4
+Llamada recursiva
+PASO: 10
+2,5
+Llamada recursiva
+PASO: 11
+1,5
+Llamada recursiva
+PASO: 12
+0,5
+Llamada recursiva
+PASO: 13
+0,4
+Llamada recursiva
+PASO: 14
+0,3
+Llamada recursiva
+PASO: 15
+0,2
+Llamada recursiva
+PASO: 16
+0,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 16
+1,2
+Llamada recursiva
+PASO: 17
+1,1
+Llamada recursiva
+PASO: 18
+0,1
+SOLUCIÓN
+PASO: 18
+1,5
+Llamada recursiva
+PASO: 19
+2,5
+Llamada recursiva
+PASO: 20
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 20
+0,5
+Llamada recursiva
+PASO: 21
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 21
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 21
+0,3
+Llamada recursiva
+PASO: 22
+0,2
+Llamada recursiva
+PASO: 23
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 23
+1,2
+Llamada recursiva
+PASO: 24
+1,1
+Llamada recursiva
+PASO: 25
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 25
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 25
+1,2
+Llamada recursiva
+PASO: 26
+1,1
+Llamada recursiva
+PASO: 27
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 27
+1,3
+Llamada recursiva
+PASO: 28
+2,3
+Llamada recursiva
+PASO: 29
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 29
+1,4
+Llamada recursiva
+PASO: 30
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 30
+1,5
+Llamada recursiva
+PASO: 31
+2,5
+Llamada recursiva
+PASO: 32
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 32
+0,5
+Llamada recursiva
+PASO: 33
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 33
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 33
+0,3
+Llamada recursiva
+PASO: 34
+0,2
+Llamada recursiva
+PASO: 35
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 35
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 35
+0,2
+Llamada recursiva
+PASO: 36
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 36
+0,3
+Llamada recursiva
+PASO: 37
+1,3
+Llamada recursiva
+PASO: 38
+2,3
+Llamada recursiva
+PASO: 39
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 39
+1,4
+Llamada recursiva
+PASO: 40
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 40
+1,5
+Llamada recursiva
+PASO: 41
+2,5
+Llamada recursiva
+PASO: 42
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 42
+0,5
+Llamada recursiva
+PASO: 43
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 43
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 43
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 43
+1,1
+Llamada recursiva
+PASO: 44
+1,2
+Llamada recursiva
+PASO: 45
+2,2
+Llamada recursiva
+PASO: 46
+2,3
+Llamada recursiva
+PASO: 47
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 47
+1,3
+Llamada recursiva
+PASO: 48
+1,4
+Llamada recursiva
+PASO: 49
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 49
+1,5
+Llamada recursiva
+PASO: 50
+2,5
+Llamada recursiva
+PASO: 51
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 51
+0,5
+Llamada recursiva
+PASO: 52
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 52
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 52
+0,3
+Llamada recursiva
+PASO: 53
+0,2
+Llamada recursiva
+PASO: 54
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 54
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 54
+1,3
+Llamada recursiva
+PASO: 55
+2,3
+Llamada recursiva
+PASO: 56
+2,2
+Llamada recursiva
+PASO: 57
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 57
+1,4
+Llamada recursiva
+PASO: 58
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 58
+1,5
+Llamada recursiva
+PASO: 59
+2,5
+Llamada recursiva
+PASO: 60
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 60
+0,5
+Llamada recursiva
+PASO: 61
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 61
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 61
+0,3
+Llamada recursiva
+PASO: 62
+0,2
+Llamada recursiva
+PASO: 63
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 63
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 63
+0,2
+Llamada recursiva
+PASO: 64
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 64
+0,3
+Llamada recursiva
+PASO: 65
+1,3
+Llamada recursiva
+PASO: 66
+2,3
+Llamada recursiva
+PASO: 67
+2,2
+Llamada recursiva
+PASO: 68
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 68
+1,4
+Llamada recursiva
+PASO: 69
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 69
+1,5
+Llamada recursiva
+PASO: 70
+2,5
+Llamada recursiva
+PASO: 71
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 71
+0,5
+Llamada recursiva
+PASO: 72
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 72
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 72
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 72
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 72
+1,1
+Llamada recursiva
+PASO: 73
+2,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 73
+1,2
+Llamada recursiva
+PASO: 74
+2,2
+Llamada recursiva
+PASO: 75
+2,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 75
+2,3
+Llamada recursiva
+PASO: 76
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 76
+1,3
+Llamada recursiva
+PASO: 77
+1,4
+Llamada recursiva
+PASO: 78
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 78
+1,5
+Llamada recursiva
+PASO: 79
+2,5
+Llamada recursiva
+PASO: 80
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 80
+0,5
+Llamada recursiva
+PASO: 81
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 81
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 81
+0,3
+Llamada recursiva
+PASO: 82
+0,2
+Llamada recursiva
+PASO: 83
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 83
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 83
+1,3
+Llamada recursiva
+PASO: 84
+2,3
+Llamada recursiva
+PASO: 85
+2,2
+Llamada recursiva
+PASO: 86
+2,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 86
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 86
+1,4
+Llamada recursiva
+PASO: 87
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 87
+1,5
+Llamada recursiva
+PASO: 88
+2,5
+Llamada recursiva
+PASO: 89
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 89
+0,5
+Llamada recursiva
+PASO: 90
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 90
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 90
+0,3
+Llamada recursiva
+PASO: 91
+0,2
+Llamada recursiva
+PASO: 92
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 92
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 92
+0,2
+Llamada recursiva
+PASO: 93
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 93
+0,3
+Llamada recursiva
+PASO: 94
+1,3
+Llamada recursiva
+PASO: 95
+2,3
+Llamada recursiva
+PASO: 96
+2,2
+Llamada recursiva
+PASO: 97
+2,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 97
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 97
+1,4
+Llamada recursiva
+PASO: 98
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 98
+1,5
+Llamada recursiva
+PASO: 99
+2,5
+Llamada recursiva
+PASO: 100
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 100
+0,5
+Llamada recursiva
+PASO: 101
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 101
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 101
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 101
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 101
+0,1
+Descarto por llegada a otro checkpoint
+m: 3, n: 6
+2,1 2,4 0,4 0,1 
+PASO: 1
+0,0
+Llamada recursiva
+PASO: 2
+1,0
+Llamada recursiva
+PASO: 3
+2,0
+Llamada recursiva
+PASO: 4
+2,1
+Llamada recursiva
+PASO: 5
+2,2
+Llamada recursiva
+PASO: 6
+2,3
+Llamada recursiva
+PASO: 7
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 7
+1,3
+Llamada recursiva
+PASO: 8
+1,2
+Descarto por llegada a checkpoint actual
+3>9-8
+PASO: 8
+1,4
+Llamada recursiva
+PASO: 9
+2,4
+Llamada recursiva
+PASO: 10
+2,5
+Llamada recursiva
+PASO: 11
+1,5
+Llamada recursiva
+PASO: 12
+0,5
+Llamada recursiva
+PASO: 13
+0,4
+Llamada recursiva
+PASO: 14
+0,3
+Llamada recursiva
+PASO: 15
+0,2
+Llamada recursiva
+PASO: 16
+0,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 16
+1,2
+Llamada recursiva
+PASO: 17
+1,1
+Llamada recursiva
+PASO: 18
+0,1
+SOLUCIÓN
+PASO: 18
+1,5
+Llamada recursiva
+PASO: 19
+2,5
+Llamada recursiva
+PASO: 20
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 20
+0,5
+Llamada recursiva
+PASO: 21
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 21
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 21
+0,3
+Llamada recursiva
+PASO: 22
+0,2
+Llamada recursiva
+PASO: 23
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 23
+1,2
+Llamada recursiva
+PASO: 24
+1,1
+Llamada recursiva
+PASO: 25
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 25
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 25
+1,2
+Llamada recursiva
+PASO: 26
+1,1
+Llamada recursiva
+PASO: 27
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 27
+1,3
+Llamada recursiva
+PASO: 28
+2,3
+Llamada recursiva
+PASO: 29
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 29
+1,4
+Llamada recursiva
+PASO: 30
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 30
+1,5
+Llamada recursiva
+PASO: 31
+2,5
+Llamada recursiva
+PASO: 32
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 32
+0,5
+Llamada recursiva
+PASO: 33
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 33
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 33
+0,3
+Llamada recursiva
+PASO: 34
+0,2
+Llamada recursiva
+PASO: 35
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 35
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 35
+0,2
+Llamada recursiva
+PASO: 36
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 36
+0,3
+Llamada recursiva
+PASO: 37
+1,3
+Llamada recursiva
+PASO: 38
+2,3
+Llamada recursiva
+PASO: 39
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 39
+1,4
+Llamada recursiva
+PASO: 40
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 40
+1,5
+Llamada recursiva
+PASO: 41
+2,5
+Llamada recursiva
+PASO: 42
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 42
+0,5
+Llamada recursiva
+PASO: 43
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 43
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 43
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 43
+1,1
+Llamada recursiva
+PASO: 44
+1,2
+Llamada recursiva
+PASO: 45
+2,2
+Llamada recursiva
+PASO: 46
+2,3
+Llamada recursiva
+PASO: 47
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 47
+1,3
+Llamada recursiva
+PASO: 48
+1,4
+Llamada recursiva
+PASO: 49
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 49
+1,5
+Llamada recursiva
+PASO: 50
+2,5
+Llamada recursiva
+PASO: 51
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 51
+0,5
+Llamada recursiva
+PASO: 52
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 52
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 52
+0,3
+Llamada recursiva
+PASO: 53
+0,2
+Llamada recursiva
+PASO: 54
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 54
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 54
+1,3
+Llamada recursiva
+PASO: 55
+2,3
+Llamada recursiva
+PASO: 56
+2,2
+Llamada recursiva
+PASO: 57
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 57
+1,4
+Llamada recursiva
+PASO: 58
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 58
+1,5
+Llamada recursiva
+PASO: 59
+2,5
+Llamada recursiva
+PASO: 60
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 60
+0,5
+Llamada recursiva
+PASO: 61
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 61
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 61
+0,3
+Llamada recursiva
+PASO: 62
+0,2
+Llamada recursiva
+PASO: 63
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 63
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 63
+0,2
+Llamada recursiva
+PASO: 64
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 64
+0,3
+Llamada recursiva
+PASO: 65
+1,3
+Llamada recursiva
+PASO: 66
+2,3
+Llamada recursiva
+PASO: 67
+2,2
+Llamada recursiva
+PASO: 68
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 68
+1,4
+Llamada recursiva
+PASO: 69
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 69
+1,5
+Llamada recursiva
+PASO: 70
+2,5
+Llamada recursiva
+PASO: 71
+2,4
+Descarto por llegada temprana a checkpoint actual
+PASO: 71
+0,5
+Llamada recursiva
+PASO: 72
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 72
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 72
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 72
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 72
+1,1
+Llamada recursiva
+PASO: 73
+2,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 73
+1,2
+Llamada recursiva
+PASO: 74
+2,2
+Llamada recursiva
+PASO: 75
+2,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 75
+2,3
+Llamada recursiva
+PASO: 76
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 76
+1,3
+Llamada recursiva
+PASO: 77
+1,4
+Llamada recursiva
+PASO: 78
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 78
+1,5
+Llamada recursiva
+PASO: 79
+2,5
+Llamada recursiva
+PASO: 80
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 80
+0,5
+Llamada recursiva
+PASO: 81
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 81
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 81
+0,3
+Llamada recursiva
+PASO: 82
+0,2
+Llamada recursiva
+PASO: 83
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 83
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 83
+1,3
+Llamada recursiva
+PASO: 84
+2,3
+Llamada recursiva
+PASO: 85
+2,2
+Llamada recursiva
+PASO: 86
+2,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 86
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 86
+1,4
+Llamada recursiva
+PASO: 87
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 87
+1,5
+Llamada recursiva
+PASO: 88
+2,5
+Llamada recursiva
+PASO: 89
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 89
+0,5
+Llamada recursiva
+PASO: 90
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 90
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 90
+0,3
+Llamada recursiva
+PASO: 91
+0,2
+Llamada recursiva
+PASO: 92
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 92
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 92
+0,2
+Llamada recursiva
+PASO: 93
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 93
+0,3
+Llamada recursiva
+PASO: 94
+1,3
+Llamada recursiva
+PASO: 95
+2,3
+Llamada recursiva
+PASO: 96
+2,2
+Llamada recursiva
+PASO: 97
+2,1
+Descarto por llegada temprana a checkpoint actual
+PASO: 97
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 97
+1,4
+Llamada recursiva
+PASO: 98
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 98
+1,5
+Llamada recursiva
+PASO: 99
+2,5
+Llamada recursiva
+PASO: 100
+2,4
+Descarto por llegada a otro checkpoint
+PASO: 100
+0,5
+Llamada recursiva
+PASO: 101
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 101
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 101
+0,4
+Descarto por llegada a otro checkpoint
+PASO: 101
+0,1
+Descarto por llegada a otro checkpoint
+PASO: 101
+0,1
+Descarto por llegada a otro checkpoint

@@ -2,12 +2,12 @@
 
 using namespace std;
 
-Tablero::Tablero(unsigned n, unsigned m) : m_n(n), m_m(m) {
-    m_matriz.reserve(n);
-    vector<Casilla> v(m);
+Tablero::Tablero(unsigned m, unsigned n) : m_m(m), m_n(n) {
+    m_matriz.reserve(m);
+    vector<Casilla> v(n);
     for (auto &c : v)
         c = {0, 0, 0, false};
-    for (unsigned i = 0; i < n; ++i)
+    for (unsigned i = 0; i < m; ++i)
         m_matriz.push_back(v);
 }
 
