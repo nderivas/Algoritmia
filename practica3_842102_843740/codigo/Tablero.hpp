@@ -8,7 +8,7 @@ class Tablero {
 
   public:
     Tablero(unsigned n, unsigned m);
-    inline bool dentro(int x, int y) const;
+    bool dentro(int fil, int col) const;
     unsigned getN() const;
     unsigned getM() const;
     Matriz &getMatriz();

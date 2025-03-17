@@ -1,4 +1,6 @@
 #include "Yumi.hpp"
+#include "iostream"
+#include <cmath>
 
 using namespace std;
 
@@ -31,119 +33,134 @@ void Yumi::calcularGradosIniciales() {
     auto &t = m_tablero.getMatriz();
     t[0][0].salidas = 2;
     t[0][1].entradas = 3;
-    for (unsigned i = 0; i < m_tablero.getN(); ++i)
-        for (unsigned j = 2; i < m_tablero.getM(); ++j)
+    for (unsigned i = 0; i < m_tablero.getM(); ++i)
+        for (unsigned j = i == 0 ? 2 : 0; j < m_tablero.getN(); ++j)
             if (m_tablero.dentro(i, j))
                 calcularGrado(t, i, j);
 }
 
 Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr)
-    : m_chPts(arr), m_sigChPt(0), m_pasos(1), m_x(0), m_y(0), m_tablero(n, m) {
+    : m_chPts(arr), m_sigChPt(0), m_pasos(1), m_fil(0), m_col(0),
+      m_tablero(n, m) {
     for (unsigned i = 1; i <= c_CHECKPOINTS + 1; ++i)
         m_pasosChPt[i - 1] = (n * m * i) / (c_CHECKPOINTS + 1);
     calcularGradosIniciales();
 }
 
 inline unsigned Yumi::distanciaAChPt() const {
-    return distancia({m_x, m_y}, m_chPts[m_sigChPt]);
+    return distancia({m_fil, m_col}, m_chPts[m_sigChPt]);
 }
 
 void Yumi::recalcularGrados() { calcularGradosIniciales(); }
 
-inline bool Yumi::casillaConGradoInvalido(Casilla &c) {
+inline bool Yumi::casillaConGradoInvalido(const unsigned i, const unsigned j) {
+    Casilla &c = m_tablero.getMatriz()[i][j];
     bool hayEntradas = c.entradas > 0 || c.dobles > 0;
     bool haySalidas = c.salidas > 0 || c.dobles > 0;
     bool caso1 = hayEntradas && haySalidas && c.dobles != 1;
     bool caso2 = c.dobles >= 2;
-    return !caso1 && !caso2;
+    bool caso3 = haySalidas && m_fil == i && m_col == j;
+    return !caso1 && !caso2 && !caso3;
 }
 
 bool Yumi::hayGradoInvalido() {
-    for (auto &v : m_tablero.getMatriz())
-        for (auto &c : v)
-            if (casillaConGradoInvalido(c))
+    for (unsigned i = 0; i < m_tablero.getN(); ++i)
+        for (unsigned j = i == 0 ? 2 : 0; j < m_tablero.getM(); ++j)
+            if (casillaConGradoInvalido(i, j))
                 return true;
     return false;
 }
 
 inline bool Yumi::inChPt() const {
     for (const Punto &p : m_chPts)
-        if (p.first == m_x && p.second == m_y)
+        if (p.first == m_fil && p.second == m_col)
             return true;
     return false;
 }
 
 inline void Yumi::siguienteLlamada(unsigned &sol) {
     // Llamada recursiva y predicados 1 y 4
-    m_tablero.getMatriz()[m_x][m_y].visitado = true;
+    m_tablero.getMatriz()[m_fil][m_col].visitado = true;
     m_pasos++;
-    if (m_tablero.dentro(m_x - 1, m_y) &&
-        !m_tablero.getMatriz()[m_x - 1][m_y].visitado) {
-        m_x--;
-        if (inChPt())
-            m_sigChPt++;
+    if (m_tablero.dentro(m_fil - 1, m_col) &&
+        !m_tablero.getMatriz()[m_fil - 1][m_col].visitado) {
+        m_fil--;
         recResolver(sol);
-        m_x++;
+        m_fil++;
     }
-    if (m_tablero.dentro(m_x, m_y + 1) &&
-        !m_tablero.getMatriz()[m_x][m_y + 1].visitado) {
-        m_y++;
-        if (inChPt())
-            m_sigChPt++;
+    if (m_tablero.dentro(m_fil, m_col + 1) &&
+        !m_tablero.getMatriz()[m_fil][m_col + 1].visitado) {
+        m_col++;
         recResolver(sol);
-        m_y--;
+        m_col--;
     }
-    if (m_tablero.dentro(m_x, m_y - 1) &&
-        !m_tablero.getMatriz()[m_x][m_y - 1].visitado) {
-        m_y--;
-        if (inChPt())
-            m_sigChPt++;
+    if (m_tablero.dentro(m_fil + 1, m_col) &&
+        !m_tablero.getMatriz()[m_fil + 1][m_col].visitado) {
+        m_fil++;
         recResolver(sol);
-        m_y++;
+        m_fil--;
     }
-    if (m_tablero.dentro(m_x + 1, m_y) &&
-        !m_tablero.getMatriz()[m_x + 1][m_y].visitado) {
-        m_x++;
-        if (inChPt())
-            m_sigChPt++;
+    if (m_tablero.dentro(m_fil, m_col - 1) &&
+        !m_tablero.getMatriz()[m_fil][m_col - 1].visitado) {
+        m_col--;
         recResolver(sol);
-        m_x--;
+        m_col++;
     }
-    m_tablero.getMatriz()[m_x][m_y].visitado = false;
+    m_tablero.getMatriz()[m_fil][m_col].visitado = false;
 }
 
 void Yumi::recResolver(unsigned &sol) {
     // Predicados acotadores
-    // --- Comporbación de llegada temprana (Pred 2)
+    // --- Comprobación de llegada temprana (Pred 2)
+    cout << "PASO: " << m_pasos << endl;
+    cout << m_fil << "," << m_col << endl;
     for (unsigned i = m_sigChPt + 1; i < m_chPts.size(); ++i)
-        if (m_x == m_chPts[i].first && m_y == m_chPts[i].second)
+        if (m_fil == m_chPts[i].first && m_col == m_chPts[i].second) {
+            cout << "Descarto por llegada a otro checkpoint" << endl;
             return;
-    // --- Comprobación de llegada a tiempo al checkpoint (Pred 5 y 7)
-    if (distanciaAChPt() != m_pasosChPt[m_sigChPt] - m_pasos)
-        return;
+        }
+    // --- Comprobación de grados
     recalcularGrados();
-    if (hayGradoInvalido())
+    if (hayGradoInvalido()) {
+        cout << "Descarto por grado invalido" << endl;
         return;
+    }
+    // --- Comprobación de llegada a tiempo al checkpoint (Pred 5 y 7)
+    if (distanciaAChPt() > m_pasosChPt[m_sigChPt] - m_pasos) {
+        cout << "Descarto por llegada a checkpoint actual" << endl;
+        cout << distanciaAChPt() << ">" << m_pasosChPt[m_sigChPt] << '-'
+             << m_pasos << endl;
+        return;
+    }
     // Caso base y predicado 3
-    if (m_x == c_FIN.first && m_y == c_FIN.second) {
+    if (m_fil == c_FIN.first && m_col == c_FIN.second) {
         sol++;
         return;
     }
     // Llamada recursiva
+    if (inChPt())
+        m_sigChPt++;
+    cout << "Llamada recursiva" << endl;
     siguienteLlamada(sol);
+    if (inChPt())
+        m_sigChPt--;
 }
 
 // Wrapper de la llamada recursiva
 unsigned Yumi::resolver() {
     // Comprobaciones
     // --- Checkpoints dentro del tablero
+    cout << "Hello, " << endl;
     for (auto &p : m_chPts)
         if (!m_tablero.dentro(p.first, p.second))
             return 0;
     // Llego de un checkpoint a otro
-    for (unsigned i = 0; i < c_CHECKPOINTS - 1; ++i)
-        if (distancia(m_chPts[i], m_chPts[i + 1]) > m_pasosChPt[i])
+    for (unsigned i = 0; i < c_CHECKPOINTS; ++i) {
+        if (distancia(m_chPts[i], m_chPts[i + 1]) >
+            m_pasosChPt[i] - m_pasosChPt[i + 1])
             return 0;
+    }
+    cout << "World!" << endl;
     // Llamada recursiva
     unsigned soluciones = 0;
     recResolver(soluciones);

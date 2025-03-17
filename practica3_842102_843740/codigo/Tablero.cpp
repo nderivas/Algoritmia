@@ -11,8 +11,8 @@ Tablero::Tablero(unsigned n, unsigned m) : m_n(n), m_m(m) {
         m_matriz.push_back(v);
 }
 
-inline bool Tablero::dentro(int x, int y) const {
-    return x >= 0 && x < m_m && y >= 0 && y < m_n;
+bool Tablero::dentro(int fil, int col) const {
+    return fil >= 0 && fil < m_m && col >= 0 && col < m_n;
 }
 
 unsigned Tablero::getM() const { return m_m; }

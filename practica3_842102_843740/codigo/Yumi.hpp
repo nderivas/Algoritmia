@@ -7,9 +7,9 @@
 class Yumi {
     std::array<Punto, c_CHECKPOINTS + 1> m_chPts; // Array de checkpoints
     // Pasos hasta checkpoint
-    std::array<unsigned, c_CHECKPOINTS> m_pasosChPt;
+    std::array<unsigned, c_CHECKPOINTS + 1> m_pasosChPt;
     unsigned m_sigChPt, m_pasos;
-    int m_x, m_y;
+    int m_fil, m_col;
     Tablero m_tablero;
 
     inline void calcularGrado(Matriz &t, int i, int j);
@@ -17,7 +17,7 @@ class Yumi {
     inline unsigned distanciaAChPt() const;
     inline bool inChPt() const;
     void recalcularGrados();
-    inline bool casillaConGradoInvalido(Casilla &c);
+    inline bool casillaConGradoInvalido(const unsigned i, const unsigned j);
     bool hayGradoInvalido();
     inline void siguienteLlamada(unsigned &sol);
     void recResolver(unsigned &sol);
