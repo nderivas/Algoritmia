@@ -2,6 +2,6 @@
 
 class Casilla {
   public:
-    unsigned grado;
+    unsigned entradas, salidas, dobles;
     bool visitado;
 };

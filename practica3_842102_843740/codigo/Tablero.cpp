@@ -6,7 +6,7 @@ Tablero::Tablero(unsigned n, unsigned m) : m_n(n), m_m(m) {
     m_matriz.reserve(n);
     vector<Casilla> v(m);
     for (auto &c : v)
-        c = {0, false};
+        c = {0, 0, 0, false};
     for (unsigned i = 0; i < n; ++i)
         m_matriz.push_back(v);
 }
