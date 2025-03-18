@@ -1,11 +1,13 @@
 #include "Yumi.hpp"
+#include <ctime>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
 
-void escribirInforme(std::ostream &out, unsigned sol, time_t tiempo) {
-    out << sol << endl;
+void escribirInforme(std::ostream &out, unsigned sol, double tiempo) {
+    out << sol << ' ' << fixed << setprecision(6) << tiempo << endl;
 }
 
 int main(int argc, char **argv) {
@@ -24,17 +26,17 @@ int main(int argc, char **argv) {
     arr[c_CHECKPOINTS] = c_FIN;
     while (!in.eof()) {
         in >> m >> n;
+        if (in.eof())
+            break;
         for (unsigned i = 0; i < c_CHECKPOINTS; ++i)
             in >> arr[i].first >> arr[i].second;
-        cout << "m: " << m << ", n: " << n << endl;
-        for (unsigned i = 0; i < c_CHECKPOINTS + 1; ++i)
-            cout << arr[i].first << "," << arr[i].second << " ";
-        cout << endl;
         Yumi yumi(m, n, arr);
         // Start timer
+        auto tIni = clock();
         unsigned soluciones = yumi.resolver();
-        // End timer
-        escribirInforme(out, soluciones, 0);
+        clock_t tFin = clock();
+        double tot = static_cast<double>(tFin - tIni) / CLOCKS_PER_SEC;
+        escribirInforme(out, soluciones, tot);
     }
     return 0;
 }

@@ -4,9 +4,6 @@ build = ./build
 bin = ./bin
 src = ./codigo
 
-temp:
-	$(gcc) $(flags) $(src)/Yumi.cpp $(src)/Tablero.cpp $(src)/main.cpp -o $(bin)/recorridosYumi
-
 main: Yumi.o Tablero.o main.o
 	$(gcc) $(flags) $(build)/Yumi.o $(build)/Tablero.o $(build)/main.o -o $(bin)/recorridosYumi
 

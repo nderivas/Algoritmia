@@ -17,7 +17,7 @@ class Yumi {
     inline unsigned distanciaAChPt() const;
     inline bool inChPt() const;
     void recalcularGrados();
-    inline bool casillaConGradoInvalido(const unsigned i, const unsigned j);
+    inline bool casillaConGradoInvalido(const int i, const int j);
     bool hayGradoInvalido();
     inline void siguienteLlamada(unsigned &sol);
     void recResolver(unsigned &sol);
