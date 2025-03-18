@@ -70,7 +70,7 @@ void HuffDeco::leerArbol(ifstream &in) {
         in.read(&byte, 1); // Byte original
         in.read(&tam, 1);  // Longitud del código
         // Bytes que ocupa el código
-        numBytes = ((8 - tam % 8) + tam) / 8; // TODO: Esto se puede simplificar
+        numBytes = ((8 - tam % 8) + tam) / 8;
         for (char j = 0; j < numBytes; ++j) { // Leer bytes
             in.read(&temp, 1);
             string nuevoByte = trad::binToStr(temp);
@@ -115,7 +115,7 @@ void HuffDeco::decodificarContenidos(ifstream &in, ofstream &out) {
     string cad = "", nuevoByte;
     NodoHuff *nodo = raiz;
     in.read(&extras, 1);
-    while (in.read(&c, 1)) { // TODO: Hacer magia
+    while (in.read(&c, 1)) {
         if (c != EOF) {
             avanzaYEscribe(nodo, cad, out);
             cad = "";

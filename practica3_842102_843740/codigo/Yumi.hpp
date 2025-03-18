@@ -1,5 +1,7 @@
 #pragma once
 
+// Práctica 3 - Algoritmia básica
+// Nicolás de Rivas Morillo (843740) y Cristina Embid Martínez (842102)
 #include "Tablero.hpp"
 #include "comun.hpp"
 #include <array>
@@ -23,6 +25,7 @@ class Yumi {
     void recResolver(unsigned &sol);
 
   public:
+    // Constructor
     Yumi(unsigned m, unsigned n, std::array<Punto, c_CHECKPOINTS + 1> arr);
     unsigned resolver();
 };
