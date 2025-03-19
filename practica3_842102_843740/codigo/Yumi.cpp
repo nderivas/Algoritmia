@@ -1,10 +1,21 @@
 // Práctica 3 - Algoritmia básica
 // Nicolás de Rivas Morillo (843740) y Cristina Embid Martínez (842102)
 #include "Yumi.hpp"
-#include <cmath>
 #include <iostream>
 
 using namespace std;
+
+// Constructor de Yumi
+Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr)
+    : m_chPts(arr), m_sigChPt(0), m_pasos(1), m_fil(0), m_col(0),
+      m_tablero(n, m), hayGradoInvalido(false) {
+    // Calcula los pasos requeridos para cada checkpoint
+    for (unsigned i = 1; i <= c_CHECKPOINTS + 1; ++i)
+        m_pasosChPt[i - 1] = (n * m * i) / (c_CHECKPOINTS + 1);
+    calcularGradosIniciales(); // Calculo de grados iniciales
+}
+
+inline int abs(const int n) { return n < 0 ? -n : n; }
 
 // Calcula la distancia entre dos puntos
 inline unsigned distancia(Punto a, Punto b) {
@@ -16,7 +27,8 @@ inline unsigned distancia(Punto a, Punto b) {
 // @param t Matriz en la que se calcula el grado
 // @param i Indice de fila de la casilla
 // @param j Indice de columna de la casilla
-inline void Yumi::calcularGrado(Matriz &t, int i, int j) {
+inline void Yumi::calcularGrado(const int i, const int j) {
+    auto &t = m_tablero.getMatriz();
     // Inicialización de la casilla
     t[i][j].entradas = 0;
     t[i][j].salidas = 0;
@@ -45,21 +57,11 @@ inline void Yumi::calcularGrado(Matriz &t, int i, int j) {
 void Yumi::calcularGradosIniciales() {
     auto &t = m_tablero.getMatriz();
     t[0][0].salidas = 2;  // Salidas de la casilla de inicio
-    t[0][1].entradas = 3; // Entradas de la casilla de inicio
+    t[0][1].entradas = 3; // Entradas de la casilla final
     // Recorre todas las casillas de la matriz (excepto las ya inicializadas)
     for (unsigned i = 0; i < m_tablero.getM(); ++i)
         for (unsigned j = i == 0 ? 2 : 0; j < m_tablero.getN(); ++j)
-            calcularGrado(t, i, j); // Calcula el grado de la casilla
-}
-
-// Constructor de Yumi
-Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr)
-    : m_chPts(arr), m_sigChPt(0), m_pasos(1), m_fil(0), m_col(0),
-      m_tablero(n, m) {
-    // Calcula los pasos requeridos para cada checkpoint
-    for (unsigned i = 1; i <= c_CHECKPOINTS + 1; ++i)
-        m_pasosChPt[i - 1] = (n * m * i) / (c_CHECKPOINTS + 1);
-    calcularGradosIniciales(); // Calculo de grados iniciales
+            calcularGrado(i, j); // Calcula el grado de la casilla
 }
 
 // Calcula la distancia al siguiente checkpoint
@@ -68,7 +70,22 @@ inline unsigned Yumi::distanciaAChPt() const {
 }
 
 // Recalcula los grados en la matriz, reiniciando entradas, salidas y dobles
-void Yumi::recalcularGrados() { calcularGradosIniciales(); }
+bool Yumi::recalcularGrados(const int i, const int j) {
+    auto &t = m_tablero.getMatriz();
+    for (int off = -1; off <= 1; off = off + 2) {
+        if (m_tablero.dentro(i + off, j) && !t[i + off][j].visitado) {
+            calcularGrado(i + off, j);
+            if (casillaConGradoInvalido(i + off, j))
+                return true;
+        }
+        if (m_tablero.dentro(i, j + off) && !t[i][j + off].visitado) {
+            calcularGrado(i, j + off);
+            if (casillaConGradoInvalido(i, j + off))
+                return true;
+        }
+    }
+    return false;
+}
 
 // Verifica si la casilla en las coordenadas i,j tiene un grado inválido
 inline bool Yumi::casillaConGradoInvalido(const int i, const int j) {
@@ -79,17 +96,14 @@ inline bool Yumi::casillaConGradoInvalido(const int i, const int j) {
     bool caso4 = c.dobles > 0 && c.salidas > 0;   // Hay dobles y salidas
     // Estoy en la casilla y puedo salir -> hay dobles o salidas
     bool caso5 = m_fil == i && m_col == j && (c.dobles > 0 || c.salidas > 0);
-    return !caso1 && !caso2 && !caso3 && !caso4 && !caso5 && !c.visitado;
-}
-
-// Verifica si hay alguna casilla con grado inválido en la matriz
-// @return Devuelve true si existe al menos una casilla con grado inválido
-bool Yumi::hayGradoInvalido() {
-    for (unsigned i = 0; i < m_tablero.getM(); ++i)
-        for (unsigned j = i == 0 ? 2 : 0; j < m_tablero.getN(); ++j)
-            if (casillaConGradoInvalido(i, j))
-                return true;
-    return false;
+    // Estoy al final y puedo entrar
+    bool caso6 =
+        distancia(c_FIN, {i, j}) == 0 && (c.dobles > 0 || c.entradas > 0);
+    // Yumi está en el final
+    bool caso7 =
+        distancia(c_FIN, {m_fil, m_col}) == 0 && distancia(c_FIN, {i, j}) == 0;
+    return !caso1 && !caso2 && !caso3 && !caso4 && !caso5 && !caso6 && !caso7 &&
+           !c.visitado;
 }
 
 // Verifica si la posición actual está en algún checkpoint
@@ -113,27 +127,32 @@ inline void Yumi::siguienteLlamada(unsigned &sol) {
     if (m_tablero.dentro(m_fil, m_col - 1) &&
         !m_tablero.getMatriz()[m_fil][m_col - 1].visitado) {
         m_col--;
+        hayGradoInvalido = recalcularGrados(m_fil, m_col + 1);
         recResolver(sol);
         m_col++;
     }
     if (m_tablero.dentro(m_fil + 1, m_col) &&
         !m_tablero.getMatriz()[m_fil + 1][m_col].visitado) {
         m_fil++;
+        hayGradoInvalido = recalcularGrados(m_fil - 1, m_col);
         recResolver(sol);
         m_fil--;
     }
     if (m_tablero.dentro(m_fil, m_col + 1) &&
         !m_tablero.getMatriz()[m_fil][m_col + 1].visitado) {
         m_col++;
+        hayGradoInvalido = recalcularGrados(m_fil, m_col - 1);
         recResolver(sol);
         m_col--;
     }
     if (m_tablero.dentro(m_fil - 1, m_col) &&
         !m_tablero.getMatriz()[m_fil - 1][m_col].visitado) {
         m_fil--;
+        hayGradoInvalido = recalcularGrados(m_fil + 1, m_col);
         recResolver(sol);
         m_fil++;
     }
+    hayGradoInvalido = false;
     m_pasos--; // Decrementa contador de pasos
     m_tablero.getMatriz()[m_fil][m_col].visitado = false;
     if (inChPt())
@@ -163,8 +182,15 @@ void Yumi::recResolver(unsigned &sol) {
     // --- Comprobación de grados
     // Recalcula grados de la matriz y verifica si alguna casilla tiene un grado
     // inválido
-    recalcularGrados();
-    if (hayGradoInvalido()) {
+    if (hayGradoInvalido) {
+        // cout << m_pasos << endl;
+        // auto &t = m_tablero.getMatriz();
+        // for (int i = 0; i < m_tablero.getM(); i++) {
+        //     for (int j = 0; j < m_tablero.getN(); j++)
+        //         cout << t[i][j].entradas << ',' << t[i][j].salidas << ','
+        //              << t[i][j].dobles << ' ';
+        //     cout << endl;
+        // }
         return;
     }
     // Caso base y predicado 3

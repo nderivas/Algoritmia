@@ -13,14 +13,14 @@ class Yumi {
     unsigned m_sigChPt, m_pasos;
     int m_fil, m_col;
     Tablero m_tablero;
+    bool hayGradoInvalido;
 
-    inline void calcularGrado(Matriz &t, int i, int j);
+    inline void calcularGrado(const int i, const int j);
     void calcularGradosIniciales();
     inline unsigned distanciaAChPt() const;
     inline bool inChPt() const;
-    void recalcularGrados();
+    bool recalcularGrados(const int i, const int j);
     inline bool casillaConGradoInvalido(const int i, const int j);
-    bool hayGradoInvalido();
     inline void siguienteLlamada(unsigned &sol);
     void recResolver(unsigned &sol);
 
