@@ -1,7 +1,6 @@
 // Práctica 3 - Algoritmia básica
 // Nicolás de Rivas Morillo (843740) y Cristina Embid Martínez (842102)
 #include "Yumi.hpp"
-#include <iostream>
 
 using namespace std;
 
@@ -18,7 +17,7 @@ Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr)
 inline int abs(const int n) { return n < 0 ? -n : n; }
 
 // Calcula la distancia entre dos puntos
-inline unsigned distancia(Punto a, Punto b) {
+inline unsigned d(Punto a, Punto b) {
     return abs(a.first - b.first) + abs(a.second - b.second);
 }
 
@@ -35,17 +34,17 @@ inline void Yumi::calcularGrado(const int i, const int j) {
     t[i][j].dobles = 0;
     for (int off = -1; off <= 1; off = off + 2) {
         if (m_tablero.dentro(i + off, j) && !t[i + off][j].visitado) {
-            if (i + off == c_INI.first && j == c_INI.second)
+            if (d(c_INI, {i + off, j}) == 0)
                 t[i][j].entradas++;
-            else if (i + off == c_FIN.first && j == c_FIN.second)
+            else if (d(c_FIN, {i + off, j}) == 0)
                 t[i][j].salidas++;
             else
                 t[i][j].dobles++;
         }
         if (m_tablero.dentro(i, j + off) && !t[i][j + off].visitado) {
-            if (i == c_INI.first && j + off == c_INI.second)
+            if (d(c_INI, {i, j + off}) == 0)
                 t[i][j].entradas++;
-            else if (i == c_FIN.first && j + off == c_FIN.second)
+            else if (d(c_FIN, {i, j + off}) == 0)
                 t[i][j].salidas++;
             else
                 t[i][j].dobles++;
@@ -66,7 +65,7 @@ void Yumi::calcularGradosIniciales() {
 
 // Calcula la distancia al siguiente checkpoint
 inline unsigned Yumi::distanciaAChPt() const {
-    return distancia({m_fil, m_col}, m_chPts[m_sigChPt]);
+    return d({m_fil, m_col}, m_chPts[m_sigChPt]);
 }
 
 // Recalcula los grados en la matriz, reiniciando entradas, salidas y dobles
@@ -95,13 +94,12 @@ inline bool Yumi::casillaConGradoInvalido(const int i, const int j) {
     bool caso3 = c.entradas > 0 && c.salidas > 0; // Hay entradas y salidas
     bool caso4 = c.dobles > 0 && c.salidas > 0;   // Hay dobles y salidas
     // Estoy en la casilla y puedo salir -> hay dobles o salidas
-    bool caso5 = m_fil == i && m_col == j && (c.dobles > 0 || c.salidas > 0);
+    bool caso5 =
+        d({i, j}, {m_fil, m_col}) == 0 && (c.dobles > 0 || c.salidas > 0);
     // Estoy al final y puedo entrar
-    bool caso6 =
-        distancia(c_FIN, {i, j}) == 0 && (c.dobles > 0 || c.entradas > 0);
+    bool caso6 = d(c_FIN, {i, j}) == 0 && (c.dobles > 0 || c.entradas > 0);
     // Yumi está en el final
-    bool caso7 =
-        distancia(c_FIN, {m_fil, m_col}) == 0 && distancia(c_FIN, {i, j}) == 0;
+    bool caso7 = d(c_FIN, {m_fil, m_col}) == 0 && d(c_FIN, {i, j}) == 0;
     return !caso1 && !caso2 && !caso3 && !caso4 && !caso5 && !caso6 && !caso7 &&
            !c.visitado;
 }
@@ -109,7 +107,7 @@ inline bool Yumi::casillaConGradoInvalido(const int i, const int j) {
 // Verifica si la posición actual está en algún checkpoint
 inline bool Yumi::inChPt() const {
     for (const Punto &p : m_chPts)
-        if (p.first == m_fil && p.second == m_col)
+        if (d(p, {m_fil, m_col}) == 0)
             return true;
     return false;
 }
@@ -166,37 +164,24 @@ void Yumi::recResolver(unsigned &sol) {
     // Predicados acotadores
     // --- Comprobación de llegada temprana (Pred 2)
     for (unsigned i = m_sigChPt + 1; i < m_chPts.size(); ++i)
-        if (m_fil == m_chPts[i].first && m_col == m_chPts[i].second) {
+        if (d({m_fil, m_col}, m_chPts[i]) == 0)
             return;
-        }
     // --- Comprobación de llegada a tiempo al checkpoint (Pred 5)
-    if (distanciaAChPt() > m_pasosChPt[m_sigChPt] - m_pasos) {
+    if (distanciaAChPt() > m_pasosChPt[m_sigChPt] - m_pasos)
         return;
-    }
     // --- Comprobación de llegada temprana a checkpoint actual (Pred 7)
-    if (m_fil == m_chPts[m_sigChPt].first &&
-        m_col == m_chPts[m_sigChPt].second &&
-        m_pasos != m_pasosChPt[m_sigChPt]) {
+
+    if (d({m_fil, m_col}, m_chPts[m_sigChPt]) == 0 &&
+        m_pasos != m_pasosChPt[m_sigChPt])
         return;
-    }
     // --- Comprobación de grados
-    // Recalcula grados de la matriz y verifica si alguna casilla tiene un grado
-    // inválido
-    if (hayGradoInvalido) {
-        // cout << m_pasos << endl;
-        // auto &t = m_tablero.getMatriz();
-        // for (int i = 0; i < m_tablero.getM(); i++) {
-        //     for (int j = 0; j < m_tablero.getN(); j++)
-        //         cout << t[i][j].entradas << ',' << t[i][j].salidas << ','
-        //              << t[i][j].dobles << ' ';
-        //     cout << endl;
-        // }
+    // Recalcula grados de la matriz y verifica si alguna casilla tiene
+    // un grado inválido
+    if (hayGradoInvalido)
         return;
-    }
     // Caso base y predicado 3
     // Se verifica si la posición actual es la casilla final.
-    if (m_fil == c_FIN.first && m_col == c_FIN.second) {
-        // cout << "SOLUCIÓN" << endl;
+    if (d({m_fil, m_col}, c_FIN) == 0) {
         sol++;
         return;
     }
@@ -208,15 +193,14 @@ void Yumi::recResolver(unsigned &sol) {
 unsigned Yumi::resolver() {
     // Comprobaciones
     // --- Checkpoints dentro del tablero
-    // Se verifica que todos los checkpoints estén dentro de los límites de la
-    // matriz
+    // Se verifica que todos los checkpoints estén dentro de los límites de
+    // la matriz
     for (auto &p : m_chPts)
         if (!m_tablero.dentro(p.first, p.second))
             return 0;
     // Llego de un checkpoint a otro
     for (unsigned i = 0; i < c_CHECKPOINTS; ++i)
-        if (distancia(m_chPts[i], m_chPts[i + 1]) >
-            m_pasosChPt[i] - m_pasosChPt[i + 1])
+        if (d(m_chPts[i], m_chPts[i + 1]) > m_pasosChPt[i] - m_pasosChPt[i + 1])
             return 0;
     // Llamada recursiva
     unsigned soluciones = 0;

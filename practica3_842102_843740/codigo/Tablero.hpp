@@ -10,9 +10,9 @@ class Tablero {
 
   public:
     Tablero(unsigned m, unsigned n); // Constructor
-    bool dentro(unsigned fil,
-                unsigned col) const; // Verificar si está dentro del tablero
-    unsigned getN() const;           // Obtener número de columnas
-    unsigned getM() const;           // Obtener número de filas
-    Matriz &getMatriz();             // Obtener matriz
+    // Verificar si está dentro del tablero
+    bool dentro(unsigned fil, unsigned col) const;
+    unsigned getN() const; // Obtener número de columnas
+    unsigned getM() const; // Obtener número de filas
+    Matriz &getMatriz();   // Obtener matriz
 };
