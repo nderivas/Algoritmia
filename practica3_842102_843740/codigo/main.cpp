@@ -1,18 +1,20 @@
 // Práctica 3 - Algoritmia básica
 // Nicolás de Rivas Morillo (843740) y Cristina Embid Martínez (842102)
+#include "MeetYumi.hpp"
 #include "Yumi.hpp"
 #include <ctime>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include "MeetYumi.hpp"
 
 using namespace std;
 
 // Escribe resultados en el archivo de salida
-void escribirInforme(std::ostream &out, unsigned sol, double tiempo, unsigned solMeet, double tiempoMeet) {
+void escribirInforme(std::ostream &out, unsigned sol, double tiempo,
+                     unsigned solMeet, double tiempoMeet) {
     out << sol << ' ' << fixed << setprecision(6) << tiempo << '\n'
-        << "MeetInTheMiddle: " << solMeet << ' ' << fixed << setprecision(6) << tiempoMeet << endl;
+        << "MeetInTheMiddle: " << solMeet << ' ' << fixed << setprecision(6)
+        << tiempoMeet << endl;
 }
 
 int main(int argc, char **argv) {

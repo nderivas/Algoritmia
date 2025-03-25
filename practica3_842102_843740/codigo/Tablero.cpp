@@ -9,7 +9,7 @@ Tablero::Tablero(unsigned m, unsigned n) : m_m(m), m_n(n) {
     m_matriz.reserve(m); // Reserva espacio para m filas
     vector<Casilla> v(n);
     for (auto &c : v) // Inicializa cada casilla
-        c = {0, 0, 0, false};
+        c = {0, 0, 0, false, false};
     for (unsigned i = 0; i < m; ++i)
         m_matriz.push_back(v);
 }

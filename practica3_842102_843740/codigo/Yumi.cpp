@@ -6,16 +6,18 @@
 using namespace std;
 
 // Constructor de Yumi
-Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr, const unsigned llegada, const unsigned inicio)
+Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr,
+           const unsigned llegada, const unsigned inicio)
     : m_chPts(arr), m_sigChPt(inicio), m_pasos(1), m_fil(0), m_col(0),
-      m_tablero(n, m), hayGradoInvalido(false), llegada(llegada), segundaYumi(inicio > 0) {
+      m_tablero(n, m), hayGradoInvalido(false), llegada(llegada),
+      segundaYumi(inicio > 0), mirarDesconexion(false) {
     if (segundaYumi) {
         m_tablero.getMatriz()[0][0].visitado = true;
         m_tablero.getMatriz()[1][0].visitado = true;
         m_tablero.getMatriz()[m_fil][m_col].visitado = true;
         m_fil = m_chPts[inicio].first;
         m_col = m_chPts[inicio].second;
-        m_pasos = n*m/2;
+        m_pasos = n * m / 2;
     }
     // Calcula los pasos requeridos para cada checkpoint
     for (unsigned i = 1; i <= c_CHECKPOINTS + 1; ++i)
@@ -28,6 +30,31 @@ inline int abs(const int n) { return n < 0 ? -n : n; }
 // Calcula la distancia entre dos puntos
 inline unsigned d(Punto a, Punto b) {
     return abs(a.first - b.first) + abs(a.second - b.second);
+}
+
+void dfs(const int i, const int j, Tablero &t, unsigned &marcadas) {
+    auto &m = t.getMatriz();
+    marcadas++;
+    m[i][j].marca = true;
+    if (t.dentro(i - 1, j) && !m[i - 1][j].marca && !m[i - 1][j].visitado)
+        dfs(i - 1, j, t, marcadas);
+    if (t.dentro(i + 1, j) && !m[i + 1][j].marca && !m[i + 1][j].visitado)
+        dfs(i + 1, j, t, marcadas);
+    if (t.dentro(i, j - 1) && !m[i][j - 1].marca && !m[i][j - 1].visitado)
+        dfs(i, j - 1, t, marcadas);
+    if (t.dentro(i, j + 1) && !m[i][j + 1].marca && !m[i][j + 1].visitado)
+        dfs(i, j + 1, t, marcadas);
+}
+
+bool Yumi::hayDesconexion() {
+    for (auto &v : m_tablero.getMatriz())
+        for (auto &c : v)
+            c.marca = false;
+    unsigned marcadas = 0;
+    dfs(0, 1, m_tablero, marcadas);
+    return marcadas != m_tablero.getM() * m_tablero.getN() - m_pasos + 1; /* ||
+            segundaYumi &&
+                marcadas >= m_tablero.getM() * m_tablero.getN() - m_pasos + 1;*/
 }
 
 // Calcula el grado de una casilla en la Matriz, actualizando las entradas,
@@ -122,7 +149,7 @@ inline bool Yumi::inChPt() const {
 }
 
 // Función recursiva para resolver el problema
-inline void Yumi::siguienteLlamada(vector<Tablero> &sol) {
+inline void Yumi::siguienteLlamada(vector<Matriz> &sol) {
     // Llamada recursiva y predicados 1 y 4
     if (inChPt())
         m_sigChPt++; // Avanza el siguiente checkpoint si la posición está en un
@@ -134,6 +161,7 @@ inline void Yumi::siguienteLlamada(vector<Tablero> &sol) {
     if (m_tablero.dentro(m_fil, m_col - 1) &&
         !m_tablero.getMatriz()[m_fil][m_col - 1].visitado) {
         m_col--;
+        mirarDesconexion = m_col == 0;
         hayGradoInvalido = recalcularGrados(m_fil, m_col + 1);
         recResolver(sol);
         m_col++;
@@ -141,6 +169,7 @@ inline void Yumi::siguienteLlamada(vector<Tablero> &sol) {
     if (m_tablero.dentro(m_fil + 1, m_col) &&
         !m_tablero.getMatriz()[m_fil + 1][m_col].visitado) {
         m_fil++;
+        mirarDesconexion = m_fil == m_tablero.getM() - 1;
         hayGradoInvalido = recalcularGrados(m_fil - 1, m_col);
         recResolver(sol);
         m_fil--;
@@ -148,6 +177,7 @@ inline void Yumi::siguienteLlamada(vector<Tablero> &sol) {
     if (m_tablero.dentro(m_fil, m_col + 1) &&
         !m_tablero.getMatriz()[m_fil][m_col + 1].visitado) {
         m_col++;
+        mirarDesconexion = m_col == m_tablero.getN() - 1;
         hayGradoInvalido = recalcularGrados(m_fil, m_col - 1);
         recResolver(sol);
         m_col--;
@@ -155,6 +185,7 @@ inline void Yumi::siguienteLlamada(vector<Tablero> &sol) {
     if (m_tablero.dentro(m_fil - 1, m_col) &&
         !m_tablero.getMatriz()[m_fil - 1][m_col].visitado) {
         m_fil--;
+        mirarDesconexion = m_fil == 0;
         hayGradoInvalido = recalcularGrados(m_fil + 1, m_col);
         recResolver(sol);
         m_fil++;
@@ -169,7 +200,7 @@ inline void Yumi::siguienteLlamada(vector<Tablero> &sol) {
 // Realiza la búsqueda recursiva de soluciones, comprobando los predicados
 // acotadores
 // @param sol número de soluciones
-void Yumi::recResolver(vector<Tablero> &sol) {
+void Yumi::recResolver(vector<Matriz> &sol) {
     // Predicados acotadores
     // --- Comprobación de grados
     // Recalcula grados de la matriz y verifica si alguna casilla tiene
@@ -185,17 +216,18 @@ void Yumi::recResolver(vector<Tablero> &sol) {
         return;
     // --- Comprobación de llegada temprana (Pred 2)
     for (unsigned i = 0; i < m_chPts.size(); ++i) {
-        if (i == m_sigChPt) continue;
+        if (i == m_sigChPt)
+            continue;
         if (d({m_fil, m_col}, m_chPts[i]) == 0)
             return;
     }
-    // // --- Comprobación de desconexión (Pred 8)
-    // if (mirarDesconexion && hayDesconexion())
-    //     return;
+    // --- Comprobación de desconexión (Pred 8)
+    if (mirarDesconexion && d(c_FIN, {m_fil, m_col}) && hayDesconexion())
+        return;
     // Caso base y predicado 3
     // Se verifica si la posición actual es la casilla final.
     if (d({m_fil, m_col}, m_chPts[llegada]) == 0) {
-        sol.push_back(m_tablero);
+        sol.push_back(m_tablero.getMatriz());
         return;
     }
     // Llamada recursiva
@@ -203,7 +235,7 @@ void Yumi::recResolver(vector<Tablero> &sol) {
 }
 
 // Wrapper de la llamada recursiva
-vector<Tablero> Yumi::resolver() {
+vector<Matriz> Yumi::resolver() {
     // Comprobaciones
     // --- Checkpoints dentro del tablero
     // Se verifica que todos los checkpoints estén dentro de los límites de
@@ -216,7 +248,7 @@ vector<Tablero> Yumi::resolver() {
         if (d(m_chPts[i], m_chPts[i + 1]) > m_pasosChPt[i] - m_pasosChPt[i + 1])
             return {};
     // Llamada recursiva
-    vector<Tablero> soluciones;
+    vector<Matriz> soluciones;
     recResolver(soluciones);
     return soluciones; // Retorna el número total de soluciones
 }

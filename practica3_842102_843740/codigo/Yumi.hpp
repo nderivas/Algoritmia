@@ -15,20 +15,21 @@ class Yumi {
     Tablero m_tablero;
     bool hayGradoInvalido;
     unsigned llegada;
-    bool segundaYumi;
+    bool segundaYumi, mirarDesconexion;
 
+    bool hayDesconexion();
     inline void calcularGrado(const int i, const int j);
     void calcularGradosIniciales();
     inline unsigned distanciaAChPt() const;
     inline bool inChPt() const;
     bool recalcularGrados(const int i, const int j);
     inline bool casillaConGradoInvalido(const int i, const int j);
-    inline void siguienteLlamada(std::vector<Tablero> &sol);
-    void recResolver(std::vector<Tablero> &sol);
+    inline void siguienteLlamada(std::vector<Matriz> &sol);
+    void recResolver(std::vector<Matriz> &sol);
 
   public:
     // Constructor
     Yumi(unsigned m, unsigned n, std::array<Punto, c_CHECKPOINTS + 1> arr,
          const unsigned llegada = c_CHECKPOINTS, const unsigned inicio = 0);
-    std::vector<Tablero> resolver();
+    std::vector<Matriz> resolver();
 };

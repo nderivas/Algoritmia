@@ -1,14 +1,20 @@
-1 0.000012
-MeetInTheMiddle: 1 0.000008
-2 0.000032
-MeetInTheMiddle: 2 0.000091
-0 0.000008
-MeetInTheMiddle: 0 0.000013
-2 0.000059
-MeetInTheMiddle: 2 0.000241
-24 0.000552
-MeetInTheMiddle: 24 0.008095
-6 0.000668
-MeetInTheMiddle: 6 0.022515
-67 0.020063
-MeetInTheMiddle: 67 87.477149
+1 0.000017
+MeetInTheMiddle: 1 0.000036
+2 0.000045
+MeetInTheMiddle: 0 0.000046
+0 0.000010
+MeetInTheMiddle: 0 0.000025
+2 0.000064
+MeetInTheMiddle: 0 0.000081
+24 0.000852
+MeetInTheMiddle: 0 0.001557
+6 0.000931
+MeetInTheMiddle: 0 0.001278
+67 0.009811
+MeetInTheMiddle: 0 0.027985
+626 0.067812
+MeetInTheMiddle: 0 2.787816
+1334 0.459225
+MeetInTheMiddle: 0 3.784571
+914 0.373438
+MeetInTheMiddle: 0 7.267863
