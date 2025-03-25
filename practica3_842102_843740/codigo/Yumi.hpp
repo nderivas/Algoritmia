@@ -14,6 +14,8 @@ class Yumi {
     int m_fil, m_col;
     Tablero m_tablero;
     bool hayGradoInvalido;
+    unsigned llegada;
+    bool segundaYumi;
 
     inline void calcularGrado(const int i, const int j);
     void calcularGradosIniciales();
@@ -21,11 +23,12 @@ class Yumi {
     inline bool inChPt() const;
     bool recalcularGrados(const int i, const int j);
     inline bool casillaConGradoInvalido(const int i, const int j);
-    inline void siguienteLlamada(unsigned &sol);
-    void recResolver(unsigned &sol);
+    inline void siguienteLlamada(std::vector<Tablero> &sol);
+    void recResolver(std::vector<Tablero> &sol);
 
   public:
     // Constructor
-    Yumi(unsigned m, unsigned n, std::array<Punto, c_CHECKPOINTS + 1> arr);
-    unsigned resolver();
+    Yumi(unsigned m, unsigned n, std::array<Punto, c_CHECKPOINTS + 1> arr,
+         const unsigned llegada = c_CHECKPOINTS, const unsigned inicio = 0);
+    std::vector<Tablero> resolver();
 };

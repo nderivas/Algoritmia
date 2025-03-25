@@ -1,13 +1,22 @@
 // Práctica 3 - Algoritmia básica
 // Nicolás de Rivas Morillo (843740) y Cristina Embid Martínez (842102)
 #include "Yumi.hpp"
+#include <iostream>
 
 using namespace std;
 
 // Constructor de Yumi
-Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr)
-    : m_chPts(arr), m_sigChPt(0), m_pasos(1), m_fil(0), m_col(0),
-      m_tablero(n, m), hayGradoInvalido(false) {
+Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr, const unsigned llegada, const unsigned inicio)
+    : m_chPts(arr), m_sigChPt(inicio), m_pasos(1), m_fil(0), m_col(0),
+      m_tablero(n, m), hayGradoInvalido(false), llegada(llegada), segundaYumi(inicio > 0) {
+    if (segundaYumi) {
+        m_tablero.getMatriz()[0][0].visitado = true;
+        m_tablero.getMatriz()[1][0].visitado = true;
+        m_tablero.getMatriz()[m_fil][m_col].visitado = true;
+        m_fil = m_chPts[inicio].first;
+        m_col = m_chPts[inicio].second;
+        m_pasos = n*m/2;
+    }
     // Calcula los pasos requeridos para cada checkpoint
     for (unsigned i = 1; i <= c_CHECKPOINTS + 1; ++i)
         m_pasosChPt[i - 1] = (n * m * i) / (c_CHECKPOINTS + 1);
@@ -113,7 +122,7 @@ inline bool Yumi::inChPt() const {
 }
 
 // Función recursiva para resolver el problema
-inline void Yumi::siguienteLlamada(unsigned &sol) {
+inline void Yumi::siguienteLlamada(vector<Tablero> &sol) {
     // Llamada recursiva y predicados 1 y 4
     if (inChPt())
         m_sigChPt++; // Avanza el siguiente checkpoint si la posición está en un
@@ -160,29 +169,33 @@ inline void Yumi::siguienteLlamada(unsigned &sol) {
 // Realiza la búsqueda recursiva de soluciones, comprobando los predicados
 // acotadores
 // @param sol número de soluciones
-void Yumi::recResolver(unsigned &sol) {
+void Yumi::recResolver(vector<Tablero> &sol) {
     // Predicados acotadores
-    // --- Comprobación de llegada temprana (Pred 2)
-    for (unsigned i = m_sigChPt + 1; i < m_chPts.size(); ++i)
-        if (d({m_fil, m_col}, m_chPts[i]) == 0)
-            return;
+    // --- Comprobación de grados
+    // Recalcula grados de la matriz y verifica si alguna casilla tiene
+    // un grado inválido
+    if (hayGradoInvalido && !segundaYumi)
+        return;
     // --- Comprobación de llegada a tiempo al checkpoint (Pred 5)
     if (distanciaAChPt() > m_pasosChPt[m_sigChPt] - m_pasos)
         return;
     // --- Comprobación de llegada temprana a checkpoint actual (Pred 7)
-
     if (d({m_fil, m_col}, m_chPts[m_sigChPt]) == 0 &&
         m_pasos != m_pasosChPt[m_sigChPt])
         return;
-    // --- Comprobación de grados
-    // Recalcula grados de la matriz y verifica si alguna casilla tiene
-    // un grado inválido
-    if (hayGradoInvalido)
-        return;
+    // --- Comprobación de llegada temprana (Pred 2)
+    for (unsigned i = 0; i < m_chPts.size(); ++i) {
+        if (i == m_sigChPt) continue;
+        if (d({m_fil, m_col}, m_chPts[i]) == 0)
+            return;
+    }
+    // // --- Comprobación de desconexión (Pred 8)
+    // if (mirarDesconexion && hayDesconexion())
+    //     return;
     // Caso base y predicado 3
     // Se verifica si la posición actual es la casilla final.
-    if (d({m_fil, m_col}, c_FIN) == 0) {
-        sol++;
+    if (d({m_fil, m_col}, m_chPts[llegada]) == 0) {
+        sol.push_back(m_tablero);
         return;
     }
     // Llamada recursiva
@@ -190,20 +203,20 @@ void Yumi::recResolver(unsigned &sol) {
 }
 
 // Wrapper de la llamada recursiva
-unsigned Yumi::resolver() {
+vector<Tablero> Yumi::resolver() {
     // Comprobaciones
     // --- Checkpoints dentro del tablero
     // Se verifica que todos los checkpoints estén dentro de los límites de
     // la matriz
     for (auto &p : m_chPts)
         if (!m_tablero.dentro(p.first, p.second))
-            return 0;
+            return {};
     // Llego de un checkpoint a otro
     for (unsigned i = 0; i < c_CHECKPOINTS; ++i)
         if (d(m_chPts[i], m_chPts[i + 1]) > m_pasosChPt[i] - m_pasosChPt[i + 1])
-            return 0;
+            return {};
     // Llamada recursiva
-    unsigned soluciones = 0;
+    vector<Tablero> soluciones;
     recResolver(soluciones);
     return soluciones; // Retorna el número total de soluciones
 }
