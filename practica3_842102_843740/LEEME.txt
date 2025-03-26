@@ -11,4 +11,5 @@ intrucciones de compilación y generará el binario en la carpeta bin.
 Para ejecutar las pruebas basta con ejecutar el script ejecutar.sh mediante el comando "ejecutar.sh",
 esto compilará el binario si no existe ya.
 Para ejecutar el programa, una vez compilado se invoca el comando:
-    "./bin/recorridosYumi <pruebas.txt> <resultados.txt>"
+    "./bin/recorridosYumi <pruebas.txt> <resultados.txt> [-mitm]"
+donde el flag "-mitm" ejecuta también la versión con la técnica Meet-in-the-middle.

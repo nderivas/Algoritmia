@@ -29,16 +29,12 @@ void printTablero(Tablero &t) {
 }
 
 unsigned MeetYumi::resolver() {
-    cout << "EMPIEZA MeetInTheMiddle" << endl;
     auto solucionesIniMedio = y1->resolver();
     auto solucionesMedioFin = y2->resolver();
     unsigned sol = 0;
-    cout << "EMPIEZA Mezcla" << endl;
     for (auto &iniMedio : solucionesIniMedio)
         for (auto &medioFin : solucionesMedioFin) {
             sol += !hayColision(iniMedio, medioFin);
         }
-    cout << "ACABA Mezcla" << endl;
-    cout << "TERMINA MeetInTheMiddle" << endl;
     return sol;
 }

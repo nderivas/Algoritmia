@@ -32,17 +32,21 @@ inline unsigned d(Punto a, Punto b) {
     return abs(a.first - b.first) + abs(a.second - b.second);
 }
 
-void dfs(const int i, const int j, Tablero &t, unsigned &marcadas) {
+void Yumi::dfs(const int i, const int j, Tablero &t, unsigned &marcadas) {
     auto &m = t.getMatriz();
     marcadas++;
     m[i][j].marca = true;
-    if (t.dentro(i - 1, j) && !m[i - 1][j].marca && !m[i - 1][j].visitado)
+    if (t.dentro(i - 1, j) && !m[i - 1][j].marca && !m[i - 1][j].visitado &&
+        d({i - 1, j}, {m_fil, m_col}) != 0)
         dfs(i - 1, j, t, marcadas);
-    if (t.dentro(i + 1, j) && !m[i + 1][j].marca && !m[i + 1][j].visitado)
+    if (t.dentro(i + 1, j) && !m[i + 1][j].marca && !m[i + 1][j].visitado &&
+        d({i + 1, j}, {m_fil, m_col}) != 0)
         dfs(i + 1, j, t, marcadas);
-    if (t.dentro(i, j - 1) && !m[i][j - 1].marca && !m[i][j - 1].visitado)
+    if (t.dentro(i, j - 1) && !m[i][j - 1].marca && !m[i][j - 1].visitado &&
+        d({i, j - 1}, {m_fil, m_col}) != 0)
         dfs(i, j - 1, t, marcadas);
-    if (t.dentro(i, j + 1) && !m[i][j + 1].marca && !m[i][j + 1].visitado)
+    if (t.dentro(i, j + 1) && !m[i][j + 1].marca && !m[i][j + 1].visitado &&
+        d({i, j + 1}, {m_fil, m_col}) != 0)
         dfs(i, j + 1, t, marcadas);
 }
 
@@ -52,9 +56,10 @@ bool Yumi::hayDesconexion() {
             c.marca = false;
     unsigned marcadas = 0;
     dfs(0, 1, m_tablero, marcadas);
-    return marcadas != m_tablero.getM() * m_tablero.getN() - m_pasos + 1; /* ||
-            segundaYumi &&
-                marcadas >= m_tablero.getM() * m_tablero.getN() - m_pasos + 1;*/
+    if (segundaYumi)
+        return marcadas < m_tablero.getM() * m_tablero.getN() - m_pasos;
+    else
+        return marcadas != m_tablero.getM() * m_tablero.getN() - m_pasos;
 }
 
 // Calcula el grado de una casilla en la Matriz, actualizando las entradas,

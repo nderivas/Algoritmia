@@ -17,6 +17,7 @@ class Yumi {
     unsigned llegada;
     bool segundaYumi, mirarDesconexion;
 
+    void dfs(const int i, const int j, Tablero &t, unsigned &marcadas);
     bool hayDesconexion();
     inline void calcularGrado(const int i, const int j);
     void calcularGradosIniciales();
