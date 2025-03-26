@@ -5,13 +5,13 @@
 #include "comun.hpp"
 
 class Tablero {
-    unsigned m_m, m_n; // Dimensiones del tablero (filas, columnas)
-    Matriz m_matriz;   // Matriz que representa el tablero
+    int m_m, m_n;    // Dimensiones del tablero (filas, columnas)
+    Matriz m_matriz; // Matriz que representa el tablero
 
   public:
-    Tablero(unsigned m, unsigned n); // Constructor
+    Tablero(int m, int n); // Constructor
     // Verificar si está dentro del tablero
-    bool dentro(unsigned fil, unsigned col) const;
+    bool dentro(int fil, int col) const;
     unsigned getN() const; // Obtener número de columnas
     unsigned getM() const; // Obtener número de filas
     Matriz &getMatriz();   // Obtener matriz

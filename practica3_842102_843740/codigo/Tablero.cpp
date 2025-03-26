@@ -5,12 +5,12 @@
 using namespace std;
 
 // Constructor de la clase Tablero
-Tablero::Tablero(unsigned m, unsigned n) : m_m(m), m_n(n) {
+Tablero::Tablero(int m, int n) : m_m(m), m_n(n) {
     m_matriz.reserve(m); // Reserva espacio para m filas
     vector<Casilla> v(n);
     for (auto &c : v) // Inicializa cada casilla
         c = {0, 0, 0, false, false};
-    for (unsigned i = 0; i < m; ++i)
+    for (int i = 0; i < m; ++i)
         m_matriz.push_back(v);
 }
 
@@ -19,7 +19,7 @@ Tablero::Tablero(unsigned m, unsigned n) : m_m(m), m_n(n) {
 // @param col indice que indica la columna
 // @return true si (fil, col) está dentro de los límites del tablero, false en
 // caso contrario.
-bool Tablero::dentro(unsigned fil, unsigned col) const {
+bool Tablero::dentro(int fil, int col) const {
     return fil >= 0 && fil < m_m && col >= 0 && col < m_n;
 }
 
