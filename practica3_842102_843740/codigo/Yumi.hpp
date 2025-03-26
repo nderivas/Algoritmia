@@ -11,7 +11,7 @@ class Yumi {
     // Pasos hasta checkpoint
     std::array<unsigned, c_CHECKPOINTS + 1> m_pasosChPt;
     unsigned m_sigChPt, m_pasos;
-    int m_fil, m_col;
+    unsigned m_fil, m_col;
     Tablero m_tablero;
     bool hayGradoInvalido;
     unsigned llegada;

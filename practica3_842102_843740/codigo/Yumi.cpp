@@ -1,7 +1,6 @@
 // Práctica 3 - Algoritmia básica
 // Nicolás de Rivas Morillo (843740) y Cristina Embid Martínez (842102)
 #include "Yumi.hpp"
-#include <iostream>
 
 using namespace std;
 
@@ -56,10 +55,7 @@ bool Yumi::hayDesconexion() {
             c.marca = false;
     unsigned marcadas = 0;
     dfs(0, 1, m_tablero, marcadas);
-    if (segundaYumi)
-        return marcadas < m_tablero.getM() * m_tablero.getN() - m_pasos;
-    else
-        return marcadas != m_tablero.getM() * m_tablero.getN() - m_pasos;
+    return marcadas < m_tablero.getM() * m_tablero.getN() - m_pasos;
 }
 
 // Calcula el grado de una casilla en la Matriz, actualizando las entradas,
