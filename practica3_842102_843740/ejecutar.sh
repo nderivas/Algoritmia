@@ -4,9 +4,11 @@
 /bin/rm -rf ./pruebas/*_resultados.txt
 clear
 
+[[ $1 == "-n" ]] || flag="-mitm"
+
 for f in ./pruebas/prueba*.txt; do
     echo "--- Prueba: $f"
-    time bin/recorridosYumi "$f" $f"_resultados.txt"
+    time bin/recorridosYumi "$f" $f"_resultados.txt" $flag
 done
 echo "Pruebas terminadas\n"
 
