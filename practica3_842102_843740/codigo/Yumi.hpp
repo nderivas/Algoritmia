@@ -25,12 +25,14 @@ class Yumi {
     inline bool inChPt() const;
     bool recalcularGrados(const int i, const int j);
     inline bool casillaConGradoInvalido(const int i, const int j);
-    inline void siguienteLlamada(std::vector<Matriz> &sol);
-    void recResolver(std::vector<Matriz> &sol);
+    inline void siguienteLlamada();
+    void recResolver();
 
   public:
+    unsigned nSol;
+    std::vector<Matriz> vSol;
     // Constructor
     Yumi(unsigned m, unsigned n, std::array<Punto, c_CHECKPOINTS + 1> arr,
          const unsigned llegada = c_CHECKPOINTS, const unsigned inicio = 0);
-    std::vector<Matriz> resolver();
+    void resolver();
 };

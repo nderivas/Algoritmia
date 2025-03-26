@@ -46,17 +46,19 @@ int main(int argc, char **argv) {
         // Start timer
         auto tIni = clock();
         Yumi yumi(m, n, arr);
-        unsigned soluciones = yumi.resolver().size();
+        yumi.resolver();
         clock_t tFin = clock();
         double tot = static_cast<double>(tFin - tIni) / CLOCKS_PER_SEC;
+        unsigned soluciones = yumi.nSol;
 
         // Resolver mediante tecnica Meet in the middle
         if (argc == 4 && static_cast<string>(argv[3]) == "-mitm") {
             // Start timer
             tIni = clock();
             MeetYumi meetYumi(m, n, arr);
-            unsigned solucionesMeet = meetYumi.resolver();
+            meetYumi.resolver();
             tFin = clock();
+            unsigned solucionesMeet = meetYumi.nSol;
             double totMeet = static_cast<double>(tFin - tIni) / CLOCKS_PER_SEC;
             escribirInforme(out, soluciones, tot, solucionesMeet, totMeet);
         } else

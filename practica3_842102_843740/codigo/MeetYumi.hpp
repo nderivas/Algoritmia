@@ -10,6 +10,7 @@ class MeetYumi {
         y2; // Punteros para manejar dos instancias de Yumi
 
   public:
+    unsigned nSol;
     // Constructor
     MeetYumi(const unsigned n, const unsigned m,
              const std::array<Punto, c_CHECKPOINTS + 1> &arr);

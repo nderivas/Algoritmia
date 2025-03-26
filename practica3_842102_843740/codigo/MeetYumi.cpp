@@ -3,13 +3,13 @@
 #include "MeetYumi.hpp"
 #include "comun.hpp"
 #include <array>
-#include <iostream>
 
 using namespace std;
 
 // Implementación del constructor
 MeetYumi::MeetYumi(const unsigned n, const unsigned m,
-                   const array<Punto, c_CHECKPOINTS + 1> &arr) {
+                   const array<Punto, c_CHECKPOINTS + 1> &arr)
+    : nSol(0) {
     // Yumi desde el inicio hasta el punto medio
     y1 = unique_ptr<Yumi>(new Yumi(n, m, arr, 1, 0));
     // Yumi desde el punto medio hasta el final
@@ -31,9 +31,11 @@ inline bool hayColision(Matriz &t1, Matriz &t2) {
 // Devuelve el número de soluciones sin colisión
 unsigned MeetYumi::resolver() {
     // Calcula caminos desde el inicio al medio
-    auto solucionesIniMedio = y1->resolver();
+    y1->resolver();
+    auto solucionesIniMedio = y1->vSol;
     // Calcula caminos desde el medio al final
-    auto solucionesMedioFin = y2->resolver();
+    y2->resolver();
+    auto solucionesMedioFin = y2->vSol;
     unsigned sol = 0;
     for (auto &iniMedio : solucionesIniMedio)
         for (auto &medioFin : solucionesMedioFin) {

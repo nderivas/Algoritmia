@@ -9,7 +9,7 @@ Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr,
            const unsigned llegada, const unsigned inicio)
     : m_chPts(arr), m_sigChPt(inicio), m_pasos(1), m_fil(0), m_col(0),
       m_tablero(n, m), hayGradoInvalido(false), llegada(llegada),
-      segundaYumi(inicio > 0), mirarDesconexion(false) {
+      segundaYumi(inicio > 0), mirarDesconexion(false), nSol(0), vSol({}) {
     if (segundaYumi) {
         m_tablero.getMatriz()[0][0].visitado = true;
         m_tablero.getMatriz()[1][0].visitado = true;
@@ -37,18 +37,15 @@ void Yumi::dfs(const int i, const int j, Tablero &t, unsigned &marcadas) {
     auto &m = t.getMatriz();
     marcadas++;
     m[i][j].marca = true;
-    if (t.dentro(i - 1, j) && !m[i - 1][j].marca && !m[i - 1][j].visitado &&
-        d({i - 1, j}, {m_fil, m_col}) != 0)
-        dfs(i - 1, j, t, marcadas);
-    if (t.dentro(i + 1, j) && !m[i + 1][j].marca && !m[i + 1][j].visitado &&
-        d({i + 1, j}, {m_fil, m_col}) != 0)
-        dfs(i + 1, j, t, marcadas);
-    if (t.dentro(i, j - 1) && !m[i][j - 1].marca && !m[i][j - 1].visitado &&
-        d({i, j - 1}, {m_fil, m_col}) != 0)
-        dfs(i, j - 1, t, marcadas);
-    if (t.dentro(i, j + 1) && !m[i][j + 1].marca && !m[i][j + 1].visitado &&
-        d({i, j + 1}, {m_fil, m_col}) != 0)
-        dfs(i, j + 1, t, marcadas);
+    auto salta = [&t, &m, &marcadas, this](int a, int b) {
+        if (t.dentro(a, b) && !m[a][b].marca && !m[a][b].visitado &&
+            d({a, b}, {this->m_fil, this->m_col}) != 0)
+            dfs(a, b, t, marcadas);
+    };
+    salta(i - 1, j);
+    salta(i + 1, j);
+    salta(i, j - 1);
+    salta(i, j + 1);
 }
 
 // Devuelve si hay desconexión en el tablero
@@ -74,23 +71,19 @@ inline void Yumi::calcularGrado(const int i, const int j) {
     t[i][j].entradas = 0;
     t[i][j].salidas = 0;
     t[i][j].dobles = 0;
+    auto mirarContigua = [&i, &j, &t, this](int a, int b) {
+        if (m_tablero.dentro(a, b) && !t[a][b].visitado) {
+            if (d(c_INI, {a, b}) == 0)
+                t[i][j].entradas++;
+            else if (d(c_FIN, {a, b}) == 0)
+                t[i][j].salidas++;
+            else
+                t[i][j].dobles++;
+        }
+    };
     for (int off = -1; off <= 1; off = off + 2) {
-        if (m_tablero.dentro(i + off, j) && !t[i + off][j].visitado) {
-            if (d(c_INI, {i + off, j}) == 0)
-                t[i][j].entradas++;
-            else if (d(c_FIN, {i + off, j}) == 0)
-                t[i][j].salidas++;
-            else
-                t[i][j].dobles++;
-        }
-        if (m_tablero.dentro(i, j + off) && !t[i][j + off].visitado) {
-            if (d(c_INI, {i, j + off}) == 0)
-                t[i][j].entradas++;
-            else if (d(c_FIN, {i, j + off}) == 0)
-                t[i][j].salidas++;
-            else
-                t[i][j].dobles++;
-        }
+        mirarContigua(i + off, j);
+        mirarContigua(i, j + off);
     }
 }
 
@@ -113,17 +106,19 @@ inline unsigned Yumi::distanciaAChPt() const {
 // Recalcula los grados en la matriz, reiniciando entradas, salidas y dobles
 bool Yumi::recalcularGrados(const int i, const int j) {
     auto &t = m_tablero.getMatriz();
+    auto recalcular = [&t, this](int a, int b) {
+        if (m_tablero.dentro(a, b) && !t[a][b].visitado) {
+            calcularGrado(a, b);
+            if (casillaConGradoInvalido(a, b))
+                return true;
+        }
+        return false;
+    };
     for (int off = -1; off <= 1; off = off + 2) {
-        if (m_tablero.dentro(i + off, j) && !t[i + off][j].visitado) {
-            calcularGrado(i + off, j);
-            if (casillaConGradoInvalido(i + off, j))
-                return true;
-        }
-        if (m_tablero.dentro(i, j + off) && !t[i][j + off].visitado) {
-            calcularGrado(i, j + off);
-            if (casillaConGradoInvalido(i, j + off))
-                return true;
-        }
+        if (recalcular(i + off, j))
+            return true;
+        if (recalcular(i, j + off))
+            return true;
     }
     return false;
 }
@@ -155,7 +150,7 @@ inline bool Yumi::inChPt() const {
 }
 
 // Función recursiva para resolver el problema
-inline void Yumi::siguienteLlamada(vector<Matriz> &sol) {
+inline void Yumi::siguienteLlamada() {
     // Llamada recursiva y predicados 1 y 4
     if (inChPt())
         m_sigChPt++; // Avanza el siguiente checkpoint si la posición está en un
@@ -164,38 +159,25 @@ inline void Yumi::siguienteLlamada(vector<Matriz> &sol) {
         true;  // Marca casilla como visitada
     m_pasos++; // Incrementa contador de pasos
     // Verifica si se puede mover hacia las casillas vecinas
-    if (m_tablero.dentro(m_fil, m_col - 1) &&
-        !m_tablero.getMatriz()[m_fil][m_col - 1].visitado) {
-        m_col--;
-        mirarDesconexion = m_col == 0;
-        hayGradoInvalido = recalcularGrados(m_fil, m_col + 1);
-        recResolver(sol);
-        m_col++;
-    }
-    if (m_tablero.dentro(m_fil + 1, m_col) &&
-        !m_tablero.getMatriz()[m_fil + 1][m_col].visitado) {
-        m_fil++;
-        mirarDesconexion = m_fil == m_tablero.getM() - 1;
-        hayGradoInvalido = recalcularGrados(m_fil - 1, m_col);
-        recResolver(sol);
-        m_fil--;
-    }
-    if (m_tablero.dentro(m_fil, m_col + 1) &&
-        !m_tablero.getMatriz()[m_fil][m_col + 1].visitado) {
-        m_col++;
-        mirarDesconexion = m_col == m_tablero.getN() - 1;
-        hayGradoInvalido = recalcularGrados(m_fil, m_col - 1);
-        recResolver(sol);
-        m_col--;
-    }
-    if (m_tablero.dentro(m_fil - 1, m_col) &&
-        !m_tablero.getMatriz()[m_fil - 1][m_col].visitado) {
-        m_fil--;
-        mirarDesconexion = m_fil == 0;
-        hayGradoInvalido = recalcularGrados(m_fil + 1, m_col);
-        recResolver(sol);
-        m_fil++;
-    }
+    auto llamada = [this](int offfil, int offcol) {
+        if (m_tablero.dentro(m_fil + offfil, m_col + offcol) &&
+            !m_tablero.getMatriz()[m_fil + offfil][m_col + offcol].visitado) {
+            m_fil = m_fil + offfil;
+            m_col = m_col + offcol;
+            mirarDesconexion = (offfil == -1 && m_fil == 0) ||
+                               (offfil == 1 && m_fil == m_tablero.getM() - 1) ||
+                               (offcol == -1 && m_col == 0) ||
+                               (offcol == 1 && m_col == m_tablero.getN() - 1);
+            hayGradoInvalido = recalcularGrados(m_fil - offfil, m_col - offcol);
+            recResolver();
+            m_fil = m_fil - offfil;
+            m_col = m_col - offcol;
+        }
+    };
+    llamada(0, -1);
+    llamada(1, 0);
+    llamada(0, 1);
+    llamada(-1, 0);
     hayGradoInvalido = false;
     m_pasos--; // Decrementa contador de pasos
     m_tablero.getMatriz()[m_fil][m_col].visitado = false;
@@ -206,7 +188,7 @@ inline void Yumi::siguienteLlamada(vector<Matriz> &sol) {
 // Realiza la búsqueda recursiva de soluciones, comprobando los predicados
 // acotadores
 // @param sol número de soluciones
-void Yumi::recResolver(vector<Matriz> &sol) {
+void Yumi::recResolver() {
     // Predicados acotadores
     // --- Comprobación de grados
     // Recalcula grados de la matriz y verifica si alguna casilla tiene
@@ -233,28 +215,29 @@ void Yumi::recResolver(vector<Matriz> &sol) {
     // Caso base y predicado 3
     // Se verifica si la posición actual es la casilla final.
     if (d({m_fil, m_col}, m_chPts[llegada]) == 0) {
-        sol.push_back(m_tablero.getMatriz());
+        if (!segundaYumi && llegada == c_CHECKPOINTS)
+            nSol++;
+        else
+            vSol.push_back(m_tablero.getMatriz());
         return;
     }
     // Llamada recursiva
-    siguienteLlamada(sol);
+    siguienteLlamada();
 }
 
 // Wrapper de la llamada recursiva
-vector<Matriz> Yumi::resolver() {
+void Yumi::resolver() {
     // Comprobaciones
     // --- Checkpoints dentro del tablero
     // Se verifica que todos los checkpoints estén dentro de los límites de
     // la matriz
     for (auto &p : m_chPts)
         if (!m_tablero.dentro(p.first, p.second))
-            return {};
+            return;
     // Llego de un checkpoint a otro
     for (unsigned i = 0; i < c_CHECKPOINTS; ++i)
         if (d(m_chPts[i], m_chPts[i + 1]) > m_pasosChPt[i] - m_pasosChPt[i + 1])
-            return {};
+            return;
     // Llamada recursiva
-    vector<Matriz> soluciones;
-    recResolver(soluciones);
-    return soluciones; // Retorna el número total de soluciones
+    recResolver();
 }
