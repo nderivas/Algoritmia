@@ -1,6 +1,6 @@
 Nuestro directorio principal (dónde se encuentra este archivo), contiene este archivo explicativo,
 un script "ejecutar.sh" que ejecuta las pruebas preparadas, un archivo "Makefile" que compila el
-programa y finalmente las cuatro subcarpetas que explicamos a continuación.
+programa, el pdf de la memoria y finalmente las cuatro subcarpetas que explicamos a continuación.
 La subcarpeta bin contendrá el binario compilado con el "Makefile".
 La subcarpeta build contendrá todos los archivos de objetos "*.o" generados durante la compilación.
 La subcarpeta codigo contiene los archivos funte de la aplicación.
@@ -9,7 +9,8 @@ La subcarpeta pruebas contiene todas las pruebas preparadas y sus resultados.
 Para compilar el programa ejecutar el comando "make" en el directorio principal, esto ejecutará las
 intrucciones de compilación y generará el binario en la carpeta bin.
 Para ejecutar las pruebas basta con ejecutar el script ejecutar.sh mediante el comando "ejecutar.sh",
-esto compilará el binario si no existe ya.
+esto compilará el binario si no existe ya, por defecto ejecuta con meet-in-the-middle, usar la flag
+"-n" para evitarlo.
 Para ejecutar el programa, una vez compilado se invoca el comando:
     "./bin/recorridosYumi <pruebas.txt> <resultados.txt> [-mitm]"
 donde el flag "-mitm" ejecuta también la versión con la técnica Meet-in-the-middle.
