@@ -50,6 +50,7 @@ int main(int argc, char **argv) {
         clock_t tFin = clock();
         double tot = static_cast<double>(tFin - tIni) / CLOCKS_PER_SEC;
 
+        // Resolver mediante tecnica Meet in the middle
         if (argc == 4 && static_cast<string>(argv[3]) == "-mitm") {
             // Start timer
             tIni = clock();

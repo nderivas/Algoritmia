@@ -24,6 +24,7 @@ Yumi::Yumi(unsigned n, unsigned m, array<Punto, c_CHECKPOINTS + 1> arr,
     calcularGradosIniciales(); // Calculo de grados iniciales
 }
 
+// Función de calculo de valor absoluto
 inline int abs(const int n) { return n < 0 ? -n : n; }
 
 // Calcula la distancia entre dos puntos
@@ -31,6 +32,7 @@ inline unsigned d(Punto a, Punto b) {
     return abs(a.first - b.first) + abs(a.second - b.second);
 }
 
+// Implementación del algoritmo DFS para recorrer el tablero
 void Yumi::dfs(const int i, const int j, Tablero &t, unsigned &marcadas) {
     auto &m = t.getMatriz();
     marcadas++;
@@ -49,11 +51,14 @@ void Yumi::dfs(const int i, const int j, Tablero &t, unsigned &marcadas) {
         dfs(i, j + 1, t, marcadas);
 }
 
+// Devuelve si hay desconexión en el tablero
 bool Yumi::hayDesconexion() {
+    // Reinicia marcas en el tablero
     for (auto &v : m_tablero.getMatriz())
         for (auto &c : v)
             c.marca = false;
-    unsigned marcadas = 0;
+    unsigned marcadas = 0; // Contador de casillas marcadas
+    // Inicia DFS desde la casilla (0,1)
     dfs(0, 1, m_tablero, marcadas);
     return marcadas < m_tablero.getM() * m_tablero.getN() - m_pasos;
 }

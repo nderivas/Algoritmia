@@ -7,5 +7,5 @@
 class Casilla {
   public:
     unsigned entradas, salidas, dobles; // Indican los grados de la casilla
-    bool visitado, marca;               // Indica si la casilla ha sido visitada
+    bool visitado, marca; // Indica si la casilla ha sido visitada, marcada
 };
