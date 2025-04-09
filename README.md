@@ -1,4 +1,4 @@
-# Prácticas de Algoritmia Básica
+# 🧮 Prácticas de Algoritmia Básica
 💻 Ingeniería informática Unizar  
 🧑🏻‍💻 Cristina Embid Martínez y Nicolás de Rivas Morillo
 ## ℹ️ Desglose de las prácticas
