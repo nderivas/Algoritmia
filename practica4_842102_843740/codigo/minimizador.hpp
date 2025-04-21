@@ -1,22 +1,29 @@
 #pragma once
 
-#include "tren.hpp"
-#include "pedido.hpp"
-#include "nodo.hpp"
-#include <vector>
-#include <queue>
+// Práctica 4 - Algoritmia básica
+// Cristina Embid Martínez (842102) y Nicolás de Rivas Morillo (843740)
 
+#include "nodo.hpp"
+#include "pedido.hpp"
+#include "tren.hpp"
+#include <queue>
+#include <vector>
+
+// Estructura comparadora para la cola de prioridades
 struct Comparador {
-    bool operator()(const Nodo uno, const Nodo dos) {
-        return uno.cgorro() > dos.cgorro();
-    }
+  bool operator()(const Nodo &uno, const Nodo &dos) {
+    return uno.cgorro() > dos.cgorro();
+  }
 };
 
+// Clase de Minimizador
 class Minimizador {
-    std::priority_queue<Nodo, std::vector<Nodo>, Comparador> cola;
-    unsigned U;
+  // Atributos
+  std::priority_queue<Nodo, std::vector<Nodo>, Comparador> cola;
+  unsigned U;
+
 public:
-    Minimizador(const Tren& tren, std::vector<Pedido>& p);
-    unsigned minimizar();
-    unsigned limiteSuperior();
+  // Métodos
+  Minimizador(const Tren &tren, std::vector<Pedido> &p);
+  unsigned minimizar();
 };
