@@ -1,0 +1,16 @@
+Nuestro directorio pricipal (dónde se encuentra este archivo), contiene:
+    - LEEME.txt: Este archivo explicativo
+    - ejecutar.sh: Script que ejecutará las pruebas preparadas
+    - Makefile: Archivo Makefile para compilar
+    - memoria.pdf: La memoria de la práctica
+    - bin/: Subcarpeta para los binarios compilados
+    - build/: Subcarpeta de los archivos de objeto
+    - codigo/: Subcarpeta con el código fuente
+    - pruebas/: Subcarpeta que contiene los archivos para las pruebas
+
+Para compilar el programa basta con ejecutar el comando "make" en el
+directorio principal, esto generará un binario en la carpeta bin.
+
+Para ejecutar las pruebas basta con ejecutar el script ejecutar.sh
+mediante el comando "./ejecutar.sh", esto también compilará el
+binario si este no existe ya.
