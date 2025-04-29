@@ -16,6 +16,9 @@ public:
   // Constructor
   Tren(const unsigned cap, const unsigned fin)
       : capacidad(cap), pasajeros(fin, 0) {}
-  bool subirPasajeros(
-      const Pedido &pedido); // Devuelve true si los puede subir, false si no
+
+    // Devuelve true si los puede subir, false si no
+    bool cabenPasajeros(const Pedido &pedido) const;
+    // Sube a los pasajeros al tren
+    bool subirPasajeros(const Pedido &pedido);
 };

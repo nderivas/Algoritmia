@@ -15,16 +15,17 @@ public:
   Tren tren;                   // Tren asociado a un nodo
   Tupla tupla;                 // Tupla de solución
   unsigned nivel, f;           // Nivel asociado al nodo
+  mutable int gcgorro;
 
   // Constructor
   Nodo(const std::vector<Pedido> p, const Tren &t, unsigned nivel = 0)
-      : pedidos(p), tren(t), tupla(p.size(), false), nivel(nivel), f(0) {}
-  // Funcion de estimacion
+      : pedidos(p), tren(t), tupla(p.size(), false), nivel(nivel), f(0), gcgorro(-1) {}
+  // Funcion de estimacion cota superior
+  unsigned U() const;
+  // Funcion de estimacion cota inferior
   unsigned cgorro() const;
   // Devuelve vector de hijos sucesores del nodo
   std::vector<Nodo> hijos() const;
-  // Funcion de coste
-  unsigned c() const;
   // Funcion que determina si el nodo es solucion
   bool esSolucion() const;
 };
