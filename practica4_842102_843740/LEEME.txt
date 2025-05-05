@@ -3,10 +3,14 @@ Nuestro directorio pricipal (dónde se encuentra este archivo), contiene:
     - ejecutar.sh: Script que ejecutará las pruebas preparadas
     - Makefile: Archivo Makefile para compilar
     - memoria.pdf: La memoria de la práctica
+    - programacionLinealPr4.mod: Se trata del modelo de programación
+      lineal para GLPK
     - bin/: Subcarpeta para los binarios compilados
     - build/: Subcarpeta de los archivos de objeto
     - codigo/: Subcarpeta con el código fuente
     - pruebas/: Subcarpeta que contiene los archivos para las pruebas
+
+RAMIFICACIÓN Y PODA
 
 Para compilar el programa basta con ejecutar el comando "make" en el
 directorio principal, esto generará un binario en la carpeta bin.
@@ -14,3 +18,10 @@ directorio principal, esto generará un binario en la carpeta bin.
 Para ejecutar las pruebas basta con ejecutar el script ejecutar.sh
 mediante el comando "./ejecutar.sh", esto también compilará el
 binario si este no existe ya.
+
+PROGRAMACIÓN LINEAL
+
+Para ejecutar el model con un cierto fichero de datos se ejecuta el
+comando "glpsol --model programaconLinealPr4.mod" --data <fichero.dat> -o <ficheroSalida>"
+
+Ejecutando el script "./ejecutar.sh" también se ejecutan las pruebas.
