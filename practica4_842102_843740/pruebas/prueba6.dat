@@ -1,0 +1,15 @@
+# Problema 6
+param n:=20;
+param m:=6;
+param p:=8;
+
+param pedidos: 0 1 2 :=
+0 	0 2 20
+1 	1 2 5
+2 	2 3 12
+3   2 4 5
+4 	3 6 7
+5	4 5 9
+6	4 6 3
+7   5 6 5;
+end;

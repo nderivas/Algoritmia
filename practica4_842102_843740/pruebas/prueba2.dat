@@ -1,0 +1,13 @@
+# Problema 2
+param n:=10;
+param m:=5;
+param p:=6;
+
+param pedidos: 0 1 2 :=
+0 	3 5 10
+1 	2 4 9
+2 	1 3 4
+3  0 2 5
+4 	2 5 8
+5	3 4 2;
+end;

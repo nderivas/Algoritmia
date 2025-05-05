@@ -1,0 +1,10 @@
+# Prueba 4
+param n:=1000;
+param m:=4;
+param p:=3;
+
+param pedidos: 0 1 2 :=
+0 	0 3 1000
+1 	0 1 10
+2 	1 3 100;
+end;
