@@ -6,7 +6,11 @@ clear
 
 for f in ./pruebas/prueba*.txt; do
     echo "--- Prueba: $f"
-    time bin/transporte "$f" $f"_resultados.txt" $flag
+    bin/transporte "$f" "${f}_resultados.txt"
+done
+for f in ./pruebas/prueba*.dat; do
+    echo "--- Prueba: $f"
+    time glpsol --model programacionLinealPr4.mod --data "$f" -o "${f}_resultados.dat" > /dev/null
 done
 echo "Pruebas terminadas"
 
@@ -16,4 +20,8 @@ read -p "¿Enseñar resultados por pantalla? (s/n) " respuesta
 for f in ./pruebas/*_resultados.txt; do
     echo "--- Salida: $f"
     cat "$f"
+done
+for f in ./pruebas/*_resultados.dat; do
+    echo "--- Salida: $f"
+    cat "$f" | grep "Objective:"
 done
