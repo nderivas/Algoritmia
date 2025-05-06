@@ -1,4 +1,5 @@
 #!/bin/sh
+[[ -d bin ]] || mkdir bin
 [[ -f bin/transporte ]] || make
 
 /bin/rm -rf ./pruebas/*_resultados.txt

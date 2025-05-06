@@ -32,13 +32,6 @@ unsigned Minimizador::minimizar() {
     // Para cada hijo vemos si nos interesa
     for (auto &hijo : hijos)
       if (hijo.cgorro() <= U) { // Poda
-        /*if (hijo.esSolucion() && hijo.c() < U)
-          U = hijo.c();
-        else if (hijo.U() < U) {
-          U = hijo.U();
-          cola.push(hijo);
-        } else
-          cola.push(hijo);*/
         if (hijo.U() < U)
             // Notese que si hijo.esSolucion() => hijo.cgorro() = hijo.c() = hijo.U()
             U = hijo.U(); // Actualizamos la U
