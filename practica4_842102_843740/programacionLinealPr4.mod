@@ -18,7 +18,7 @@ param pedidos{P, T} >= 0;
 var x{P} binary ;
 
 # Función objetivo
-maximize perdida: sum{i in P} x[i]*(pedidos[i,1] - pedidos[i,0])*pedidos[i,2];
+maximize ganancia: sum{i in P} x[i]*(pedidos[i,1] - pedidos[i,0])*pedidos[i,2];
 
 # Restricciones
 # Capacidad tren

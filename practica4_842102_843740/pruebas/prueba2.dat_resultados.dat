@@ -3,11 +3,11 @@ Rows:       6
 Columns:    6 (6 integer, 6 binary)
 Non-zeros:  18
 Status:     INTEGER OPTIMAL
-Objective:  perdida = 38 (MAXimum)
+Objective:  ganancia = 38 (MAXimum)
 
    No.   Row name        Activity     Lower bound   Upper bound
 ------ ------------    ------------- ------------- -------------
-     1 perdida                    38                             
+     1 ganancia                   38                             
      2 rest_capacidad[0]
                                    5                          10 
      3 rest_capacidad[1]
